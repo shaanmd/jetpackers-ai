@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 import { EmailCapture } from './EmailCapture'
 
 const features = [
@@ -191,6 +192,45 @@ export default function ComingSoonPage() {
             <p className="mt-3 text-[11px]" style={{ color: 'var(--text-footer)' }}>
               No spam. We&apos;ll only email when it matters — dates, early-bird pricing, and course updates.
             </p>
+          </motion.div>
+
+          {/* Quiz CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.48 }}
+            className="mt-5 rounded-xl p-4 md:p-5"
+            style={{
+              background: 'var(--bg-card)',
+              border: '1px solid rgba(107,33,168,0.4)',
+            }}
+          >
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <p className="mb-0.5 text-[11px] font-semibold uppercase tracking-widest" style={{ color: '#C084FC' }}>
+                  Not sure where to start?
+                </p>
+                <p className="text-[14px] font-semibold" style={{ color: '#F0ECF8' }}>
+                  Find out what kind of AI woman you are 🎬
+                </p>
+                <p className="mt-0.5 text-[12px]" style={{ color: 'var(--text-muted)' }}>
+                  7 questions. Breakfast Club meets The Jetsons. Free.
+                </p>
+              </div>
+              <Link
+                href="/quiz"
+                className="orbitron shrink-0 rounded-lg px-4 py-2.5 text-center text-[12px] font-bold uppercase tracking-widest transition-all"
+                style={{
+                  background: 'rgba(192,132,252,0.15)',
+                  border: '1.5px solid #C084FC',
+                  color: '#C084FC',
+                  textDecoration: 'none',
+                  whiteSpace: 'nowrap',
+                }}
+              >
+                Take the Quiz →
+              </Link>
+            </div>
           </motion.div>
 
           {/* About strip */}

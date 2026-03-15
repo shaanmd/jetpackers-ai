@@ -1,161 +1,125 @@
-# SynAIpse Website — Setup Guide
-## Cursor → GitHub → Vercel
+# Jetpackers AI — Setup Guide
+
+**Live site:** https://jetpackers-ai.vercel.app
+**GitHub:** https://github.com/shaanmd/jetpackers-ai
+**Domain to connect:** jetpackersai.com
 
 ---
 
-## STEP 1: Create GitHub Repository
+## STEP 1: Supabase — Create Tables
 
-1. Go to https://github.com/new
-2. Name it: `synaipse-website`
-3. Set to **Private** (you can make it public later)
-4. **Do NOT** tick "Add a README" — leave it empty
-5. Click **Create repository**
-6. Copy the repo URL — it will look like:  
-   `https://github.com/YOUR_USERNAME/synaipse-website.git`
+You need two tables. Run these in your Supabase project's SQL editor.
 
----
+### Waitlist (email capture on landing page)
 
-## STEP 2: Open in Cursor
+```sql
+create table if not exists waitlist (
+  id uuid default gen_random_uuid() primary key,
+  email text not null unique,
+  created_at timestamptz default now()
+);
 
-1. Open **Cursor**
-2. Go to **File → Open Folder**
-3. Navigate to and open the `synaipse-website` folder
-
-You should see this structure in the sidebar:
+alter table waitlist enable row level security;
+create policy "Allow inserts" on waitlist for insert with check (true);
 ```
-synaipse-website/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── app/
-│   │   ├── globals.css
-│   │   ├── layout.tsx
-│   │   └── page.tsx
-│   └── components/
-│       ├── Nav.tsx
-│       ├── Hero.tsx
-│       ├── Founders.tsx
-│       ├── MissionQuote.tsx
-│       ├── WhatWeShare.tsx
-│       ├── WhatWeBuilt.tsx
-│       ├── Subscribe.tsx
-│       └── Footer.tsx
-├── .gitignore
-├── next.config.ts
-├── package.json
-├── postcss.config.mjs
-├── tailwind.config.ts
-└── tsconfig.json
+
+### Quiz Results (email + persona from the quiz)
+
+```sql
+create table if not exists quiz_results (
+  id uuid default gen_random_uuid() primary key,
+  email text not null,
+  answers jsonb not null,
+  persona text not null,
+  created_at timestamptz default now()
+);
+
+alter table quiz_results enable row level security;
+create policy "Allow inserts" on quiz_results for insert with check (true);
 ```
 
 ---
 
-## STEP 3: Install Dependencies
+## STEP 2: Add Supabase Environment Variables
 
-Open the **Terminal** in Cursor (View → Terminal or `` Ctrl+` ``):
+### Local development
+
+Create `.env.local` in the project root:
+
+```env
+NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+```
+
+Get these from: Supabase dashboard → Project Settings → API.
+
+### Vercel (production)
+
+1. Go to https://vercel.com → jetpackers-ai project → **Settings → Environment Variables**
+2. Add:
+   - `NEXT_PUBLIC_SUPABASE_URL` = your Supabase project URL
+   - `NEXT_PUBLIC_SUPABASE_ANON_KEY` = your Supabase anon key
+3. Click **Save**, then **Redeploy**
+
+---
+
+## STEP 3: Connect Custom Domain
+
+1. Vercel dashboard → jetpackers-ai → **Settings → Domains**
+2. Add `jetpackersai.com`
+3. Follow the DNS instructions (add CNAME or A record at your registrar)
+4. Also add `www.jetpackersai.com` → redirect to root
+
+---
+
+## Development Workflow
 
 ```bash
-npm install
-```
-
-Wait for it to finish, then test it locally:
-
-```bash
-npm run dev
-```
-
-Open http://localhost:3000 in your browser. You should see the SynAIpse website. Press `Ctrl+C` to stop.
-
----
-
-## STEP 4: Push to GitHub
-
-In the Cursor terminal:
-
-```bash
-# Initialise git
-git init
-
-# Add all files
-git add .
-
-# First commit
-git commit -m "Initial commit — SynAIpse website"
-
-# Connect to your GitHub repo (replace YOUR_USERNAME)
-git remote add origin https://github.com/YOUR_USERNAME/synaipse-website.git
-
-# Push
-git branch -M main
-git push -u origin main
-```
-
-**If you get an authentication error:** GitHub requires a Personal Access Token (not your password).
-1. Go to https://github.com/settings/tokens
-2. Click **Generate new token (classic)**
-3. Tick **repo** (all checkboxes under it)
-4. Copy the token
-5. When git asks for a password, paste the token
-
----
-
-## STEP 5: Deploy to Vercel
-
-1. Go to https://vercel.com and sign in (use your GitHub account)
-2. Click **Add New → Project**
-3. Click **Import** next to `synaipse-website`
-4. Leave all settings as default — Vercel detects Next.js automatically
-5. Click **Deploy**
-
-Vercel will build and deploy. Takes about 60 seconds. You'll get a live URL like:  
-`https://synaipse-website.vercel.app`
-
----
-
-## STEP 6: Add a Custom Domain (Optional — do before March 12)
-
-If you have `synaipse.com` or similar:
-
-1. In Vercel dashboard → your project → **Settings → Domains**
-2. Add your domain
-3. Follow the DNS instructions (usually just adding a CNAME record)
-4. Takes 5–30 minutes to propagate
-
----
-
-## Future Deployments
-
-Every time you push to GitHub, Vercel auto-deploys. The workflow is just:
-
-```bash
+cd C:\Users\summe\Projects\jetpackers-ai
+npm run dev          # http://localhost:3000
+npm run build        # test production build
 git add .
 git commit -m "your message"
-git push
+git push             # Vercel auto-deploys on push
 ```
 
 ---
 
-## Things to Update Before Going Live
+## Pages
 
-Search for these placeholders and replace with real URLs:
-
-| Placeholder | What to put there |
-|---|---|
-| `https://vetaihub.substack.com/` | Your actual Substack URL |
-| `https://linkedin.com/company/synaipse` | Your LinkedIn Company Page URL |
-| `https://youtube.com/@synaipse` | Your YouTube channel URL |
-
-All three appear in `Nav.tsx`, `Subscribe.tsx`, and `Footer.tsx`.
+| Route | File | Description |
+|-------|------|-------------|
+| `/` | `coming-soon/page.tsx` | Landing page — pre-order + email capture |
+| `/quiz` | `quiz/page.tsx` + `quiz/QuizClient.tsx` | "What's Your AI Vibe?" 7-question quiz |
+| `/privacy` | `privacy/page.tsx` | Privacy policy |
+| `/terms` | `terms/page.tsx` | Terms of use |
 
 ---
 
-## If You Want to Make Changes in Cursor
+## Things to Update When Date is Set
 
-The most common edits:
+1. **Landing page** — `src/app/coming-soon/page.tsx`
+   - Change `Weekend Session · Date TBA` to the actual date
+   - Update the "Reserve My Spot" section copy
 
-- **Change text content** → edit the relevant component file
-- **Change colours** → colours are CSS variables in `globals.css` and inline styles
-- **Add a new section** → create a new file in `src/components/`, import it in `src/app/page.tsx`
-- **Change the tagline** → `src/components/Hero.tsx`, the `<h1>` block
+2. **Quiz results CTA** — `src/app/quiz/QuizClient.tsx`
+   - Update the Vibe-A-Long blurb with the confirmed date
 
-For bigger changes, paste the relevant component into Cursor's Composer (Cmd+I) and describe what you want.
+---
+
+## Colour Palette
+
+| Name | Hex | Usage |
+|------|-----|-------|
+| Deep Indigo | `#1E1B4B` | Background base |
+| Vivid Purple | `#6B21A8` | Borders, accents |
+| Hot Pink | `#EC4899` | Primary CTA, headings |
+| Electric Teal | `#0D9488` | Secondary accents, labels |
+
+---
+
+## Contact / Social to Add Later
+
+- Contact email: `hello@jetpackersai.com` (or `hello@theypromisedusjetpacks.com`)
+- Facebook: `@TheyPromisedUsJetpacks`
+- Substack: update `vetaihub.substack.com` links in privacy/terms pages once a dedicated Substack is set up
