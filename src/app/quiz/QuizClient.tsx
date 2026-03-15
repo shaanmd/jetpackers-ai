@@ -40,7 +40,7 @@ const questions = [
     options: [
       { key: 'A' as Answer, text: "The Terminator: It's coming for our jobs and eventually our dignity." },
       { key: 'B' as Answer, text: 'B1 or B2 (Bananas in Pyjamas): It\'s trying its best, but it\'s goofy and needs a lot of direction.' },
-      { key: 'C' as Answer, text: 'K.I.T.T. (Knight Rider): A sleek, helpful partner that makes me look cooler than I actually am.' },
+      { key: 'C' as Answer, text: 'K.I.T.T. (Knight Rider): A sleek, helpful partner that makes me look cooler than I am.' },
       { key: 'D' as Answer, text: "ALF: It's crashed into my life, it's eating all my data, and I'm not sure if I should keep it." },
     ],
   },
@@ -71,7 +71,7 @@ const questions = [
       { key: 'A' as Answer, text: 'Image Generation: Making cool graphics so I never have to use clip art again.' },
       { key: 'B' as Answer, text: 'Data & Organisation: Having it sort my digital mess so I can find my 1994 tax returns.' },
       { key: 'C' as Answer, text: 'AI Assistants: A virtual helper to handle my scheduling, do jobs for me, make websites or widgets.' },
-      { key: 'D' as Answer, text: 'Prompt Engineering: Learning how to talk to the machine so it actually listens to me.' },
+      { key: 'D' as Answer, text: 'Prompt Engineering: Learning how to talk to the machine so it listens to me.' },
     ],
   },
   {
@@ -116,7 +116,7 @@ const personas: Record<
   B: {
     title: 'The Practical Pioneer',
     subtitle: 'The Muriel Heslop',
-    vibe: '"You\'re terrible, Muriel!"... but also, you\'re actually doing it!',
+    vibe: '"You\'re terrible, Muriel!"... but also, you\'re doing it!',
     description:
       "You're ready to leave the old life behind and try something new, even if it feels a bit awkward at first. You use AI for the \"messy\" stuff — fixing your tone, brainstorming dinner, or sorting out a chaotic inbox.",
     goal: 'Everyday AI Shortcuts',
@@ -140,7 +140,7 @@ const personas: Record<
     subtitle: 'The Wal & Dog',
     vibe: 'Cheeky, reliable, and prefers the great outdoors to a glowing screen.',
     description:
-      "You're a bit of a tech-rebel. If it doesn't help you in the \"real world,\" you aren't interested. You're nostalgic for the days of analogue, but you're curious if this AI stuff can actually make your life admin disappear so you can get back to what you love.",
+      "You're a bit of a tech-rebel. If it doesn't help you in the \"real world,\" you aren't interested. You're nostalgic for the days of analogue, but you're curious if this AI stuff can make your life admin disappear so you can get back to what you love.",
     goal: 'Zero-Friction AI',
     goalDetail:
       'Finding the one or two "set and forget" tools that work in the background so you don\'t have to think about tech at all.',
@@ -256,8 +256,8 @@ export default function QuizClient() {
             className="orbitron text-sm font-bold tracking-widest"
             style={{ color: '#F0ECF8', textDecoration: 'none' }}
           >
-            <span style={{ color: 'var(--pink)' }}>JETPACKERS</span>
-            <span style={{ color: 'var(--teal)', marginLeft: 2 }}>.AI</span>
+            <span style={{ color: 'var(--pink)' }}>Jetpackers</span>
+            <span style={{ color: 'var(--teal)' }}>AI</span>
           </Link>
 
           {typeof step === 'number' && (
@@ -306,7 +306,7 @@ export default function QuizClient() {
                 </span>
               </h1>
               <p className="mb-6 text-[15px] leading-relaxed" style={{ color: 'var(--text-muted)' }}>
-                Breakfast Club meets The Jetsons. Seven questions to find out what kind of AI woman you really are — complete with your very own 80s/90s spirit guide. No wrong answers. Results that actually tell you something useful.
+                Breakfast Club meets The Jetsons. Seven questions to find out what kind of AI woman you really are — complete with your very own 80s/90s spirit guide. No wrong answers. Results that tell you something useful.
               </p>
               <div
                 className="mb-8 rounded-2xl p-4"
@@ -455,7 +455,7 @@ export default function QuizClient() {
               </form>
 
               <p className="mt-3 text-[11px]" style={{ color: 'var(--text-footer)' }}>
-                No spam. Just AI stuff that actually matters to GenX women.
+                No spam. Just AI stuff that matters to Gen X women.
               </p>
 
               <button

@@ -21,7 +21,7 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   title: 'They Promised Us Jetpacks | AI Education for GenX Women',
   description:
-    "We grew up waiting for jetpacks. Now we're learning to fly AI instead. Dr Deb & Dr Shaan teach GenX women to actually use the tools everyone's talking about — no 22-year-old bro energy required.",
+    "We grew up waiting for jetpacks. Now we're learning to fly AI instead. Dr Deb & Dr Shaan teach Gen X women to use the tools everyone's talking about — no 22-year-old bro energy required.",
   openGraph: {
     title: 'They Promised Us Jetpacks | AI Education for GenX Women',
     description:

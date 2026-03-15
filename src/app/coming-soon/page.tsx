@@ -6,9 +6,9 @@ import { EmailCapture } from './EmailCapture'
 
 const features = [
   '3 hours of live, hands-on AI learning',
-  'Zero jargon — we speak experienced professional',
-  'Real tools you can use at work the next day',
-  'Small group — actually interactive, not a lecture',
+  'Zero jargon — we speak real world, not Silicon Valley',
+  'Real tools you can use at work or at home the next day',
+  'Small group — we\'ll be building stuff together with you, not giving lectures',
   'Replay included so you can revisit anytime',
 ]
 
@@ -55,8 +55,8 @@ export default function ComingSoonPage() {
         {/* Top bar */}
         <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div className="orbitron text-sm font-bold tracking-widest" style={{ color: '#F0ECF8' }}>
-            <span style={{ color: 'var(--pink)' }}>JETPACKERS</span>
-            <span style={{ color: 'var(--teal)', marginLeft: 2 }}>.AI</span>
+            <span style={{ color: 'var(--pink)' }}>Jetpackers</span>
+            <span style={{ color: 'var(--teal)' }}>AI</span>
           </div>
           <span
             className="orbitron inline-flex w-fit items-center rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-widest"
@@ -67,7 +67,7 @@ export default function ComingSoonPage() {
               letterSpacing: '0.2em',
             }}
           >
-            Pre-Order Open
+            Join the Waitlist
           </span>
         </div>
 
@@ -80,7 +80,7 @@ export default function ComingSoonPage() {
             className="mb-3 text-xs font-semibold uppercase tracking-[0.28em]"
             style={{ color: 'var(--teal)' }}
           >
-            AI Education for GenX Women
+            AI Education to Ignite Gen X Women
           </motion.p>
 
           <motion.h1
@@ -119,7 +119,7 @@ export default function ComingSoonPage() {
             <span style={{ color: '#F0ECF8', fontWeight: 500 }}>
               Turns out, it&apos;s better.
             </span>{' '}
-            Dr Deb &amp; Dr Shaan teach GenX women to actually use the tools everyone&apos;s
+            Dr Deb &amp; Dr Shaan teach Gen X women to use the tools everyone&apos;s
             talking about — no 22-year-old bro energy required.
           </motion.p>
 
@@ -140,7 +140,7 @@ export default function ComingSoonPage() {
                 className="orbitron rounded px-2 py-1 text-[10px] font-bold uppercase tracking-widest"
                 style={{ background: 'rgba(236,72,153,0.15)', color: 'var(--pink)' }}
               >
-                Pre-Order Now
+                Waitlist Open
               </span>
               <span
                 className="rounded px-2 py-1 text-[10px] font-semibold uppercase tracking-widest"
@@ -157,7 +157,7 @@ export default function ComingSoonPage() {
               Vibe-A-Long
             </h2>
             <p className="mb-4 text-[13px]" style={{ color: 'var(--text-muted)' }}>
-              A 3-hour live session with Dr Shaan &amp; Dr Deb — build real AI skills in a single weekend morning.
+              A 3-hour live session with Dr Shaan &amp; Dr Deb — build real AI skills in a single weekend session.
             </p>
 
             <ul className="mb-4 space-y-2">
@@ -190,7 +190,7 @@ export default function ComingSoonPage() {
           >
             <EmailCapture />
             <p className="mt-3 text-[11px]" style={{ color: 'var(--text-footer)' }}>
-              No spam. We&apos;ll only email when it matters — dates, early-bird pricing, and course updates.
+              No spam. You&apos;ll hear from us with AI tips, tools, early access, and updates from the Jetpackers community.
             </p>
           </motion.div>
 
@@ -250,20 +250,21 @@ export default function ComingSoonPage() {
             >
               Who we are
             </p>
-            <p className="text-[13px] leading-relaxed" style={{ color: 'var(--text-muted)' }}>
-              Two vets. Two GenX women. Long enough in practice to remember fax machines,
-              just reckless enough to think learning AI at this stage of our careers is
-              actually a great idea. The AI conversation is dominated by people who weren&apos;t
-              alive when Top Gun came out the{' '}
+            <p className="mb-3 text-[13px] leading-relaxed" style={{ color: 'var(--text-muted)' }}>
+              Two Gen X women. We happen to be vets, but we&apos;re primarily experts in figuring things out.
+              We lived through the analog-to-digital morph, and we&apos;re doing it again with AI.
+              This isn&apos;t for the generation that grew up with an iPad — it&apos;s for those of us who remember
+              the pre-internet world and are developing the wrinkles to prove we can conquer what&apos;s next.
+            </p>
+            <p className="mb-3 text-[13px] leading-relaxed" style={{ color: 'var(--text-muted)' }}>
+              The AI conversation is dominated by people who weren&apos;t alive when Top Gun came out the{' '}
               <em style={{ color: '#F0ECF8' }}>first</em> time.{' '}
-              <span style={{ color: '#F0ECF8', fontWeight: 500 }}>
-                We built this for women like us.
-              </span>
+              <span style={{ color: '#F0ECF8', fontWeight: 500 }}>We built this for women like us.</span>
             </p>
             <div className="mt-3 flex flex-col gap-2 sm:flex-row sm:gap-6">
               {[
-                { initials: 'DS', name: 'Dr Shaan Mocke', role: 'Equine & Rehab Vet' },
-                { initials: 'DD', name: 'Dr Deb Prattley', role: 'Small Animal Vet · Practice Owner' },
+                { initials: 'DS', name: 'Dr Shaan Mocke', role: 'Vet · Small Business Owner · Early Adopter' },
+                { initials: 'DD', name: 'Dr Deb Prattley', role: 'Vet · Small Business Owner · Early Adopter' },
               ].map((f) => (
                 <div key={f.name} className="flex items-center gap-2.5">
                   <div
@@ -296,7 +297,7 @@ export default function ComingSoonPage() {
         >
           <p>
             <span style={{ color: 'var(--pink)' }}>They Promised Us Jetpacks</span>{' '}
-            · AI education for GenX women
+            · AI Education to Ignite Gen X Women
           </p>
           <p>Dr Shaan Mocke &amp; Dr Deb Prattley</p>
           <div className="flex gap-4">

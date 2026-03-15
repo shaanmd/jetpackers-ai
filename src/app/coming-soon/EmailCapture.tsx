@@ -50,7 +50,7 @@ export function EmailCapture() {
                 🚀 You&apos;re in!
               </p>
               <p className="text-sm" style={{ color: 'rgba(255,255,255,0.7)' }}>
-                {message || "We'll email you as soon as the date is set — early birds get best pricing."}
+                {message || "You're on the list. We'll be in touch with AI tips, early access, and updates — not just course dates."}
               </p>
             </motion.div>
           ) : (
@@ -96,7 +96,7 @@ export function EmailCapture() {
                     Joining…
                   </>
                 ) : (
-                  'Reserve My Spot'
+                  'Join the Waitlist'
                 )}
               </button>
             </motion.form>

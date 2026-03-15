@@ -9,7 +9,7 @@ const themes = [
   {
     number: '02',
     title: 'Practice Efficiency',
-    desc: 'Referral letters from dot points, discharge instructions, SOAP note formatting, invoice descriptions that clients actually understand.',
+    desc: 'Referral letters from dot points, discharge instructions, SOAP note formatting, invoice descriptions that clients understand.',
   },
   {
     number: '03',
@@ -39,7 +39,7 @@ const themes = [
   {
     number: '08',
     title: 'Governance and Safety',
-    desc: 'What not to put in free AI tools, a simple use policy you can actually implement, how to check for hallucinations.',
+    desc: 'What not to put in free AI tools, a simple use policy you can implement, how to check for hallucinations.',
   },
   {
     number: '09',
