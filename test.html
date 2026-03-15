@@ -1,0 +1,196 @@
+import { useState } from "react";
+
+export default function SynAIpse() {
+  const [email, setEmail] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+
+  const themes = [
+    { num: "01", title: "Prompting Basics", desc: "Getting the most from any AI tool. The foundations every vet needs." },
+    { num: "02", title: "Practice Efficiency", desc: "Cut admin time. Discharge summaries, referral letters, SOPs in minutes." },
+    { num: "03", title: "Knowledge Management", desc: "Turn CPD articles into 5-point summaries. Build your own protocol library." },
+    { num: "04", title: "Client Communication", desc: "Difficult conversations, FAQs, complaint responses — drafted in seconds." },
+    { num: "05", title: "CPD and Learning", desc: "Use AI to explain papers, create quiz questions, summarise podcasts." },
+    { num: "06", title: "Vibe Coding", desc: "Build your first AI tool with no coding experience. Really." },
+    { num: "07", title: "Audio and Video", desc: "Transcribe consult recordings, summarise videos, turn voice memos into drafts." },
+    { num: "08", title: "Governance and Safety", desc: "What not to put in a free AI tool. A simple AI use policy in under an hour." },
+    { num: "09", title: "Personalise Your AI", desc: "Custom GPTs, Gems, skills. Your own AI that knows your practice." },
+  ];
+
+  const products = [
+    { tag: "TOOLKIT", name: "Vet AI Starter Kit", price: "$17", desc: "10 prompts, a clinic workflow, and your first vibe-coded tool. Everything a busy vet needs to start using AI tomorrow.", cta: "Buy now", highlight: true },
+    { tag: "RESOURCE", name: "Veterinary Practice Handbook", price: "Free", desc: "A practical guide to AI implementation for vet practices. No jargon.", cta: "Download free" },
+    { tag: "COURSE", name: "Senior Dog Mobility Course", price: "Coming soon", desc: "6-week online programme by Dr Deb and Dr Shaan. Evidence-based canine rehab.", cta: "Join waitlist" },
+    { tag: "APP", name: "Canine CCL App", price: "Free beta", desc: "12-week post-surgery rehab guide with daily checklists and vet alerts.", cta: "Try it free" },
+  ];
+
+  return (
+    <div style={{ fontFamily: "'DM Sans', sans-serif", color: "#1A1A2E", background: "#fff", minHeight: "100vh" }}>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,300;0,400;0,600;0,700;1,600&family=DM+Sans:wght@300;400;500&display=swap');
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        .exo { font-family: 'Exo 2', sans-serif; }
+        .nav-link { font-size: 14px; font-weight: 500; color: #4A4A6A; text-decoration: none; cursor: pointer; }
+        .nav-link:hover { color: #1A1A2E; }
+        .theme-card { background: #fff; padding: 24px; transition: background 0.15s; cursor: default; }
+        .theme-card:hover { background: #E6FAFA; }
+        .product-card { border: 1.5px solid #E4E2DC; border-radius: 12px; padding: 28px; background: #fff; transition: border-color 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; }
+        .product-card:hover { border-color: #0ABFBF; box-shadow: 0 4px 24px rgba(10,191,191,0.1); }
+        .product-card.highlight { border-color: #0ABFBF; background: #F7FFFE; }
+        .btn-primary { background: #0ABFBF; color: white; border: none; border-radius: 6px; padding: 13px 26px; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 500; cursor: pointer; transition: opacity 0.15s; }
+        .btn-primary:hover { opacity: 0.85; }
+        .btn-secondary { background: transparent; color: #1A1A2E; border: 1.5px solid #E4E2DC; border-radius: 6px; padding: 13px 26px; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 500; cursor: pointer; transition: border-color 0.15s; }
+        .btn-secondary:hover { border-color: #4A4A6A; }
+        .product-btn { align-self: flex-start; background: #1A1A2E; color: white; border: none; border-radius: 6px; padding: 10px 18px; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; cursor: pointer; transition: background 0.15s; margin-top: auto; }
+        .product-btn:hover { background: #0ABFBF; }
+        .email-input { flex: 1; padding: 13px 16px; border: 1.5px solid rgba(255,255,255,0.15); border-radius: 6px; background: rgba(255,255,255,0.08); color: white; font-family: 'DM Sans', sans-serif; font-size: 14px; outline: none; }
+        .email-input::placeholder { color: rgba(255,255,255,0.35); }
+        .email-input:focus { border-color: #0ABFBF; }
+        .email-submit { background: #0ABFBF; color: white; border: none; border-radius: 6px; padding: 13px 22px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; cursor: pointer; white-space: nowrap; transition: opacity 0.15s; }
+        .email-submit:hover { opacity: 0.85; }
+        .footer-link { color: #8888AA; text-decoration: none; font-size: 13px; }
+        .footer-link:hover { color: #1A1A2E; }
+      `}</style>
+
+      {/* NAV */}
+      <nav style={{ position: "sticky", top: 0, zIndex: 100, background: "rgba(255,255,255,0.96)", backdropFilter: "blur(8px)", borderBottom: "1px solid #E4E2DC", padding: "0 40px", display: "flex", alignItems: "center", justifyContent: "space-between", height: 64 }}>
+        <div className="exo" style={{ fontWeight: 700, fontSize: 20, letterSpacing: "-0.5px" }}>
+          Syn<span style={{ color: "#0ABFBF" }}>AI</span>pse
+        </div>
+        <div style={{ display: "flex", gap: 32 }}>
+          {["About us", "What we do", "Nine themes", "Products"].map(l => (
+            <span key={l} className="nav-link">{l}</span>
+          ))}
+        </div>
+        <button className="btn-primary" style={{ fontSize: 13, padding: "9px 18px" }}>Follow on Substack</button>
+      </nav>
+
+      {/* HERO */}
+      <div style={{ maxWidth: 1100, margin: "0 auto", padding: "80px 40px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 72, alignItems: "center" }}>
+        <div>
+          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: 2, color: "#0ABFBF", textTransform: "uppercase", marginBottom: 20 }}>AI education for veterinarians</p>
+          <h1 className="exo" style={{ fontSize: 48, fontWeight: 700, lineHeight: 1.1, letterSpacing: "-1px", marginBottom: 24 }}>
+            Not experts.<br />
+            Just two vets who use{" "}
+            <em style={{ color: "#0ABFBF", fontStyle: "italic" }}>AI every day</em>
+            {" "}— and want to help you do the same.
+          </h1>
+          <p style={{ fontSize: 17, lineHeight: 1.75, color: "#4A4A6A", marginBottom: 36, fontWeight: 300 }}>
+            We are passionate about AI improving the lives of vets. Leaving on time, having a second brain, loving your job again. If we can help even a few people do that, our job is done.
+          </p>
+          <div style={{ display: "flex", gap: 12 }}>
+            <button className="btn-primary">Follow on Substack — free</button>
+            <button className="btn-secondary">Our story</button>
+          </div>
+        </div>
+
+        <div style={{ background: "#F7F6F3", border: "1px solid #E4E2DC", borderRadius: 16, padding: 36 }}>
+          <p className="exo" style={{ fontSize: 21, fontWeight: 600, lineHeight: 1.45, fontStyle: "italic", color: "#1A1A2E", marginBottom: 28 }}>
+            "We want vets to <span style={{ color: "#0ABFBF" }}>leave on time</span>, to have a second brain, to <span style={{ color: "#0ABFBF" }}>love their jobs again</span>."
+          </p>
+          <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+            {[
+              { initials: "SM", name: "Dr Shaan Mocke", role: "Equine & Rehabilitation Vet · Vet Align" },
+              { initials: "DP", name: "Dr Deb Prattley", role: "Small Animal Vet · Practice Owner" }
+            ].map(f => (
+              <div key={f.name} style={{ display: "flex", alignItems: "center", gap: 12 }}>
+                <div style={{ width: 44, height: 44, borderRadius: "50%", background: "#E6FAFA", border: "2px solid #0ABFBF", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "'Exo 2', sans-serif", fontWeight: 700, fontSize: 13, color: "#0ABFBF", flexShrink: 0 }}>
+                  {f.initials}
+                </div>
+                <div>
+                  <div style={{ fontWeight: 600, fontSize: 14, color: "#1A1A2E" }}>{f.name}</div>
+                  <div style={{ fontSize: 12, color: "#8888AA", marginTop: 2 }}>{f.role}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <hr style={{ border: "none", borderTop: "1px solid #E4E2DC" }} />
+
+      {/* NINE THEMES */}
+      <div style={{ background: "#F7F6F3", padding: "80px 40px" }}>
+        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: 2, color: "#0ABFBF", textTransform: "uppercase", marginBottom: 12 }}>What we cover</p>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 48, gap: 24, flexWrap: "wrap" }}>
+            <h2 className="exo" style={{ fontSize: 40, fontWeight: 700, lineHeight: 1.15, letterSpacing: "-0.5px" }}>
+              Nine themes.<br />All free. All practical.
+            </h2>
+            <p style={{ fontSize: 15, lineHeight: 1.7, color: "#4A4A6A", fontWeight: 300, maxWidth: 420 }}>
+              Every theme is practical — no theory, no jargon, just things you can use this week in your practice.
+            </p>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 1, background: "#E4E2DC", border: "1px solid #E4E2DC", borderRadius: 12, overflow: "hidden" }}>
+            {themes.map(t => (
+              <div key={t.num} className="theme-card">
+                <div style={{ fontFamily: "'Exo 2', sans-serif", fontSize: 11, fontWeight: 700, color: "#0ABFBF", letterSpacing: 1, marginBottom: 10 }}>{t.num}</div>
+                <div className="exo" style={{ fontSize: 16, fontWeight: 600, color: "#1A1A2E", marginBottom: 8 }}>{t.title}</div>
+                <div style={{ fontSize: 13, lineHeight: 1.6, color: "#4A4A6A" }}>{t.desc}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <hr style={{ border: "none", borderTop: "1px solid #E4E2DC" }} />
+
+      {/* PRODUCTS */}
+      <div style={{ maxWidth: 1100, margin: "0 auto", padding: "80px 40px" }}>
+        <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: 2, color: "#0ABFBF", textTransform: "uppercase", marginBottom: 12 }}>Built for our own practices first</p>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 48, gap: 24, flexWrap: "wrap" }}>
+          <h2 className="exo" style={{ fontSize: 40, fontWeight: 700, lineHeight: 1.15, letterSpacing: "-0.5px" }}>
+            We built everything<br />for ourselves first.
+          </h2>
+          <p style={{ fontSize: 15, lineHeight: 1.7, color: "#4A4A6A", fontWeight: 300, maxWidth: 400 }}>
+            Every product comes from a real problem we had in practice. If it works for us, it will work for you.
+          </p>
+        </div>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 20 }}>
+          {products.map(p => (
+            <div key={p.name} className={`product-card ${p.highlight ? "highlight" : ""}`}>
+              <span style={{ display: "inline-block", fontSize: 10, fontWeight: 700, letterSpacing: 1.5, textTransform: "uppercase", color: "#0ABFBF", background: "#E6FAFA", padding: "4px 10px", borderRadius: 4, marginBottom: 16, alignSelf: "flex-start" }}>{p.tag}</span>
+              {p.highlight && <div style={{ fontSize: 11, fontWeight: 600, color: "#0ABFBF", letterSpacing: 1, textTransform: "uppercase", marginBottom: 6 }}>Featured</div>}
+              <div className="exo" style={{ fontSize: 21, fontWeight: 700, color: "#1A1A2E", marginBottom: 4 }}>{p.name}</div>
+              <div style={{ fontSize: 14, fontWeight: 600, color: "#0ABFBF", marginBottom: 14 }}>{p.price}</div>
+              <div style={{ fontSize: 14, lineHeight: 1.7, color: "#4A4A6A", marginBottom: 24, flex: 1 }}>{p.desc}</div>
+              <button className="product-btn">{p.cta}</button>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* EMAIL SIGNUP */}
+      <div style={{ background: "#1A1A2E", padding: "80px 40px", textAlign: "center" }}>
+        <h2 className="exo" style={{ fontSize: 36, fontWeight: 700, color: "white", marginBottom: 12, letterSpacing: "-0.5px" }}>
+          Free AI tips, straight to your inbox.
+        </h2>
+        <p style={{ fontSize: 16, lineHeight: 1.7, color: "rgba(255,255,255,0.55)", fontWeight: 300, maxWidth: 440, margin: "0 auto 36px" }}>
+          Practical, not theoretical. Built for time-poor vets — written by vets, for the vet industry.
+        </p>
+        {submitted ? (
+          <p style={{ color: "#0ABFBF", fontWeight: 500, fontSize: 16 }}>You are in. Check your inbox.</p>
+        ) : (
+          <>
+            <div style={{ display: "flex", gap: 10, maxWidth: 440, margin: "0 auto" }}>
+              <input className="email-input" type="email" placeholder="your@email.com" value={email} onChange={e => setEmail(e.target.value)} />
+              <button className="email-submit" onClick={() => email && setSubmitted(true)}>Subscribe</button>
+            </div>
+            <p style={{ fontSize: 12, color: "rgba(255,255,255,0.3)", marginTop: 12 }}>No spam. Unsubscribe any time.</p>
+          </>
+        )}
+      </div>
+
+      {/* FOOTER */}
+      <footer style={{ borderTop: "1px solid #E4E2DC", padding: "28px 40px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+        <div className="exo" style={{ fontWeight: 700, fontSize: 18, color: "#1A1A2E" }}>
+          Syn<span style={{ color: "#0ABFBF" }}>AI</span>pse
+        </div>
+        <div style={{ fontSize: 13, color: "#8888AA" }}>© 2026 SynAIpse · Dr Shaan Mocke & Dr Deb Prattley</div>
+        <div style={{ display: "flex", gap: 20 }}>
+          <a href="#" className="footer-link">Privacy</a>
+          <a href="#" className="footer-link">Terms</a>
+        </div>
+      </footer>
+    </div>
+  );
+}
