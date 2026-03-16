@@ -17,7 +17,7 @@ const products = [
     status: 'In Development',
     statusColor: '#fbbf24',
     title: 'Senior Dog Mobility Course',
-    desc: 'A 6-week online course for dog owners managing senior pet mobility. Built with Dr Deb\'s clinical expertise. Designed to give owners real tools, not just reassurance.',
+    desc: 'A 6-week online course for dog owners managing senior pet mobility. Built with Deb\'s clinical expertise. Designed to give owners real tools, not just reassurance.',
   },
   {
     status: 'In Development',

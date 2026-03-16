@@ -43,7 +43,7 @@ export default function MissionQuote() {
             color: 'rgba(240,246,255,0.70)',
           }}
         >
-          Dr Shaan &amp; Dr Deb · SynAIpseVet
+          Shaan &amp; Deb · SynAIpseVet
         </div>
       </div>
     </section>

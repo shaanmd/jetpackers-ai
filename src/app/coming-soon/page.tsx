@@ -261,8 +261,8 @@ export default function ComingSoonPage() {
             </p>
             <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:gap-6">
               {[
-                { initials: 'DS', name: 'Dr Shaan Mocke', role: 'Vet · Small Business Owner · Early Adopter' },
-                { initials: 'DD', name: 'Dr Deb Prattley', role: 'Vet · Small Business Owner · Early Adopter' },
+                { initials: 'DS', name: 'Shaan Mocke', role: 'Vet · Small Business Owner · Early Adopter' },
+                { initials: 'DD', name: 'Deb Prattley', role: 'Vet · Small Business Owner · Early Adopter' },
               ].map((f) => (
                 <div key={f.name} className="flex items-center gap-2.5">
                   <div
@@ -285,6 +285,13 @@ export default function ComingSoonPage() {
                 </div>
               ))}
             </div>
+            <Link
+              href="/about"
+              className="mt-4 inline-block text-[13px] font-medium"
+              style={{ color: 'var(--teal)', textDecoration: 'none' }}
+            >
+              Meet the team &rarr;
+            </Link>
           </motion.div>
 
           {/* No Jargon, Just Results */}
@@ -387,7 +394,7 @@ export default function ComingSoonPage() {
             <span style={{ color: 'var(--pink)' }}>They Promised Us Jetpacks</span>{' '}
             · AI Education for Gen X Women
           </p>
-          <p>Dr Shaan Mocke &amp; Dr Deb Prattley</p>
+          <p>Shaan &amp; Deb</p>
           <div className="flex gap-4">
             <a href="/privacy" className="footer-link">Privacy</a>
             <a href="/terms" className="footer-link">Terms</a>

@@ -225,7 +225,7 @@ export default function PrivacyPage() {
         </h2>
         <p style={{ fontSize: 15, lineHeight: 1.75, color: 'var(--text-muted)', marginBottom: 16 }}>
           For questions about this privacy policy or our data practices, contact us at Jetpackers AI
-          (Dr Shaan Mocke & Dr Deb Prattley) via our website or Substack at{' '}
+          (Shaan Mocke & Deb Prattley) via our website or Substack at{' '}
           <a
             href="https://vetaihub.substack.com/"
             target="_blank"

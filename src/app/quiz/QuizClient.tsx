@@ -572,7 +572,7 @@ export default function QuizClient() {
                         Ready to make it real?
                       </p>
                       <p className="mb-3 text-[13px] leading-relaxed" style={{ color: 'var(--text-muted)' }}>
-                        The Vinyl &amp; Vibealong is a 3-hour live session with Dr Shaan &amp; Dr Deb — built for exactly where you are. Date dropping soon. Be first to know.
+                        The Vinyl &amp; Vibealong is a 3-hour live session with Shaan &amp; Deb — built for exactly where you are. Date dropping soon. Be first to know.
                       </p>
                       <Link
                         href="/"

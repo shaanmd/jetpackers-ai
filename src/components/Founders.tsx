@@ -3,13 +3,13 @@
 const founders = [
   {
     role: 'Co-Founder · Brisbane, Australia',
-    name: 'Dr Shaan Mocke',
+    name: 'Shaan Mocke',
     bio: 'BVSc, MANZCVS Equine Dentistry, Postgrad Dip Animal Biomechanical Medicine. Founder of Vet Align (mobile equine). Before vet school, 25 years in tech — including a decade building knowledge management systems for a major commercial law firm.',
     tags: ['Equine Dentistry', 'Biomechanical Medicine', 'Knowledge Systems', 'Vibe Coding'],
   },
   {
     role: 'Co-Founder · New Zealand',
-    name: 'Dr Deb Prattley',
+    name: 'Deb Prattley',
     bio: 'Veterinarian, osteopath, and rehabilitation specialist. Co-founder of SD Vet Studio. Deep clinical expertise and a direct connection to the New Zealand veterinary community — including active engagement with the NZVA\'s newly forming AI committee.',
     tags: ['Rehabilitation', 'Osteopathy', 'Senior Dog Mobility', 'NZVA AI Committee'],
   },

@@ -3,12 +3,12 @@
 const founders = [
   {
     initials: 'SM',
-    name: 'Dr Shaan Mocke',
+    name: 'Shaan Mocke',
     role: 'Equine & Rehabilitation Vet · Vet Align',
   },
   {
     initials: 'DP',
-    name: 'Dr Deb Prattley',
+    name: 'Deb Prattley',
     role: 'Small Animal Vet · Practice Owner',
   },
 ]

@@ -23,7 +23,7 @@ export default function Footer() {
         <span style={{ color: 'var(--teal)' }}>.AI</span>
       </Link>
       <div style={{ fontSize: 12 }}>
-        © 2026 They Promised Us Jetpacks · Dr Shaan Mocke &amp; Dr Deb Prattley
+        © 2026 They Promised Us Jetpacks · Shaan Mocke &amp; Deb Prattley
       </div>
       <div style={{ display: 'flex', gap: 20 }}>
         <Link href="/privacy" className="footer-link">

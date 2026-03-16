@@ -23,7 +23,7 @@ const products = [
     tag: 'COURSE',
     name: 'Senior Dog Mobility Course',
     price: 'Coming soon',
-    desc: '6-week online programme by Dr Deb and Dr Shaan. Evidence-based canine rehab.',
+    desc: '6-week online programme by Deb and Shaan. Evidence-based canine rehab.',
     cta: 'Join waitlist',
     highlight: false,
     href: undefined,

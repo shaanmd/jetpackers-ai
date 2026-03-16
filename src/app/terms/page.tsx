@@ -209,7 +209,7 @@ export default function TermsPage() {
         </h2>
         <p style={{ fontSize: 15, lineHeight: 1.75, color: 'var(--text-muted)', marginBottom: 16 }}>
           These Terms are governed by the laws of New Zealand. For any questions about these
-          Terms, please contact Jetpackers AI (Dr Shaan Mocke & Dr Deb Prattley) via our website or
+          Terms, please contact Jetpackers AI (Shaan Mocke & Deb Prattley) via our website or
           Substack at{' '}
           <a
             href="https://vetaihub.substack.com/"
