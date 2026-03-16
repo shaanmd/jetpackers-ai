@@ -16,7 +16,7 @@ export default function ComingSoonPage() {
   return (
     <div
       className="min-h-screen synthwave-grid"
-      style={{ background: 'var(--bg)', color: '#F0ECF8' }}
+      style={{ background: 'var(--bg)', color: 'var(--text-primary)' }}
     >
       {/* Ambient glow orbs */}
       <div
@@ -28,7 +28,7 @@ export default function ComingSoonPage() {
           width: 500,
           height: 500,
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(107,33,168,0.18) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(107,33,168,0.07) 0%, transparent 70%)',
           pointerEvents: 'none',
           zIndex: 0,
         }}
@@ -42,7 +42,7 @@ export default function ComingSoonPage() {
           width: 400,
           height: 400,
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(236,72,153,0.12) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(236,72,153,0.06) 0%, transparent 70%)',
           pointerEvents: 'none',
           zIndex: 0,
         }}
@@ -54,7 +54,7 @@ export default function ComingSoonPage() {
       >
         {/* Top bar */}
         <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <div className="orbitron text-sm font-bold tracking-widest" style={{ color: '#F0ECF8' }}>
+          <div className="orbitron text-sm font-bold tracking-widest" style={{ color: 'var(--text-primary)' }}>
             <span style={{ color: 'var(--pink)' }}>Jetpackers</span>
             <span style={{ color: 'var(--teal)' }}>AI</span>
           </div>
@@ -62,7 +62,7 @@ export default function ComingSoonPage() {
             className="orbitron inline-flex w-fit items-center rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-widest"
             style={{
               border: '1.5px solid var(--pink)',
-              background: 'rgba(236,72,153,0.1)',
+              background: 'rgba(236,72,153,0.08)',
               color: 'var(--pink)',
               letterSpacing: '0.2em',
             }}
@@ -99,7 +99,7 @@ export default function ComingSoonPage() {
             <span
               style={{
                 color: 'var(--pink)',
-                textShadow: '0 0 24px rgba(236,72,153,0.5)',
+                textShadow: '0 0 20px rgba(236,72,153,0.25)',
               }}
             >
               Jetpacks.
@@ -116,7 +116,7 @@ export default function ComingSoonPage() {
             style={{ color: 'var(--text-muted)' }}
           >
             We were promised jetpacks, flying cars, robot assistants. We got AI.{' '}
-            <span style={{ color: '#F0ECF8', fontWeight: 500 }}>
+            <span style={{ color: 'var(--text-primary)', fontWeight: 600 }}>
               Turns out, it&apos;s better.
             </span>{' '}
             Dr Deb &amp; Dr Shaan teach Gen X women to use the tools everyone&apos;s
@@ -131,20 +131,20 @@ export default function ComingSoonPage() {
             className="mb-6 rounded-2xl p-5 md:p-6"
             style={{
               background: 'var(--bg-card)',
-              border: '1.5px solid rgba(236,72,153,0.35)',
-              boxShadow: '0 0 40px rgba(236,72,153,0.08)',
+              border: '1.5px solid rgba(236,72,153,0.25)',
+              boxShadow: '0 2px 16px rgba(236,72,153,0.06)',
             }}
           >
             <div className="mb-3 flex flex-wrap items-center gap-2">
               <span
                 className="orbitron rounded px-2 py-1 text-[10px] font-bold uppercase tracking-widest"
-                style={{ background: 'rgba(236,72,153,0.15)', color: 'var(--pink)' }}
+                style={{ background: 'rgba(236,72,153,0.08)', color: 'var(--pink)' }}
               >
                 Waitlist Open
               </span>
               <span
                 className="rounded px-2 py-1 text-[10px] font-semibold uppercase tracking-widest"
-                style={{ background: 'rgba(13,148,136,0.15)', color: 'var(--teal)' }}
+                style={{ background: 'rgba(13,148,136,0.08)', color: 'var(--teal)' }}
               >
                 Weekend Session · Date TBA
               </span>
@@ -152,7 +152,7 @@ export default function ComingSoonPage() {
 
             <h2
               className="orbitron mb-1"
-              style={{ fontSize: 'clamp(1.1rem, 3vw, 1.4rem)', fontWeight: 700, color: '#F0ECF8' }}
+              style={{ fontSize: 'clamp(1.1rem, 3vw, 1.4rem)', fontWeight: 700, color: 'var(--text-primary)' }}
             >
               Vibe-A-Long
             </h2>
@@ -171,7 +171,7 @@ export default function ComingSoonPage() {
 
             <div
               className="rounded-xl p-4"
-              style={{ background: 'rgba(107,33,168,0.15)', border: '1px solid rgba(107,33,168,0.3)' }}
+              style={{ background: 'rgba(107,33,168,0.06)', border: '1px solid rgba(107,33,168,0.15)' }}
             >
               <p className="mb-1 text-[12px] font-semibold uppercase tracking-widest" style={{ color: 'var(--teal)' }}>
                 Reserve your spot
@@ -202,15 +202,15 @@ export default function ComingSoonPage() {
             className="mt-5 rounded-xl p-4 md:p-5"
             style={{
               background: 'var(--bg-card)',
-              border: '1px solid rgba(107,33,168,0.4)',
+              border: '1px solid rgba(107,33,168,0.2)',
             }}
           >
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <div>
-                <p className="mb-0.5 text-[11px] font-semibold uppercase tracking-widest" style={{ color: '#C084FC' }}>
+                <p className="mb-0.5 text-[11px] font-semibold uppercase tracking-widest" style={{ color: 'var(--purple)' }}>
                   Not sure where to start?
                 </p>
-                <p className="text-[14px] font-semibold" style={{ color: '#F0ECF8' }}>
+                <p className="text-[14px] font-semibold" style={{ color: 'var(--text-primary)' }}>
                   Find out what kind of AI woman you are 🎬
                 </p>
                 <p className="mt-0.5 text-[12px]" style={{ color: 'var(--text-muted)' }}>
@@ -221,9 +221,9 @@ export default function ComingSoonPage() {
                 href="/quiz"
                 className="orbitron shrink-0 rounded-lg px-4 py-2.5 text-center text-[12px] font-bold uppercase tracking-widest transition-all"
                 style={{
-                  background: 'rgba(192,132,252,0.15)',
-                  border: '1.5px solid #C084FC',
-                  color: '#C084FC',
+                  background: 'rgba(107,33,168,0.08)',
+                  border: '1.5px solid var(--purple)',
+                  color: 'var(--purple)',
                   textDecoration: 'none',
                   whiteSpace: 'nowrap',
                 }}
@@ -258,8 +258,8 @@ export default function ComingSoonPage() {
             </p>
             <p className="mb-3 text-[13px] leading-relaxed" style={{ color: 'var(--text-muted)' }}>
               The AI conversation is dominated by people who weren&apos;t alive when Top Gun came out the{' '}
-              <em style={{ color: '#F0ECF8' }}>first</em> time.{' '}
-              <span style={{ color: '#F0ECF8', fontWeight: 500 }}>We built this for women like us.</span>
+              <em style={{ color: 'var(--text-primary)' }}>first</em> time.{' '}
+              <span style={{ color: 'var(--text-primary)', fontWeight: 600 }}>We built this for women like us.</span>
             </p>
             <div className="mt-3 flex flex-col gap-2 sm:flex-row sm:gap-6">
               {[
@@ -273,15 +273,15 @@ export default function ComingSoonPage() {
                       width: 36,
                       height: 36,
                       flexShrink: 0,
-                      background: 'rgba(107,33,168,0.25)',
+                      background: 'rgba(107,33,168,0.08)',
                       border: '1.5px solid var(--purple)',
-                      color: '#C084FC',
+                      color: 'var(--purple)',
                     }}
                   >
                     {f.initials}
                   </div>
                   <div>
-                    <div className="text-[13px] font-semibold" style={{ color: '#F0ECF8' }}>{f.name}</div>
+                    <div className="text-[13px] font-semibold" style={{ color: 'var(--text-primary)' }}>{f.name}</div>
                     <div className="text-[11px]" style={{ color: 'var(--text-footer)' }}>{f.role}</div>
                   </div>
                 </div>
@@ -289,6 +289,23 @@ export default function ComingSoonPage() {
             </div>
           </motion.div>
         </section>
+
+        {/* SynAIpseVET callout */}
+        <div
+          className="mt-8 rounded-lg px-4 py-3 text-center text-[13px]"
+          style={{ background: 'rgba(13,148,136,0.06)', border: '1px solid rgba(13,148,136,0.15)' }}
+        >
+          <span style={{ color: 'var(--text-muted)' }}>Work in the vet industry? We built something just for you. </span>
+          <a
+            href="https://synaipse.vet"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: 'var(--teal)', fontWeight: 600, textDecoration: 'none' }}
+          >
+            SynAIpseVET
+          </a>
+          <span style={{ color: 'var(--text-muted)' }}> brings AI tools designed specifically for veterinary professionals.</span>
+        </div>
 
         {/* Footer */}
         <footer

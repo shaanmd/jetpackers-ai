@@ -227,12 +227,12 @@ export default function QuizClient() {
   // ─── Ambient layout wrapper ──────────────────────────────────────────────────
 
   return (
-    <div className="min-h-screen synthwave-grid" style={{ background: 'var(--bg)', color: '#F0ECF8' }}>
+    <div className="min-h-screen synthwave-grid" style={{ background: 'var(--bg)', color: 'var(--text-primary)' }}>
       <div
         aria-hidden="true"
         style={{
           position: 'fixed', top: '-120px', right: '-80px', width: 500, height: 500,
-          borderRadius: '50%', background: 'radial-gradient(circle, rgba(107,33,168,0.18) 0%, transparent 70%)',
+          borderRadius: '50%', background: 'radial-gradient(circle, rgba(107,33,168,0.07) 0%, transparent 70%)',
           pointerEvents: 'none', zIndex: 0,
         }}
       />
@@ -240,7 +240,7 @@ export default function QuizClient() {
         aria-hidden="true"
         style={{
           position: 'fixed', bottom: '-100px', left: '-60px', width: 400, height: 400,
-          borderRadius: '50%', background: 'radial-gradient(circle, rgba(236,72,153,0.12) 0%, transparent 70%)',
+          borderRadius: '50%', background: 'radial-gradient(circle, rgba(236,72,153,0.06) 0%, transparent 70%)',
           pointerEvents: 'none', zIndex: 0,
         }}
       />
@@ -254,7 +254,7 @@ export default function QuizClient() {
           <Link
             href="/"
             className="orbitron text-sm font-bold tracking-widest"
-            style={{ color: '#F0ECF8', textDecoration: 'none' }}
+            style={{ color: 'var(--text-primary)', textDecoration: 'none' }}
           >
             <span style={{ color: 'var(--pink)' }}>Jetpackers</span>
             <span style={{ color: 'var(--teal)' }}>AI</span>
@@ -267,7 +267,7 @@ export default function QuizClient() {
               </span>
               <div
                 className="overflow-hidden rounded-full"
-                style={{ width: 80, height: 4, background: 'rgba(107,33,168,0.2)' }}
+                style={{ width: 80, height: 4, background: 'rgba(107,33,168,0.12)' }}
               >
                 <motion.div
                   animate={{ width: `${progress}%` }}
@@ -301,7 +301,7 @@ export default function QuizClient() {
                 style={{ fontSize: 'clamp(1.4rem, 4vw, 2rem)', fontWeight: 800, lineHeight: 1.15 }}
               >
                 Is AI Your New Bestie{' '}
-                <span style={{ color: 'var(--pink)', textShadow: '0 0 24px rgba(236,72,153,0.5)' }}>
+                <span style={{ color: 'var(--pink)', textShadow: '0 0 20px rgba(236,72,153,0.25)' }}>
                   or a Total Narcissist?
                 </span>
               </h1>
@@ -314,7 +314,7 @@ export default function QuizClient() {
               >
                 <p className="text-[13px] leading-relaxed" style={{ color: 'var(--text-muted)' }}>
                   🎬{' '}
-                  <span style={{ color: '#F0ECF8', fontWeight: 500 }}>Did you know?</span>{' '}
+                  <span style={{ color: 'var(--text-primary)', fontWeight: 600 }}>Did you know?</span>{' '}
                   In the 80s, we were promised flying cars and robot maids. We didn&apos;t get Rosie from The Jetsons, but we did get ChatGPT. It can&apos;t vacuum your lounge, but it can write a 4-week meal plan in four seconds.{' '}
                   <em style={{ color: 'var(--teal)' }}>Progress? We think so.</em>
                 </p>
@@ -347,7 +347,7 @@ export default function QuizClient() {
               </p>
               <h2
                 className="mb-6 font-semibold leading-snug"
-                style={{ fontSize: 'clamp(1rem, 2.5vw, 1.2rem)', color: '#F0ECF8' }}
+                style={{ fontSize: 'clamp(1rem, 2.5vw, 1.2rem)', color: 'var(--text-primary)' }}
               >
                 {currentQ.text}
               </h2>
@@ -363,9 +363,9 @@ export default function QuizClient() {
                       onClick={() => handleAnswer(opt.key)}
                       className="w-full rounded-xl p-4 text-left transition-colors"
                       style={{
-                        background: selected ? 'rgba(236,72,153,0.12)' : 'var(--bg-card)',
+                        background: selected ? 'rgba(236,72,153,0.06)' : 'var(--bg-card)',
                         border: selected ? '1.5px solid var(--pink)' : '1px solid var(--border)',
-                        boxShadow: selected ? '0 0 16px rgba(236,72,153,0.1)' : 'none',
+                        boxShadow: selected ? '0 0 12px rgba(236,72,153,0.08)' : '0 1px 3px rgba(0,0,0,0.04)',
                       }}
                     >
                       <span
@@ -374,7 +374,7 @@ export default function QuizClient() {
                       >
                         {opt.key}
                       </span>
-                      <span className="text-[14px]" style={{ color: selected ? '#F0ECF8' : 'var(--text-muted)' }}>
+                      <span className="text-[14px]" style={{ color: selected ? 'var(--text-primary)' : 'var(--text-muted)' }}>
                         {opt.text}
                       </span>
                     </motion.button>
@@ -428,17 +428,18 @@ export default function QuizClient() {
                     onChange={(e) => setEmail(e.target.value)}
                     onBlur={() => setTouched(true)}
                     placeholder="your@email.com"
-                    className="w-full rounded-xl px-4 py-3.5 text-sm text-white placeholder:text-[rgba(255,255,255,0.4)] outline-none transition-colors"
+                    className="w-full rounded-xl px-4 py-3.5 text-sm placeholder:text-[var(--text-footer)] outline-none transition-colors"
                     style={{
                       background: 'var(--bg-card)',
+                      color: 'var(--text-primary)',
                       border:
                         touched && !emailRegex.test(email)
-                          ? '1.5px solid #FCA5A5'
+                          ? '1.5px solid #DC2626'
                           : '1.5px solid var(--border)',
                     }}
                   />
                   {touched && !emailRegex.test(email) && (
-                    <p className="mt-1 text-xs text-[#FCA5A5]">Please enter a valid email.</p>
+                    <p className="mt-1 text-xs text-[#DC2626]">Please enter a valid email.</p>
                   )}
                 </div>
                 <button
@@ -523,7 +524,7 @@ export default function QuizClient() {
 
                       <p
                         className="mb-3 text-[14px] font-medium italic leading-relaxed"
-                        style={{ color: '#F0ECF8' }}
+                        style={{ color: 'var(--text-primary)' }}
                       >
                         &ldquo;{p.vibe}&rdquo;
                       </p>
@@ -534,8 +535,8 @@ export default function QuizClient() {
                       <div
                         className="rounded-xl p-4"
                         style={{
-                          background: 'rgba(107,33,168,0.15)',
-                          border: '1px solid rgba(107,33,168,0.3)',
+                          background: 'rgba(107,33,168,0.06)',
+                          border: '1px solid rgba(107,33,168,0.15)',
                         }}
                       >
                         <p
@@ -544,7 +545,7 @@ export default function QuizClient() {
                         >
                           Your AI Goal
                         </p>
-                        <p className="font-semibold" style={{ color: '#F0ECF8', fontSize: 14 }}>
+                        <p className="font-semibold" style={{ color: 'var(--text-primary)', fontSize: 14 }}>
                           {p.goal}
                         </p>
                         <p className="mt-1 text-[13px] leading-relaxed" style={{ color: 'var(--text-muted)' }}>
@@ -560,8 +561,8 @@ export default function QuizClient() {
                       transition={{ duration: 0.35, delay: 0.25 }}
                       className="mb-6 rounded-xl p-4 md:p-5"
                       style={{
-                        background: 'rgba(236,72,153,0.08)',
-                        border: '1px solid rgba(236,72,153,0.25)',
+                        background: 'rgba(236,72,153,0.05)',
+                        border: '1px solid rgba(236,72,153,0.2)',
                       }}
                     >
                       <p

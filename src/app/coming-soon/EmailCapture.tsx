@@ -31,9 +31,9 @@ export function EmailCapture() {
       <div
         className="rounded-2xl px-4 py-4 sm:px-5 sm:py-5"
         style={{
-          background: 'rgba(26,23,48,0.95)',
-          border: '1.5px solid rgba(236,72,153,0.3)',
-          boxShadow: '0 8px 32px rgba(236,72,153,0.1)',
+          background: 'var(--bg-card)',
+          border: '1.5px solid rgba(236,72,153,0.2)',
+          boxShadow: '0 2px 16px rgba(236,72,153,0.06)',
         }}
       >
         <AnimatePresence mode="wait">
@@ -46,10 +46,10 @@ export function EmailCapture() {
               transition={{ duration: 0.3 }}
               className="text-center"
             >
-              <p className="orbitron text-[17px] font-semibold text-white mb-1">
+              <p className="orbitron text-[17px] font-semibold mb-1" style={{ color: 'var(--text-primary)' }}>
                 🚀 You&apos;re in!
               </p>
-              <p className="text-sm" style={{ color: 'rgba(255,255,255,0.7)' }}>
+              <p className="text-sm" style={{ color: 'var(--text-muted)' }}>
                 {message || "You're on the list. We'll be in touch with AI tips, early access, and updates — not just course dates."}
               </p>
             </motion.div>
@@ -67,16 +67,17 @@ export function EmailCapture() {
                   onChange={(e) => setEmail(e.target.value)}
                   onBlur={() => setTouched(true)}
                   placeholder="your@email.com"
-                  className="w-full rounded-md px-3.5 py-3 text-sm text-white placeholder:text-[rgba(255,255,255,0.4)] outline-none transition-colors"
+                  className="w-full rounded-md px-3.5 py-3 text-sm placeholder:text-[var(--text-footer)] outline-none transition-colors"
                   style={{
                     border: isInvalid
-                      ? '1.5px solid #FCA5A5'
-                      : '1.5px solid rgba(255,255,255,0.15)',
-                    background: 'rgba(255,255,255,0.05)',
+                      ? '1.5px solid #DC2626'
+                      : '1.5px solid var(--border)',
+                    background: 'var(--bg)',
+                    color: 'var(--text-primary)',
                   }}
                 />
                 {isInvalid && (
-                  <p className="mt-1 text-xs text-[#FCA5A5]">
+                  <p className="mt-1 text-xs text-[#DC2626]">
                     Please enter a valid email address.
                   </p>
                 )}
@@ -84,10 +85,11 @@ export function EmailCapture() {
               <button
                 type="submit"
                 disabled={status === 'loading'}
-                className="inline-flex items-center justify-center rounded-md px-5 py-3 text-sm font-semibold text-white whitespace-nowrap transition-all disabled:opacity-60 disabled:cursor-not-allowed"
+                className="inline-flex items-center justify-center rounded-md px-5 py-3 text-sm font-semibold whitespace-nowrap transition-all disabled:opacity-60 disabled:cursor-not-allowed"
                 style={{
                   background: 'var(--pink)',
-                  boxShadow: '0 0 20px rgba(236,72,153,0.35)',
+                  color: 'white',
+                  boxShadow: '0 0 16px rgba(236,72,153,0.2)',
                 }}
               >
                 {status === 'loading' ? (
@@ -104,7 +106,7 @@ export function EmailCapture() {
         </AnimatePresence>
       </div>
       {status === 'error' && message && (
-        <p className="mt-2 text-xs text-[#FCA5A5] text-center sm:text-left">{message}</p>
+        <p className="mt-2 text-xs text-[#DC2626] text-center sm:text-left">{message}</p>
       )}
     </motion.div>
   )

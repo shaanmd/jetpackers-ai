@@ -3,20 +3,21 @@
 @tailwind utilities;
 
 :root {
-  /* Jetpackers AI — Dark Synthwave Palette */
+  /* Jetpackers AI — Light Palette (brand accents preserved) */
   --indigo:      #1E1B4B;
   --purple:      #6B21A8;
   --pink:        #EC4899;
   --teal:        #0D9488;
-  --bg:          #0F0D1A;
-  --bg-card:     #1A1730;
-  --bg-card-alt: #231E3D;
-  --border:      rgba(107, 33, 168, 0.35);
-  --border-glow: rgba(236, 72, 153, 0.4);
-  --text-muted:  #A89EC9;
-  --text-footer: #6B6490;
-  --glow-pink:   rgba(236, 72, 153, 0.15);
-  --glow-teal:   rgba(13, 148, 136, 0.15);
+  --bg:          #FAF9FC;
+  --bg-card:     #FFFFFF;
+  --bg-card-alt: #F3F1F8;
+  --border:      rgba(107, 33, 168, 0.15);
+  --border-glow: rgba(236, 72, 153, 0.3);
+  --text-primary:#1A1730;
+  --text-muted:  #5C5478;
+  --text-footer: #8A82A6;
+  --glow-pink:   rgba(236, 72, 153, 0.08);
+  --glow-teal:   rgba(13, 148, 136, 0.08);
 }
 
 * {
@@ -31,7 +32,7 @@ html {
 
 body {
   background: var(--bg);
-  color: #F0ECF8;
+  color: var(--text-primary);
   font-family: var(--font-dm), sans-serif;
   min-height: 100vh;
   overflow-x: hidden;
@@ -43,8 +44,8 @@ body {
 
 .synthwave-grid {
   background-image:
-    linear-gradient(rgba(107, 33, 168, 0.12) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(107, 33, 168, 0.12) 1px, transparent 1px);
+    linear-gradient(rgba(107, 33, 168, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(107, 33, 168, 0.06) 1px, transparent 1px);
   background-size: 40px 40px;
 }
 
@@ -57,7 +58,7 @@ body {
   transition: color 0.15s;
 }
 .nav-link:hover {
-  color: #F0ECF8;
+  color: var(--text-primary);
 }
 
 .btn-primary {
@@ -80,8 +81,8 @@ body {
 
 .btn-secondary {
   background: transparent;
-  color: #F0ECF8;
-  border: 1.5px solid rgba(107, 33, 168, 0.5);
+  color: var(--text-primary);
+  border: 1.5px solid rgba(107, 33, 168, 0.3);
   border-radius: 6px;
   padding: 13px 26px;
   font-family: var(--font-dm), sans-serif;
@@ -97,16 +98,16 @@ body {
 .email-input {
   flex: 1;
   padding: 13px 16px;
-  border: 1.5px solid rgba(255, 255, 255, 0.12);
+  border: 1.5px solid var(--border);
   border-radius: 6px;
-  background: rgba(255, 255, 255, 0.06);
-  color: white;
+  background: var(--bg);
+  color: var(--text-primary);
   font-family: var(--font-dm), sans-serif;
   font-size: 14px;
   outline: none;
 }
 .email-input::placeholder {
-  color: rgba(255, 255, 255, 0.35);
+  color: var(--text-footer);
 }
 .email-input:focus {
   border-color: var(--pink);
@@ -136,15 +137,15 @@ body {
   transition: color 0.15s;
 }
 .footer-link:hover {
-  color: #F0ECF8;
+  color: var(--text-primary);
 }
 
 .waitlist-input {
   padding: 13px 16px;
   border: 1.5px solid var(--border);
   border-radius: 6px;
-  background: rgba(255, 255, 255, 0.05);
-  color: white;
+  background: var(--bg);
+  color: var(--text-primary);
   font-family: var(--font-dm), sans-serif;
   font-size: 14px;
   outline: none;
@@ -160,11 +161,12 @@ body {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 .glow-card:hover {
-  border-color: rgba(236, 72, 153, 0.5);
-  box-shadow: 0 4px 32px var(--glow-pink);
+  border-color: rgba(236, 72, 153, 0.4);
+  box-shadow: 0 4px 24px var(--glow-pink);
 }
 
 @media (max-width: 639px) {

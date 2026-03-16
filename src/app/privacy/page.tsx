@@ -29,7 +29,7 @@ export default function PrivacyPage() {
           style={{
             fontSize: 32,
             fontWeight: 700,
-            color: '#F0ECF8',
+            color: 'var(--text-primary)',
             letterSpacing: '-0.5px',
             marginBottom: 8,
           }}
@@ -52,7 +52,7 @@ export default function PrivacyPage() {
           style={{
             fontSize: 20,
             fontWeight: 700,
-            color: '#F0ECF8',
+            color: 'var(--text-primary)',
             marginTop: 40,
             marginBottom: 12,
           }}
@@ -89,7 +89,7 @@ export default function PrivacyPage() {
           style={{
             fontSize: 20,
             fontWeight: 700,
-            color: '#F0ECF8',
+            color: 'var(--text-primary)',
             marginTop: 40,
             marginBottom: 12,
           }}
@@ -121,7 +121,7 @@ export default function PrivacyPage() {
           style={{
             fontSize: 20,
             fontWeight: 700,
-            color: '#F0ECF8',
+            color: 'var(--text-primary)',
             marginTop: 40,
             marginBottom: 12,
           }}
@@ -140,7 +140,7 @@ export default function PrivacyPage() {
           style={{
             fontSize: 20,
             fontWeight: 700,
-            color: '#F0ECF8',
+            color: 'var(--text-primary)',
             marginTop: 40,
             marginBottom: 12,
           }}
@@ -160,7 +160,7 @@ export default function PrivacyPage() {
           style={{
             fontSize: 20,
             fontWeight: 700,
-            color: '#F0ECF8',
+            color: 'var(--text-primary)',
             marginTop: 40,
             marginBottom: 12,
           }}
@@ -179,7 +179,7 @@ export default function PrivacyPage() {
           style={{
             fontSize: 20,
             fontWeight: 700,
-            color: '#F0ECF8',
+            color: 'var(--text-primary)',
             marginTop: 40,
             marginBottom: 12,
           }}
@@ -198,7 +198,7 @@ export default function PrivacyPage() {
           style={{
             fontSize: 20,
             fontWeight: 700,
-            color: '#F0ECF8',
+            color: 'var(--text-primary)',
             marginTop: 40,
             marginBottom: 12,
           }}
@@ -216,7 +216,7 @@ export default function PrivacyPage() {
           style={{
             fontSize: 20,
             fontWeight: 700,
-            color: '#F0ECF8',
+            color: 'var(--text-primary)',
             marginTop: 40,
             marginBottom: 12,
           }}
