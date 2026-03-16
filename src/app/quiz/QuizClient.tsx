@@ -417,7 +417,7 @@ export default function QuizClient() {
                 </span>
               </h2>
               <p className="mb-6 text-[15px] leading-relaxed" style={{ color: 'var(--text-muted)' }}>
-                Pop in your email to unlock your results. We&apos;ll also keep you in the loop on the Vibe-A-Long course — early access, best pricing, and no bro-energy required.
+                Pop in your email to unlock your results. We&apos;ll also keep you in the loop on the Vinyl &amp; Vibealong course — early access, best pricing, and no bro-energy required.
               </p>
 
               <form onSubmit={handleSubmit} className="flex flex-col gap-3 sm:flex-row">
@@ -572,7 +572,7 @@ export default function QuizClient() {
                         Ready to make it real?
                       </p>
                       <p className="mb-3 text-[13px] leading-relaxed" style={{ color: 'var(--text-muted)' }}>
-                        The Vibe-A-Long is a 3-hour live session with Dr Shaan &amp; Dr Deb — built for exactly where you are. Date dropping soon. Be first to know.
+                        The Vinyl &amp; Vibealong is a 3-hour live session with Dr Shaan &amp; Dr Deb — built for exactly where you are. Date dropping soon. Be first to know.
                       </p>
                       <Link
                         href="/"

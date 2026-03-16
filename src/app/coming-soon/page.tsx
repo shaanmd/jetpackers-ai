@@ -4,14 +4,6 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { EmailCapture } from './EmailCapture'
 
-const features = [
-  '3 hours of live, hands-on AI learning',
-  'Zero jargon — we speak real world, not Silicon Valley',
-  'Real tools you can use at work or at home the next day',
-  'Small group — we\'ll be building stuff together with you, not giving lectures',
-  'Replay included so you can revisit anytime',
-]
-
 export default function ComingSoonPage() {
   return (
     <div
@@ -80,7 +72,7 @@ export default function ComingSoonPage() {
             className="mb-3 text-xs font-semibold uppercase tracking-[0.28em]"
             style={{ color: 'var(--teal)' }}
           >
-            AI Education to Ignite Gen X Women
+            AI Education for Gen X Women
           </motion.p>
 
           <motion.h1
@@ -95,35 +87,51 @@ export default function ComingSoonPage() {
               letterSpacing: '-0.02em',
             }}
           >
-            They Promised Us{' '}
+            They promised us{' '}
             <span
               style={{
                 color: 'var(--pink)',
                 textShadow: '0 0 20px rgba(236,72,153,0.25)',
               }}
             >
-              Jetpacks.
+              jetpacks.
             </span>
             <br />
-            <span style={{ color: 'var(--teal)' }}>We got AI instead.</span>
+            <span style={{ color: 'var(--teal)' }}>We got this instead.</span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.15 }}
-            className="mb-6 text-[16px] leading-relaxed"
+            className="mb-4 text-[16px] leading-relaxed"
             style={{ color: 'var(--text-muted)' }}
           >
-            We were promised jetpacks, flying cars, robot assistants. We got AI.{' '}
+            We were promised flying cars and robot assistants by the year 2000.
+            Instead, we got dial-up, then social media, and now finally AI.{' '}
             <span style={{ color: 'var(--text-primary)', fontWeight: 600 }}>
-              Turns out, it&apos;s better.
-            </span>{' '}
-            Dr Deb &amp; Dr Shaan teach Gen X women to use the tools everyone&apos;s
-            talking about — no 22-year-old bro energy required.
+              It turns out, AI is the jetpack.
+            </span>
           </motion.p>
 
-          {/* Vibe-A-Long course card */}
+          <motion.div
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.18 }}
+            className="mb-6 rounded-xl p-4"
+            style={{
+              background: 'rgba(13,148,136,0.05)',
+              borderLeft: '3px solid var(--teal)',
+            }}
+          >
+            <p className="text-[14px] leading-relaxed" style={{ color: 'var(--text-muted)' }}>
+              At JetpackersAI, we aren&apos;t interested in the Silicon Valley hype.
+              We&apos;re interested in how this tech helps us get through a Tuesday.
+              We don&apos;t need upgrading. We just need the right tools.
+            </p>
+          </motion.div>
+
+          {/* Vinyl & Vibealong course card */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
@@ -146,7 +154,7 @@ export default function ComingSoonPage() {
                 className="rounded px-2 py-1 text-[10px] font-semibold uppercase tracking-widest"
                 style={{ background: 'rgba(13,148,136,0.08)', color: 'var(--teal)' }}
               >
-                Weekend Session · Date TBA
+                Date Dropping Soon
               </span>
             </div>
 
@@ -154,20 +162,13 @@ export default function ComingSoonPage() {
               className="orbitron mb-1"
               style={{ fontSize: 'clamp(1.1rem, 3vw, 1.4rem)', fontWeight: 700, color: 'var(--text-primary)' }}
             >
-              Vibe-A-Long
+              Vinyl &amp; Vibealong
             </h2>
-            <p className="mb-4 text-[13px]" style={{ color: 'var(--text-muted)' }}>
-              A 3-hour live session with Dr Shaan &amp; Dr Deb — build real AI skills in a single weekend session.
+            <p className="mb-4 text-[14px] leading-relaxed" style={{ color: 'var(--text-muted)' }}>
+              Our first Vinyl &amp; Vibealong session is dropping soon. 3 hours, small group,
+              and we build things together. No lectures, no gatekeeping. Just hands-on work
+              so you can use what you learn the next day.
             </p>
-
-            <ul className="mb-4 space-y-2">
-              {features.map((f) => (
-                <li key={f} className="flex items-start gap-2 text-[13px]" style={{ color: 'var(--text-muted)' }}>
-                  <span style={{ color: 'var(--teal)', marginTop: 1, flexShrink: 0 }}>→</span>
-                  {f}
-                </li>
-              ))}
-            </ul>
 
             <div
               className="rounded-xl p-4"
@@ -233,7 +234,7 @@ export default function ComingSoonPage() {
             </div>
           </motion.div>
 
-          {/* About strip */}
+          {/* Figuring it Out */}
           <motion.div
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
@@ -248,20 +249,17 @@ export default function ComingSoonPage() {
               className="mb-3 text-[11px] font-semibold uppercase tracking-widest"
               style={{ color: 'var(--teal)' }}
             >
-              Who we are
+              Figuring it Out
             </p>
-            <p className="mb-3 text-[13px] leading-relaxed" style={{ color: 'var(--text-muted)' }}>
-              Two Gen X women. We happen to be vets, but we&apos;re primarily experts in figuring things out.
-              We lived through the analog-to-digital morph, and we&apos;re doing it again with AI.
-              This isn&apos;t for the generation that grew up with an iPad — it&apos;s for those of us who remember
-              the pre-internet world and are developing the wrinkles to prove we can conquer what&apos;s next.
+            <p className="mb-3 text-[14px] leading-relaxed" style={{ color: 'var(--text-muted)' }}>
+              We lived through the analog to digital morph. We remember life before the internet,
+              and that&apos;s our superpower. We know how to adapt.
             </p>
-            <p className="mb-3 text-[13px] leading-relaxed" style={{ color: 'var(--text-muted)' }}>
-              The AI conversation is dominated by people who weren&apos;t alive when Top Gun came out the{' '}
-              <em style={{ color: 'var(--text-primary)' }}>first</em> time.{' '}
-              <span style={{ color: 'var(--text-primary)', fontWeight: 600 }}>We built this for women like us.</span>
+            <p className="text-[14px] leading-relaxed" style={{ color: 'var(--text-muted)' }}>
+              While the tech world is chasing the next shiny disruption, we&apos;re busy using
+              these tools to reclaim our time and get the job done.
             </p>
-            <div className="mt-3 flex flex-col gap-2 sm:flex-row sm:gap-6">
+            <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:gap-6">
               {[
                 { initials: 'DS', name: 'Dr Shaan Mocke', role: 'Vet · Small Business Owner · Early Adopter' },
                 { initials: 'DD', name: 'Dr Deb Prattley', role: 'Vet · Small Business Owner · Early Adopter' },
@@ -286,6 +284,79 @@ export default function ComingSoonPage() {
                   </div>
                 </div>
               ))}
+            </div>
+          </motion.div>
+
+          {/* No Jargon, Just Results */}
+          <motion.div
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.45 }}
+            className="mt-5 rounded-xl p-4 md:p-5"
+            style={{
+              background: 'var(--bg-card)',
+              border: '1px solid var(--border)',
+            }}
+          >
+            <p
+              className="mb-3 text-[11px] font-semibold uppercase tracking-widest"
+              style={{ color: 'var(--pink)' }}
+            >
+              No Jargon, Just Results
+            </p>
+            <p className="mb-4 text-[14px] leading-relaxed" style={{ color: 'var(--text-muted)' }}>
+              Stop staring at a blank screen. If you&apos;re stuck on a project or a tricky email, try this.
+            </p>
+            <div
+              className="rounded-xl p-4"
+              style={{
+                background: 'rgba(236,72,153,0.04)',
+                borderLeft: '3px solid var(--pink)',
+              }}
+            >
+              <p className="mb-2 text-[13px] font-semibold" style={{ color: 'var(--text-primary)' }}>
+                Open Gemini and tell it:
+              </p>
+              <p
+                className="text-[13px] leading-relaxed italic"
+                style={{ color: 'var(--text-muted)', fontFamily: 'monospace' }}
+              >
+                &ldquo;I&apos;m a busy woman. I need to prioritise these three tasks [Paste List].
+                Help me figure out which one gives me the biggest win for the least effort this week.
+                Speak plainly.&rdquo;
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Deb's Take */}
+          <motion.div
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.5 }}
+            className="mt-5 rounded-xl p-4 md:p-5"
+            style={{
+              background: 'var(--bg-card)',
+              border: '1px solid var(--border)',
+            }}
+          >
+            <p
+              className="mb-3 text-[11px] font-semibold uppercase tracking-widest"
+              style={{ color: 'var(--teal)' }}
+            >
+              Deb&apos;s Take
+            </p>
+            <div
+              className="rounded-xl p-4"
+              style={{
+                background: 'rgba(13,148,136,0.04)',
+                borderLeft: '3px solid var(--teal)',
+              }}
+            >
+              <p className="text-[14px] leading-relaxed" style={{ color: 'var(--text-muted)' }}>
+                You don&apos;t need to be a tech person to master this. You just need to be
+                curious enough to press the buttons. If we could figure out how to record a show
+                on a VCR with a blinking 12:00, we can handle AI.
+              </p>
             </div>
           </motion.div>
         </section>
@@ -314,7 +385,7 @@ export default function ComingSoonPage() {
         >
           <p>
             <span style={{ color: 'var(--pink)' }}>They Promised Us Jetpacks</span>{' '}
-            · AI Education to Ignite Gen X Women
+            · AI Education for Gen X Women
           </p>
           <p>Dr Shaan Mocke &amp; Dr Deb Prattley</p>
           <div className="flex gap-4">

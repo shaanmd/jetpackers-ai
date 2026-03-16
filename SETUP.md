@@ -89,7 +89,7 @@ git push             # Vercel auto-deploys on push
 
 | Route | File | Description |
 |-------|------|-------------|
-| `/` | `coming-soon/page.tsx` | Landing page — pre-order + email capture |
+| `/` | `coming-soon/page.tsx` | Landing page — Vinyl & Vibealong waitlist + email capture |
 | `/quiz` | `quiz/page.tsx` + `quiz/QuizClient.tsx` | "What's Your AI Vibe?" 7-question quiz |
 | `/privacy` | `privacy/page.tsx` | Privacy policy |
 | `/terms` | `terms/page.tsx` | Terms of use |
