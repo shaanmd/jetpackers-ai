@@ -256,17 +256,21 @@ export default function ComingSoonPage() {
             </div>
             <div
               style={{
-                background: '#E2E2ED',
                 borderRadius: 12,
+                overflow: 'hidden',
                 height: 260,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: '#5A5A72',
-                fontSize: 13,
               }}
             >
-              Photo: someone looking sceptical at a laptop
+              <img
+                src="/vibe-a-long.jpg"
+                alt="Woman looking sceptically at a laptop"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  borderRadius: 12,
+                }}
+              />
             </div>
           </div>
         </div>
