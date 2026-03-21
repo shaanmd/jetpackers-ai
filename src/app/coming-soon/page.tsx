@@ -258,16 +258,16 @@ export default function ComingSoonPage() {
               style={{
                 borderRadius: 12,
                 overflow: 'hidden',
-                height: 260,
+                marginTop: 20,
               }}
             >
               <img
                 src="/vibe-a-long.jpg"
-                alt="Woman looking sceptically at a laptop"
+                alt="Woman looking sceptically at a laptop with Vibe-Along bottle and JetpackersAI posters"
                 style={{
                   width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
+                  height: 'auto',
+                  display: 'block',
                   borderRadius: 12,
                 }}
               />
