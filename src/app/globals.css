@@ -62,72 +62,88 @@ body {
 }
 
 .btn-primary {
-  background: var(--pink);
+  background: linear-gradient(135deg, #EC4899 0%, #A855F7 100%);
   color: white;
   border: none;
-  border-radius: 6px;
-  padding: 13px 26px;
+  border-radius: 10px;
+  padding: 14px 28px;
   font-family: var(--font-dm), sans-serif;
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
-  transition: opacity 0.15s, box-shadow 0.15s;
-  box-shadow: 0 0 20px rgba(236, 72, 153, 0.35);
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 16px rgba(236, 72, 153, 0.3), 0 0 0 0 rgba(168, 85, 247, 0);
 }
 .btn-primary:hover {
-  opacity: 0.9;
-  box-shadow: 0 0 32px rgba(236, 72, 153, 0.55);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(236, 72, 153, 0.4), 0 0 40px rgba(168, 85, 247, 0.15);
+}
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(236, 72, 153, 0.3);
 }
 
 .btn-secondary {
   background: transparent;
   color: var(--text-primary);
-  border: 1.5px solid rgba(107, 33, 168, 0.3);
-  border-radius: 6px;
-  padding: 13px 26px;
+  border: 1.5px solid rgba(107, 33, 168, 0.25);
+  border-radius: 10px;
+  padding: 14px 28px;
   font-family: var(--font-dm), sans-serif;
   font-size: 15px;
   font-weight: 500;
   cursor: pointer;
-  transition: border-color 0.15s;
+  transition: border-color 0.2s, background 0.2s, transform 0.2s;
 }
 .btn-secondary:hover {
   border-color: var(--pink);
+  background: rgba(236, 72, 153, 0.04);
+  transform: translateY(-1px);
+}
+.btn-secondary:active {
+  transform: translateY(0);
 }
 
 .email-input {
   flex: 1;
   padding: 13px 16px;
   border: 1.5px solid var(--border);
-  border-radius: 6px;
+  border-radius: 10px;
   background: var(--bg);
   color: var(--text-primary);
   font-family: var(--font-dm), sans-serif;
   font-size: 14px;
   outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 .email-input::placeholder {
   color: var(--text-footer);
 }
 .email-input:focus {
   border-color: var(--pink);
+  box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.1);
 }
 
 .email-submit {
-  background: var(--pink);
+  background: linear-gradient(135deg, #EC4899 0%, #A855F7 100%);
   color: white;
   border: none;
-  border-radius: 6px;
-  padding: 13px 22px;
+  border-radius: 10px;
+  padding: 13px 24px;
   font-family: var(--font-dm), sans-serif;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
   white-space: nowrap;
-  transition: opacity 0.15s;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 16px rgba(236, 72, 153, 0.25);
 }
 .email-submit:hover {
-  opacity: 0.85;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 24px rgba(236, 72, 153, 0.35);
+}
+.email-submit:active {
+  transform: translateY(0);
 }
 
 .footer-link {
@@ -143,18 +159,20 @@ body {
 .waitlist-input {
   padding: 13px 16px;
   border: 1.5px solid var(--border);
-  border-radius: 6px;
+  border-radius: 10px;
   background: var(--bg);
   color: var(--text-primary);
   font-family: var(--font-dm), sans-serif;
   font-size: 14px;
   outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 .waitlist-input::placeholder {
   color: var(--text-footer);
 }
 .waitlist-input:focus {
   border-color: var(--pink);
+  box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.1);
 }
 
 .glow-card {
@@ -169,6 +187,48 @@ body {
   box-shadow: 0 4px 24px var(--glow-pink);
 }
 
+.product-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #EC4899 0%, #A855F7 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 24px;
+  font-family: var(--font-dm), sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 16px rgba(236, 72, 153, 0.25);
+  align-self: flex-start;
+}
+.product-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(236, 72, 153, 0.35), 0 0 40px rgba(168, 85, 247, 0.12);
+}
+.product-btn:active {
+  transform: translateY(0);
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.product-card:hover {
+  border-color: rgba(236, 72, 153, 0.3);
+  box-shadow: 0 4px 24px var(--glow-pink);
+}
+.product-card.highlight {
+  border-color: rgba(236, 72, 153, 0.35);
+  box-shadow: 0 0 24px var(--glow-pink);
+}
+
 @media (max-width: 639px) {
   .email-input,
   .email-submit,
@@ -177,7 +237,8 @@ body {
   }
 
   .btn-primary,
-  .btn-secondary {
+  .btn-secondary,
+  .product-btn {
     width: 100%;
     text-align: center;
   }

@@ -67,7 +67,7 @@ export default function Nav() {
             className="btn-primary hidden md:inline-block"
             style={{ fontSize: 13, padding: '9px 18px', textDecoration: 'none' }}
           >
-            Follow on Substack
+            Follow on Substack &rarr;
           </a>
 
           {/* Hamburger button */}
@@ -159,7 +159,7 @@ export default function Nav() {
             style={{ textDecoration: 'none', marginTop: 16, textAlign: 'center' }}
             onClick={() => setMenuOpen(false)}
           >
-            Follow on Substack
+            Follow on Substack &rarr;
           </a>
         </div>
       )}

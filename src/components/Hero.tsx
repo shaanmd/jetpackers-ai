@@ -71,7 +71,7 @@ export default function Hero() {
             className="btn-primary"
             style={{ textDecoration: 'none', textAlign: 'center' }}
           >
-            Follow on Substack — free
+            Follow on Substack — free &rarr;
           </a>
           <a
             href="#about"
