@@ -475,6 +475,61 @@ export default function ComingSoonPage() {
         </div>
       </div>
 
+      {/* Video */}
+      <div style={{ background: '#F9F9FB', padding: '72px 40px' }}>
+        <div style={{ maxWidth: 760, margin: '0 auto', textAlign: 'center' as const }}>
+          <div
+            style={{
+              fontFamily: outfit,
+              fontSize: 12,
+              fontWeight: 600,
+              letterSpacing: 3,
+              textTransform: 'uppercase' as const,
+              color: '#00D4AA',
+              marginBottom: 16,
+            }}
+          >
+            See what it&apos;s all about
+          </div>
+          <h2
+            style={{
+              fontFamily: outfit,
+              fontWeight: 800,
+              fontSize: 'clamp(28px, 4vw, 40px)',
+              marginBottom: 32,
+            }}
+          >
+            Watch us in action
+          </h2>
+          <div
+            style={{
+              position: 'relative' as const,
+              paddingBottom: '56.25%',
+              height: 0,
+              overflow: 'hidden',
+              borderRadius: 12,
+              boxShadow: '0 4px 24px rgba(0,0,0,0.1)',
+            }}
+          >
+            <iframe
+              src="https://www.youtube.com/embed/qsR98PwFvtM"
+              title="Jetpackers AI"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              style={{
+                position: 'absolute' as const,
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                border: 'none',
+                borderRadius: 12,
+              }}
+            />
+          </div>
+        </div>
+      </div>
+
       {/* Pricing */}
       <div style={{ background: 'white' }}>
         <div style={{ maxWidth: 900, margin: '0 auto', padding: '72px 40px' }}>
