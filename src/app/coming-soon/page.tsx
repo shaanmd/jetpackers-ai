@@ -726,17 +726,20 @@ export default function ComingSoonPage() {
           </div>
           <div
             style={{
-              background: '#E2E2ED',
               borderRadius: 12,
-              height: 320,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              color: '#5A5A72',
-              fontSize: 13,
+              overflow: 'hidden',
             }}
           >
-            Photo: Shaan &amp; Deb
+            <img
+              src="/team-photo.jpg"
+              alt="Illustration of Shaan and Deb with an AI robot"
+              style={{
+                width: '100%',
+                height: 'auto',
+                display: 'block',
+                borderRadius: 12,
+              }}
+            />
           </div>
         </div>
       </div>
