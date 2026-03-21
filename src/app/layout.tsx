@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Orbitron, DM_Sans } from 'next/font/google'
+import { Orbitron, DM_Sans, Outfit } from 'next/font/google'
 import './globals.css'
 import CookieConsent from '@/components/CookieConsent'
 
@@ -15,6 +15,13 @@ const dmSans = DM_Sans({
   weight: ['300', '400', '500', '600'],
   style: ['normal', 'italic'],
   variable: '--font-dm',
+  display: 'swap',
+})
+
+const outfit = Outfit({
+  subsets: ['latin'],
+  weight: ['400', '600', '800'],
+  variable: '--font-outfit',
   display: 'swap',
 })
 
@@ -43,7 +50,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${orbitron.variable} ${dmSans.variable}`}>
+    <html lang="en" className={`${orbitron.variable} ${dmSans.variable} ${outfit.variable}`}>
       <body>
         {children}
         <CookieConsent />
