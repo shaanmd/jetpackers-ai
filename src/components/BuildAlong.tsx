@@ -1,11 +1,18 @@
 'use client'
 
 import { useState } from 'react'
+import { useContact } from '@/hooks/useContact'
 
 export default function BuildAlong() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
-  const [submitted, setSubmitted] = useState(false)
+  const { submit, status } = useContact()
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!name.trim() || !email.trim()) return
+    await submit({ email, name, source: 'buildalong' })
+  }
 
   return (
     <section
@@ -53,7 +60,7 @@ export default function BuildAlong() {
           web app, a website, or an AI tool — in one session. No experience needed.
           Just show up and build.
         </p>
-        {submitted ? (
+        {status === 'success' ? (
           <p
             style={{
               color: 'var(--teal)',
@@ -65,10 +72,7 @@ export default function BuildAlong() {
           </p>
         ) : (
           <form
-            onSubmit={(e) => {
-              e.preventDefault()
-              if (name.trim() && email.trim()) setSubmitted(true)
-            }}
+            onSubmit={handleSubmit}
             className="flex flex-col sm:flex-row flex-wrap justify-center gap-3"
             style={{ maxWidth: 520, margin: '0 auto' }}
           >
@@ -90,8 +94,13 @@ export default function BuildAlong() {
               style={{ flex: '1 1 180px', minWidth: 0 }}
               aria-label="Email address"
             />
-            <button type="submit" className="btn-primary" style={{ flexShrink: 0 }}>
-              Join the waitlist
+            <button
+              type="submit"
+              className="btn-primary"
+              disabled={status === 'loading'}
+              style={{ flexShrink: 0 }}
+            >
+              {status === 'loading' ? 'Joining…' : 'Join the waitlist'}
             </button>
           </form>
         )}

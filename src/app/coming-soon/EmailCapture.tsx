@@ -3,12 +3,12 @@
 import { FormEvent, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Loader2 } from 'lucide-react'
-import { useWaitlist } from '@/hooks/useWaitlist'
+import { useContact } from '@/hooks/useContact'
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 export function EmailCapture() {
-  const { joinWaitlist, status, message } = useWaitlist()
+  const { submit, status, message } = useContact()
   const [email, setEmail] = useState('')
   const [touched, setTouched] = useState(false)
 
@@ -18,7 +18,7 @@ export function EmailCapture() {
     e.preventDefault()
     setTouched(true)
     if (!email || !emailRegex.test(email)) return
-    await joinWaitlist(email.trim())
+    await submit({ email: email.trim(), source: 'waitlist-vinyl' })
   }
 
   return (

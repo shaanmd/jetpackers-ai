@@ -1,10 +1,16 @@
 'use client'
 
 import { useState } from 'react'
+import { useContact } from '@/hooks/useContact'
 
 export default function Subscribe() {
   const [email, setEmail] = useState('')
-  const [submitted, setSubmitted] = useState(false)
+  const { submit, status } = useContact()
+
+  const handleSubmit = async () => {
+    if (!email) return
+    await submit({ email, source: 'newsletter' })
+  }
 
   return (
     <div
@@ -39,7 +45,7 @@ export default function Subscribe() {
         Practical, not theoretical. Built for time-poor vets — written by vets, for
         the vet industry.
       </p>
-      {submitted ? (
+      {status === 'success' ? (
         <p style={{ color: 'var(--teal)', fontWeight: 500, fontSize: 16 }}>
           You are in. Check your inbox.
         </p>
@@ -59,9 +65,10 @@ export default function Subscribe() {
             <button
               type="button"
               className="email-submit"
-              onClick={() => email && setSubmitted(true)}
+              disabled={status === 'loading'}
+              onClick={handleSubmit}
             >
-              Subscribe
+              {status === 'loading' ? 'Subscribing…' : 'Subscribe'}
             </button>
           </div>
           <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.3)', marginTop: 12 }}>

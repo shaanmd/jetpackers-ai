@@ -200,6 +200,18 @@ export default function QuizClient() {
     setPersona(p)
     setSubmitStatus('loading')
 
+    // Primary: systeme.io
+    try {
+      await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email.trim(), source: 'quiz-completed' }),
+      })
+    } catch (err) {
+      console.warn('Systeme.io request failed:', err)
+    }
+
+    // Backup: Supabase
     if (isSupabaseConfigured()) {
       const formattedAnswers = Object.fromEntries(
         Object.entries(answers).map(([idx, val]) => [`q${parseInt(idx) + 1}`, val])

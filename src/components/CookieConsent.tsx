@@ -14,8 +14,8 @@ export default function CookieConsent() {
     if (!accepted) setVisible(true)
   }, [])
 
-  const accept = () => {
-    localStorage.setItem(CONSENT_KEY, 'accepted')
+  const respond = (choice: 'accepted' | 'declined') => {
+    localStorage.setItem(CONSENT_KEY, choice)
     setVisible(false)
   }
 
@@ -62,14 +62,24 @@ export default function CookieConsent() {
           Learn more
         </Link>
       </p>
-      <button
-        type="button"
-        onClick={accept}
-        className="btn-primary"
-        style={{ flexShrink: 0 }}
-      >
-        Accept
-      </button>
+      <div style={{ display: 'flex', gap: 12, flexShrink: 0 }}>
+        <button
+          type="button"
+          onClick={() => respond('declined')}
+          className="btn-secondary"
+          style={{ padding: '10px 20px', fontSize: 14, color: 'rgba(255,255,255,0.7)', borderColor: 'rgba(255,255,255,0.2)' }}
+        >
+          Decline
+        </button>
+        <button
+          type="button"
+          onClick={() => respond('accepted')}
+          className="btn-primary"
+          style={{ padding: '10px 20px', fontSize: 14 }}
+        >
+          Accept
+        </button>
+      </div>
     </div>
   )
 }

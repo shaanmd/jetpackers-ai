@@ -1,26 +1,71 @@
 'use client'
 
+import { useState } from 'react'
 import Link from 'next/link'
+import { useContact } from '@/hooks/useContact'
 
 const outfit = "var(--font-outfit), 'Outfit', sans-serif"
 const dmSans = "var(--font-dm), 'DM Sans', sans-serif"
 
-function TripleCta() {
+function VibeAlongCta({ center = true }: { center?: boolean }) {
   return (
-    <div
-      style={{ marginTop: 36, display: 'flex', flexWrap: 'wrap', gap: 12 }}
-      className="triple-cta"
-    >
-      <Link href="/quiz" className="btn-primary" style={{ textDecoration: 'none', textAlign: 'center' }}>
-        Take the Quiz &rarr;
-      </Link>
-      <Link href="/quiz" className="btn-primary" style={{ textDecoration: 'none', textAlign: 'center' }}>
-        Get the Newsletter &rarr;
-      </Link>
+    <div style={{ marginTop: 36, display: 'flex', flexWrap: 'wrap', gap: 12, justifyContent: center ? 'center' : 'flex-start' }}>
       <Link href="/quiz" className="btn-primary" style={{ textDecoration: 'none', textAlign: 'center' }}>
         Join the Vinyl &amp; Vibe-Along Waitlist &rarr;
       </Link>
+      <Link href="/quiz" className="btn-secondary" style={{ textDecoration: 'none', textAlign: 'center', color: 'inherit' }}>
+        Take the Quiz
+      </Link>
     </div>
+  )
+}
+
+function FooterNewsletter() {
+  const [email, setEmail] = useState('')
+  const { submit, status } = useContact()
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!email.trim()) return
+    await submit({ email, source: 'newsletter' })
+  }
+
+  if (status === 'success') {
+    return (
+      <p style={{ fontSize: 14, color: '#00D4AA', marginTop: 16 }}>
+        You&apos;re in! Check your inbox.
+      </p>
+    )
+  }
+
+  return (
+    <form onSubmit={handleSubmit} style={{ marginTop: 16, display: 'flex', gap: 8, maxWidth: 380 }} className="footer-newsletter">
+      <input
+        type="email"
+        placeholder="your@email.com"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        style={{
+          flex: 1,
+          padding: '10px 14px',
+          borderRadius: 10,
+          border: '1px solid rgba(255,255,255,0.15)',
+          background: 'rgba(255,255,255,0.06)',
+          color: 'white',
+          fontSize: 14,
+          outline: 'none',
+          fontFamily: dmSans,
+        }}
+      />
+      <button
+        type="submit"
+        disabled={status === 'loading'}
+        className="btn-primary"
+        style={{ padding: '10px 20px', fontSize: 13, flexShrink: 0 }}
+      >
+        {status === 'loading' ? 'Joining\u2026' : 'Subscribe'}
+      </button>
+    </form>
   )
 }
 
@@ -43,11 +88,7 @@ export default function ComingSoonPage() {
         <Link
           href="/quiz"
           className="btn-primary"
-          style={{
-            padding: '10px 20px',
-            fontSize: 14,
-            textDecoration: 'none',
-          }}
+          style={{ padding: '10px 20px', fontSize: 14, textDecoration: 'none' }}
         >
           Take the Quiz &rarr;
         </Link>
@@ -80,9 +121,14 @@ export default function ComingSoonPage() {
           Abba LP and your legwarmers, and we&apos;ll take you from complete beginner to confident
           vibe coder.
         </p>
-        <p style={{ fontSize: 15, color: '#00D4AA', fontStyle: 'italic' }}>
+        <p style={{ fontSize: 15, color: '#00D4AA', fontStyle: 'italic', marginBottom: 8 }}>
           Curious enough to ask questions. Brave enough to press the buttons.
         </p>
+        <div style={{ display: 'flex', justifyContent: 'center', gap: 12, marginTop: 32, flexWrap: 'wrap' }}>
+          <Link href="/quiz" className="btn-primary" style={{ textDecoration: 'none', textAlign: 'center', padding: '16px 32px', fontSize: 16 }}>
+            Join the Vinyl &amp; Vibe-Along Waitlist &rarr;
+          </Link>
+        </div>
       </section>
 
       {/* Proof strip */}
@@ -113,37 +159,10 @@ export default function ComingSoonPage() {
               color: '#1A1A2E',
             }}
           >
-            <span style={{ color: '#00D4AA', fontSize: 18 }}>✓</span>
+            <span style={{ color: '#00D4AA', fontSize: 18 }}>&#10003;</span>
             {item}
           </div>
         ))}
-      </div>
-
-      {/* Newsletter note */}
-      <div
-        style={{
-          background: '#F0FDFB',
-          borderTop: '1px solid #00D4AA',
-          padding: '28px 40px',
-          textAlign: 'center',
-          fontSize: 14,
-          color: '#1A1A2E',
-        }}
-      >
-        <p style={{ marginBottom: 16 }}>
-          Take the quiz and you&apos;ll be signed up for our free newsletter: AI basics, real
-          examples, and new tools straight to your inbox.
-        </p>
-        <Link
-          href="/quiz"
-          className="btn-primary"
-          style={{
-            display: 'inline-block',
-            textDecoration: 'none',
-          }}
-        >
-          Take the Quiz &rarr;
-        </Link>
       </div>
 
       {/* Sound familiar */}
@@ -197,22 +216,11 @@ export default function ComingSoonPage() {
                 ))}
               </ul>
             </div>
-            <div
-              style={{
-                borderRadius: 12,
-                overflow: 'hidden',
-                marginTop: 20,
-              }}
-            >
+            <div style={{ borderRadius: 12, overflow: 'hidden', marginTop: 20 }}>
               <img
                 src="/vibe-a-long.jpg"
                 alt="Woman looking sceptically at a laptop with Vibe-Along bottle and JetpackersAI posters"
-                style={{
-                  width: '100%',
-                  height: 'auto',
-                  display: 'block',
-                  borderRadius: 12,
-                }}
+                style={{ width: '100%', height: 'auto', display: 'block', borderRadius: 12 }}
               />
             </div>
           </div>
@@ -239,7 +247,7 @@ export default function ComingSoonPage() {
         </p>
       </div>
 
-      {/* Two ways to get started */}
+      {/* What you get */}
       <div style={{ background: 'white' }}>
         <div style={{ maxWidth: 900, margin: '0 auto', padding: '72px 40px' }}>
           <div
@@ -253,7 +261,7 @@ export default function ComingSoonPage() {
               marginBottom: 16,
             }}
           >
-            Here&apos;s what we&apos;ve got for you
+            The Vinyl &amp; Vibe-Along
           </div>
           <h2
             style={{
@@ -263,13 +271,13 @@ export default function ComingSoonPage() {
               marginBottom: 8,
             }}
           >
-            Two ways to get started
+            What you get
           </h2>
           <div className="value-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24, marginTop: 40 }}>
             <div
               style={{
                 background: '#F9F9FB',
-                border: '1px solid #E2E2ED',
+                border: '2px solid #E91E8C',
                 borderRadius: 12,
                 padding: 28,
               }}
@@ -306,7 +314,7 @@ export default function ComingSoonPage() {
                   fontFamily: outfit,
                 }}
               >
-                $67 NZD · 6 spots only
+                $67 NZD &middot; 6 spots only
               </span>
             </div>
             <div
@@ -352,7 +360,7 @@ export default function ComingSoonPage() {
               </span>
             </div>
           </div>
-          <TripleCta />
+          <VibeAlongCta />
         </div>
       </div>
 
@@ -414,7 +422,7 @@ export default function ComingSoonPage() {
             coding basics at the turn of the century and is more tech friendly than tech pro, but she
             tries out all the tools to find out just how much a normal person can do.
           </div>
-          <TripleCta />
+          <VibeAlongCta />
         </div>
       </div>
 
@@ -500,13 +508,7 @@ export default function ComingSoonPage() {
             Simple pricing
           </h2>
           <div className="pricing-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24, marginTop: 40 }}>
-            <div
-              style={{
-                border: '2px solid #E91E8C',
-                borderRadius: 12,
-                padding: 32,
-              }}
-            >
+            <div style={{ border: '2px solid #E91E8C', borderRadius: 12, padding: 32 }}>
               <span
                 style={{
                   background: '#E91E8C',
@@ -551,13 +553,7 @@ export default function ComingSoonPage() {
                 build something useful. Vinyl grooves in the background.
               </p>
             </div>
-            <div
-              style={{
-                border: '1px solid #E2E2ED',
-                borderRadius: 12,
-                padding: 32,
-              }}
-            >
+            <div style={{ border: '1px solid #E2E2ED', borderRadius: 12, padding: 32 }}>
               <div
                 style={{
                   fontFamily: outfit,
@@ -585,7 +581,7 @@ export default function ComingSoonPage() {
               </p>
             </div>
           </div>
-          <TripleCta />
+          <VibeAlongCta />
         </div>
       </div>
 
@@ -644,7 +640,7 @@ export default function ComingSoonPage() {
                     width: 44,
                     height: 44,
                     borderRadius: '50%',
-                    background: '#E91E8C',
+                    background: 'linear-gradient(135deg, #EC4899 0%, #A855F7 100%)',
                     color: 'white',
                     fontFamily: outfit,
                     fontWeight: 800,
@@ -674,7 +670,7 @@ export default function ComingSoonPage() {
               </div>
             ))}
           </div>
-          <TripleCta />
+          <VibeAlongCta />
         </div>
       </div>
 
@@ -718,23 +714,13 @@ export default function ComingSoonPage() {
               software tools like websites and apps, research in a jiffy and streamline our work tasks
               because we&apos;ve learned how to make AI work for us.
             </p>
-            <TripleCta />
+            <VibeAlongCta center={false} />
           </div>
-          <div
-            style={{
-              borderRadius: 12,
-              overflow: 'hidden',
-            }}
-          >
+          <div style={{ borderRadius: 12, overflow: 'hidden' }}>
             <img
               src="/team-photo.jpg"
               alt="Illustration of Shaan and Deb with an AI robot"
-              style={{
-                width: '100%',
-                height: 'auto',
-                display: 'block',
-                borderRadius: 12,
-              }}
+              style={{ width: '100%', height: 'auto', display: 'block', borderRadius: 12 }}
             />
           </div>
         </div>
@@ -754,10 +740,10 @@ export default function ComingSoonPage() {
           Not sure where to start?
         </h2>
         <p style={{ fontSize: 16, color: '#9999BB', marginBottom: 28 }}>
-          Take our 2-minute quiz to find out your AI persona, get your mitts on our newsletter and
+          Take our 2-minute quiz to find out your AI persona and
           join the Vinyl &amp; Vibe-Along waitlist.
         </p>
-        <TripleCta />
+        <VibeAlongCta />
       </div>
 
       {/* Vet callout */}
@@ -802,12 +788,16 @@ export default function ComingSoonPage() {
               Jetpackers<span style={{ color: '#00D4AA' }}>AI</span>
             </div>
             <div style={{ fontSize: 12, color: '#5A5A72', marginTop: 6 }}>
-              They Promised Us Jetpacks · AI Education for Gen X Women
+              They Promised Us Jetpacks &middot; AI Education for Gen X Women
             </div>
+            <p style={{ fontSize: 13, color: '#9999BB', marginTop: 12, maxWidth: 320 }}>
+              Free AI tips, real examples, and new tools straight to your inbox. No spam.
+            </p>
+            <FooterNewsletter />
           </div>
           <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap' as const }}>
             <Link href="/quiz" style={{ color: '#9999BB', fontSize: 14, textDecoration: 'none' }}>
-              Newsletter
+              Quiz
             </Link>
             <Link href="/privacy" style={{ color: '#9999BB', fontSize: 14, textDecoration: 'none' }}>
               Privacy
@@ -816,83 +806,39 @@ export default function ComingSoonPage() {
               Terms
             </Link>
           </div>
-          <div style={{ display: 'flex', gap: 12 }}>
-            <a
-              href="https://www.facebook.com/jetpackersAI/"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                width: 32,
-                height: 32,
-                borderRadius: '50%',
-                background: 'rgba(255,255,255,0.1)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontSize: 14,
-                color: '#9999BB',
-                textDecoration: 'none',
-              }}
-              aria-label="Facebook"
-            >
-              f
-            </a>
-            <a
-              href="#"
-              style={{
-                width: 32,
-                height: 32,
-                borderRadius: '50%',
-                background: 'rgba(255,255,255,0.1)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontSize: 11,
-                color: '#9999BB',
-                textDecoration: 'none',
-              }}
-              aria-label="Instagram"
-            >
-              ig
-            </a>
-            <a
-              href="https://www.youtube.com/@jetpackersAI"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                width: 32,
-                height: 32,
-                borderRadius: '50%',
-                background: 'rgba(255,255,255,0.1)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontSize: 11,
-                color: '#9999BB',
-                textDecoration: 'none',
-              }}
-              aria-label="YouTube"
-            >
-              yt
-            </a>
-            <a
-              href="#"
-              style={{
-                width: 32,
-                height: 32,
-                borderRadius: '50%',
-                background: 'rgba(255,255,255,0.1)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontSize: 10,
-                color: '#9999BB',
-                textDecoration: 'none',
-              }}
-              aria-label="Substack"
-            >
-              ss
-            </a>
+          <div style={{ display: 'flex', gap: 10 }}>
+            {[
+              { href: 'https://www.facebook.com/jetpackersAI/', label: 'Facebook', text: 'f', size: 14, external: true },
+              { href: '#', label: 'Instagram', text: 'ig', size: 11, external: false },
+              { href: 'https://www.youtube.com/@jetpackersAI', label: 'YouTube', text: 'yt', size: 11, external: true },
+              { href: '#', label: 'Substack', text: 'ss', size: 10, external: false },
+            ].map((s) => (
+              <a
+                key={s.label}
+                href={s.href}
+                target={s.external ? '_blank' : undefined}
+                rel={s.external ? 'noopener noreferrer' : undefined}
+                aria-label={s.label}
+                className="social-icon"
+                style={{
+                  width: 36,
+                  height: 36,
+                  borderRadius: '50%',
+                  background: 'linear-gradient(135deg, #EC4899 0%, #A855F7 100%)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: s.size,
+                  fontWeight: 700,
+                  color: 'white',
+                  textDecoration: 'none',
+                  transition: 'transform 0.2s, box-shadow 0.2s',
+                  boxShadow: '0 2px 10px rgba(236, 72, 153, 0.3)',
+                }}
+              >
+                {s.text}
+              </a>
+            ))}
           </div>
           <div
             style={{
@@ -904,7 +850,7 @@ export default function ComingSoonPage() {
               color: '#5A5A72',
             }}
           >
-            © 2025 Jetpackers AI. All rights reserved.
+            &copy; 2025 Jetpackers AI. All rights reserved.
           </div>
         </div>
       </footer>
@@ -921,18 +867,13 @@ export default function ComingSoonPage() {
         }
       `}</style>
       <style jsx global>{`
-        .triple-cta {
-          justify-content: center;
-        }
-        .triple-cta .btn-primary {
-          flex: 0 1 auto;
+        .social-icon:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 4px 18px rgba(236, 72, 153, 0.45), 0 0 30px rgba(168, 85, 247, 0.15) !important;
         }
         @media (max-width: 640px) {
-          .triple-cta {
+          .footer-newsletter {
             flex-direction: column;
-          }
-          .triple-cta .btn-primary {
-            width: 100%;
           }
         }
       `}</style>
