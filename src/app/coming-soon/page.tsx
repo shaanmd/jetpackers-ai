@@ -4,12 +4,34 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { EmailCapture } from './EmailCapture'
 
+const struggles = [
+  'AI lies, hallucinates and steals your stuff',
+  "It writes so badly everyone will know you didn't write it yourself",
+  'The whole thing feels fake',
+  "Buuuut you'd secretly like to try it and have no idea where to start",
+]
+
 const features = [
   '3 hours of live, hands-on AI learning',
   'Zero jargon — we speak real world, not Silicon Valley',
   'Real tools you can use at work or at home the next day',
   'Small group — we\'ll be building stuff together with you, not giving lectures',
   'Replay included so you can revisit anytime',
+]
+
+const steps = [
+  {
+    title: 'Take the Quiz',
+    desc: 'Find out your AI persona and grab your spot on the Vinyl & Vibe-Along waitlist.',
+  },
+  {
+    title: 'Join the Waitlist',
+    desc: "We'll save your spot and keep you posted on when the next Vinyl & Vibe-Along opens up.",
+  },
+  {
+    title: 'Start Learning',
+    desc: "We'll add you to our newsletter, recommend our favourite AI software and send some easy tips to get you started straight away.",
+  },
 ]
 
 export default function ComingSoonPage() {
@@ -58,17 +80,19 @@ export default function ComingSoonPage() {
             <span style={{ color: 'var(--pink)' }}>Jetpackers</span>
             <span style={{ color: 'var(--teal)' }}>AI</span>
           </div>
-          <span
+          <Link
+            href="/quiz"
             className="orbitron inline-flex w-fit items-center rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-widest"
             style={{
               border: '1.5px solid var(--pink)',
               background: 'rgba(236,72,153,0.08)',
               color: 'var(--pink)',
               letterSpacing: '0.2em',
+              textDecoration: 'none',
             }}
           >
-            Join the Waitlist
-          </span>
+            Take the Quiz
+          </Link>
         </div>
 
         {/* Hero */}
@@ -95,150 +119,415 @@ export default function ComingSoonPage() {
               letterSpacing: '-0.02em',
             }}
           >
-            They Promised Us{' '}
+            AI{' '}
             <span
               style={{
                 color: 'var(--pink)',
                 textShadow: '0 0 20px rgba(236,72,153,0.25)',
               }}
             >
-              Jetpacks.
+              Curious?
             </span>
-            <br />
-            <span style={{ color: 'var(--teal)' }}>We got AI instead.</span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.15 }}
-            className="mb-6 text-[16px] leading-relaxed"
+            className="mb-3 text-[16px] leading-relaxed"
             style={{ color: 'var(--text-muted)' }}
           >
-            We were promised jetpacks, flying cars, robot assistants. We got AI.{' '}
-            <span style={{ color: 'var(--text-primary)', fontWeight: 600 }}>
-              Turns out, it&apos;s better.
-            </span>{' '}
-            Deb &amp; Shaan teach Gen X women to use the tools everyone&apos;s
-            talking about — no 22-year-old bro energy required.
+            Come and hang out with other Gen X women who want to have fun learning AI.
+            Dig out your Abba LP and your legwarmers, and we&apos;ll take you from complete
+            beginner to confident vibe coder.
           </motion.p>
 
-          {/* Vibe-A-Long course card */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
+          <motion.p
+            initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.22 }}
-            className="mb-6 rounded-2xl p-5 md:p-6"
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="mb-6 text-[14px] italic"
+            style={{ color: 'var(--teal)' }}
+          >
+            Curious enough to ask questions. Brave enough to press the buttons.
+          </motion.p>
+
+          {/* Proof strip */}
+          <motion.div
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.25 }}
+            className="mb-6 flex flex-col gap-2 rounded-xl p-4"
             style={{
               background: 'var(--bg-card)',
-              border: '1.5px solid rgba(236,72,153,0.25)',
-              boxShadow: '0 2px 16px rgba(236,72,153,0.06)',
+              border: '1px solid var(--border)',
             }}
           >
-            <div className="mb-3 flex flex-wrap items-center gap-2">
-              <span
-                className="orbitron rounded px-2 py-1 text-[10px] font-bold uppercase tracking-widest"
-                style={{ background: 'rgba(236,72,153,0.08)', color: 'var(--pink)' }}
-              >
-                Waitlist Open
-              </span>
-              <span
-                className="rounded px-2 py-1 text-[10px] font-semibold uppercase tracking-widest"
-                style={{ background: 'rgba(13,148,136,0.08)', color: 'var(--teal)' }}
-              >
-                Weekend Session · Date TBA
-              </span>
-            </div>
-
-            <h2
-              className="orbitron mb-1"
-              style={{ fontSize: 'clamp(1.1rem, 3vw, 1.4rem)', fontWeight: 700, color: 'var(--text-primary)' }}
-            >
-              Vibe-A-Long
-            </h2>
-            <p className="mb-4 text-[13px]" style={{ color: 'var(--text-muted)' }}>
-              A 3-hour live session with Shaan &amp; Deb — build real AI skills in a single weekend session.
-            </p>
-
-            <ul className="mb-4 space-y-2">
-              {features.map((f) => (
-                <li key={f} className="flex items-start gap-2 text-[13px]" style={{ color: 'var(--text-muted)' }}>
-                  <span style={{ color: 'var(--teal)', marginTop: 1, flexShrink: 0 }}>→</span>
-                  {f}
-                </li>
-              ))}
-            </ul>
-
-            <div
-              className="rounded-xl p-4"
-              style={{ background: 'rgba(107,33,168,0.06)', border: '1px solid rgba(107,33,168,0.15)' }}
-            >
-              <p className="mb-1 text-[12px] font-semibold uppercase tracking-widest" style={{ color: 'var(--teal)' }}>
-                Reserve your spot
-              </p>
-              <p className="text-[13px]" style={{ color: 'var(--text-muted)' }}>
-                Date and time dropping soon. Join the list and we&apos;ll email you the moment it&apos;s live — early birds get first access and best pricing.
-              </p>
-            </div>
+            {[
+              'Catch up to the latest tech without having to be techie',
+              'Join other Gen X women in a supportive AI learning space',
+              'Have a bunch of laughs doing it',
+            ].map((item) => (
+              <div key={item} className="flex items-start gap-2 text-[14px]" style={{ color: 'var(--text-primary)' }}>
+                <span style={{ color: 'var(--teal)', flexShrink: 0 }}>✓</span>
+                {item}
+              </div>
+            ))}
           </motion.div>
 
-          {/* Email capture */}
+          {/* Newsletter note + Email capture */}
           <motion.div
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.3 }}
+            className="mb-6 rounded-xl p-4 md:p-5"
+            style={{
+              background: 'rgba(13,148,136,0.04)',
+              border: '1px solid rgba(13,148,136,0.15)',
+            }}
           >
-            <EmailCapture />
-            <p className="mt-3 text-[11px]" style={{ color: 'var(--text-footer)' }}>
-              No spam. You&apos;ll hear from us with AI tips, tools, early access, and updates from the Jetpackers community.
+            <p className="mb-4 text-[14px] leading-relaxed" style={{ color: 'var(--text-primary)' }}>
+              Take the quiz and you&apos;ll be signed up for our free newsletter: AI basics, real examples, and new tools straight to your inbox.
+            </p>
+            <Link
+              href="/quiz"
+              className="inline-block rounded-md px-5 py-2.5 text-sm font-semibold transition-all"
+              style={{
+                background: 'var(--pink)',
+                color: 'white',
+                textDecoration: 'none',
+                boxShadow: '0 0 16px rgba(236,72,153,0.2)',
+              }}
+            >
+              Take the Quiz
+            </Link>
+          </motion.div>
+
+          {/* Sound familiar? */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.35 }}
+            className="mb-6 rounded-xl p-5 md:p-6"
+            style={{
+              background: 'var(--bg-card)',
+              border: '1px solid var(--border)',
+            }}
+          >
+            <h2
+              className="orbitron mb-4"
+              style={{ fontSize: 'clamp(1.1rem, 3vw, 1.4rem)', fontWeight: 700 }}
+            >
+              Sound familiar?
+            </h2>
+            <ul className="space-y-3">
+              {struggles.map((s) => (
+                <li
+                  key={s}
+                  className="flex items-start gap-3 text-[14px] leading-relaxed"
+                  style={{ color: 'var(--text-muted)' }}
+                >
+                  <span
+                    style={{
+                      width: 8,
+                      height: 8,
+                      borderRadius: '50%',
+                      background: 'var(--pink)',
+                      flexShrink: 0,
+                      marginTop: 6,
+                    }}
+                  />
+                  {s}
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+
+          {/* Stakes */}
+          <motion.div
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.38 }}
+            className="mb-6 rounded-xl p-5 text-center"
+            style={{
+              background: 'rgba(107,33,168,0.06)',
+              border: '1px solid rgba(107,33,168,0.15)',
+            }}
+          >
+            <p className="text-[15px] leading-relaxed" style={{ color: 'var(--text-muted)' }}>
+              AI is here to stay. It&apos;s not up to taking over the world yet, but it&apos;s not going anywhere.{' '}
+              <span style={{ color: 'var(--text-primary)', fontWeight: 600 }}>
+                Instead of feeling left behind, pour a glass of wine (or top up your HRT) and let us help you catch up.
+              </span>
             </p>
           </motion.div>
 
-          {/* Quiz CTA */}
+          {/* Two ways to get started */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="mb-6"
+          >
+            <p
+              className="mb-2 text-[11px] font-semibold uppercase tracking-widest"
+              style={{ color: 'var(--teal)' }}
+            >
+              Here&apos;s what we&apos;ve got for you
+            </p>
+            <h2
+              className="orbitron mb-4"
+              style={{ fontSize: 'clamp(1.1rem, 3vw, 1.4rem)', fontWeight: 700 }}
+            >
+              Two ways to get started
+            </h2>
+
+            <div className="flex flex-col gap-4">
+              {/* Vinyl & Vibe-Along card */}
+              <div
+                className="rounded-xl p-5"
+                style={{
+                  background: 'var(--bg-card)',
+                  border: '1.5px solid rgba(236,72,153,0.25)',
+                  boxShadow: '0 2px 16px rgba(236,72,153,0.06)',
+                }}
+              >
+                <h3
+                  className="orbitron mb-2"
+                  style={{ fontSize: '1.1rem', fontWeight: 700 }}
+                >
+                  Vinyl &amp; Vibe-Along
+                </h3>
+                <p className="mb-3 text-[14px] leading-relaxed" style={{ color: 'var(--text-muted)' }}>
+                  A small group of women dig out their favourite background albums, get together online
+                  and we show you the ropes. You&apos;ll be surprised at how easy it is to build cool
+                  and useful stuff in a really short time.
+                </p>
+                <p className="mb-3 text-[13px] italic" style={{ color: 'var(--pink)' }}>
+                  You&apos;ll get the vibes, promise.
+                </p>
+                <span
+                  className="orbitron inline-block rounded px-3 py-1 text-[12px] font-bold"
+                  style={{ background: 'rgba(236,72,153,0.08)', color: 'var(--pink)' }}
+                >
+                  $67 NZD · 6 spots only
+                </span>
+              </div>
+
+              {/* Newsletter card */}
+              <div
+                className="rounded-xl p-5"
+                style={{
+                  background: 'var(--bg-card)',
+                  border: '1px solid var(--border)',
+                }}
+              >
+                <h3
+                  className="orbitron mb-2"
+                  style={{ fontSize: '1.1rem', fontWeight: 700 }}
+                >
+                  The Newsletter
+                </h3>
+                <p className="mb-3 text-[14px] leading-relaxed" style={{ color: 'var(--text-muted)' }}>
+                  We explain the AI basics, show examples of what it can do, and help you keep up to speed with new tricks and tools.
+                </p>
+                <p className="mb-3 text-[13px] italic" style={{ color: 'var(--pink)' }}>
+                  Great with your morning coffee.
+                </p>
+                <span
+                  className="orbitron inline-block rounded px-3 py-1 text-[12px] font-bold"
+                  style={{ background: 'rgba(13,148,136,0.08)', color: 'var(--teal)' }}
+                >
+                  Free
+                </span>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* We get it */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.42 }}
+            className="mb-6 rounded-xl p-5 md:p-6"
+            style={{
+              background: 'rgba(107,33,168,0.04)',
+              border: '1px solid rgba(107,33,168,0.15)',
+            }}
+          >
+            <p
+              className="mb-2 text-[11px] font-semibold uppercase tracking-widest"
+              style={{ color: 'var(--teal)' }}
+            >
+              We get it
+            </p>
+            <h2
+              className="orbitron mb-4"
+              style={{ fontSize: 'clamp(1.1rem, 3vw, 1.3rem)', fontWeight: 700 }}
+            >
+              We&apos;ve been here before.
+            </h2>
+            <p className="mb-4 text-[14px] leading-relaxed" style={{ color: 'var(--text-muted)' }}>
+              When we were growing up we had cassette tapes (wound back in with pencils when they
+              went haywire) and the VHS. A walkman was cool. Mobile phones and computers were on a
+              futuristic par with those jetpacks they promised us. Well, we got AI instead. And while
+              it seems overwhelming, when you look back we&apos;ve made it through a whole lot of
+              different technological advances, and this is just the latest one. We can do this too.
+            </p>
+            <div
+              className="rounded-lg p-4"
+              style={{
+                background: 'rgba(13,148,136,0.04)',
+                borderLeft: '3px solid var(--teal)',
+              }}
+            >
+              <p className="text-[14px] leading-relaxed" style={{ color: 'var(--text-muted)' }}>
+                Shaan was a web designer and teacher of coding in a previous life. Now she&apos;s an
+                avid AI user (and a vet!) who can whip up cool apps in a blink. Deb (also a vet)
+                learned coding basics at the turn of the century and is more tech friendly than tech
+                pro, but she tries out all the tools to find out just how much a normal person can do.
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Pricing */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.44 }}
+            className="mb-6"
+          >
+            <p
+              className="mb-2 text-[11px] font-semibold uppercase tracking-widest"
+              style={{ color: 'var(--teal)' }}
+            >
+              How much does it cost?
+            </p>
+            <h2
+              className="orbitron mb-4"
+              style={{ fontSize: 'clamp(1.1rem, 3vw, 1.4rem)', fontWeight: 700 }}
+            >
+              Simple pricing
+            </h2>
+
+            <div className="flex flex-col gap-4">
+              <div
+                className="rounded-xl p-5"
+                style={{
+                  border: '2px solid var(--pink)',
+                  background: 'var(--bg-card)',
+                }}
+              >
+                <span
+                  className="orbitron mb-2 inline-block rounded px-2 py-1 text-[10px] font-bold uppercase tracking-widest"
+                  style={{ background: 'rgba(236,72,153,0.08)', color: 'var(--pink)' }}
+                >
+                  Introductory price
+                </span>
+                <h3
+                  className="orbitron mb-1"
+                  style={{ fontSize: '1.1rem', fontWeight: 700 }}
+                >
+                  Vinyl &amp; Vibe-Along
+                </h3>
+                <p
+                  className="orbitron mb-3"
+                  style={{ fontSize: '1.8rem', fontWeight: 800, color: 'var(--pink)' }}
+                >
+                  $67 <span className="text-[14px] font-normal" style={{ color: 'var(--text-muted)' }}>NZD</span>
+                </p>
+                <p className="text-[14px] leading-relaxed" style={{ color: 'var(--text-muted)' }}>
+                  A 3-hour online session, small group, max 6 people. We show you the ropes and you
+                  build something useful. Vinyl grooves in the background.
+                </p>
+              </div>
+
+              <div
+                className="rounded-xl p-5"
+                style={{
+                  border: '1px solid var(--border)',
+                  background: 'var(--bg-card)',
+                }}
+              >
+                <h3
+                  className="orbitron mb-1"
+                  style={{ fontSize: '1.1rem', fontWeight: 700 }}
+                >
+                  The Newsletter
+                </h3>
+                <p
+                  className="orbitron mb-3"
+                  style={{ fontSize: '1.8rem', fontWeight: 800, color: 'var(--teal)' }}
+                >
+                  Free
+                </p>
+                <p className="text-[14px] leading-relaxed" style={{ color: 'var(--text-muted)' }}>
+                  AI basics, real examples, new tools and a few laughs.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* How it works */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.46 }}
+            className="mb-6 rounded-xl p-5 md:p-6"
+            style={{
+              background: 'var(--bg-card)',
+              border: '1px solid var(--border)',
+            }}
+          >
+            <p
+              className="mb-2 text-[11px] font-semibold uppercase tracking-widest"
+              style={{ color: 'var(--teal)' }}
+            >
+              Getting started
+            </p>
+            <h2
+              className="orbitron mb-5"
+              style={{ fontSize: 'clamp(1.1rem, 3vw, 1.4rem)', fontWeight: 700 }}
+            >
+              How it works
+            </h2>
+            <div className="space-y-5">
+              {steps.map((step, i) => (
+                <div key={step.title} className="flex items-start gap-4">
+                  <div
+                    className="orbitron flex items-center justify-center rounded-full text-[14px] font-bold"
+                    style={{
+                      width: 36,
+                      height: 36,
+                      flexShrink: 0,
+                      background: 'var(--pink)',
+                      color: 'white',
+                    }}
+                  >
+                    {i + 1}
+                  </div>
+                  <div>
+                    <h3
+                      className="orbitron mb-1 text-[15px] font-bold"
+                      style={{ color: 'var(--text-primary)' }}
+                    >
+                      {step.title}
+                    </h3>
+                    <p className="text-[14px] leading-relaxed" style={{ color: 'var(--text-muted)' }}>
+                      {step.desc}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Who we are */}
           <motion.div
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.48 }}
-            className="mt-5 rounded-xl p-4 md:p-5"
-            style={{
-              background: 'var(--bg-card)',
-              border: '1px solid rgba(107,33,168,0.2)',
-            }}
-          >
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-              <div>
-                <p className="mb-0.5 text-[11px] font-semibold uppercase tracking-widest" style={{ color: 'var(--purple)' }}>
-                  Not sure where to start?
-                </p>
-                <p className="text-[14px] font-semibold" style={{ color: 'var(--text-primary)' }}>
-                  Find out what kind of AI woman you are 🎬
-                </p>
-                <p className="mt-0.5 text-[12px]" style={{ color: 'var(--text-muted)' }}>
-                  7 questions. Breakfast Club meets The Jetsons. Free.
-                </p>
-              </div>
-              <Link
-                href="/quiz"
-                className="orbitron shrink-0 rounded-lg px-4 py-2.5 text-center text-[12px] font-bold uppercase tracking-widest transition-all"
-                style={{
-                  background: 'rgba(107,33,168,0.08)',
-                  border: '1.5px solid var(--purple)',
-                  color: 'var(--purple)',
-                  textDecoration: 'none',
-                  whiteSpace: 'nowrap',
-                }}
-              >
-                Take the Quiz →
-              </Link>
-            </div>
-          </motion.div>
-
-          {/* About strip */}
-          <motion.div
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.4 }}
-            className="mt-8 rounded-xl p-4 md:p-5"
+            className="mb-6 rounded-xl p-4 md:p-5"
             style={{
               background: 'var(--bg-card)',
               border: '1px solid var(--border)',
@@ -250,16 +539,23 @@ export default function ComingSoonPage() {
             >
               Who we are
             </p>
+            <h2
+              className="orbitron mb-3"
+              style={{ fontSize: 'clamp(1rem, 2.5vw, 1.2rem)', fontWeight: 700 }}
+            >
+              Two Gen X women who want to share the love.
+            </h2>
             <p className="mb-3 text-[13px] leading-relaxed" style={{ color: 'var(--text-muted)' }}>
               Two Gen X women. We happen to be vets, but we&apos;re primarily experts in figuring things out.
               We lived through the analog-to-digital morph, and we&apos;re doing it again with AI.
-              This isn&apos;t for the generation that grew up with an iPad — it&apos;s for those of us who remember
+              This isn&apos;t for the generation that grew up with an iPad, it&apos;s for those of us who remember
               the pre-internet world and are developing the wrinkles to prove we can conquer what&apos;s next.
             </p>
             <p className="mb-3 text-[13px] leading-relaxed" style={{ color: 'var(--text-muted)' }}>
-              The AI conversation is dominated by people who weren&apos;t alive when Top Gun came out the{' '}
-              <em style={{ color: 'var(--text-primary)' }}>first</em> time.{' '}
-              <span style={{ color: 'var(--text-primary)', fontWeight: 600 }}>We built this for women like us.</span>
+              We used to make websites the long way, learning HTML from big fat textbooks and typing
+              into a scary looking terminal on a chunky IBM computer. Now we can whip up useful software
+              tools like websites and apps, research in a jiffy and streamline our work tasks because
+              we&apos;ve learned how to make AI work for us.
             </p>
             <div className="mt-3 flex flex-col gap-2 sm:flex-row sm:gap-6">
               {[
@@ -287,13 +583,57 @@ export default function ComingSoonPage() {
                 </div>
               ))}
             </div>
-            <Link
-              href="/about"
-              className="mt-4 inline-block text-[13px] font-medium"
-              style={{ color: 'var(--teal)', textDecoration: 'none' }}
-            >
-              Meet the team &rarr;
-            </Link>
+          </motion.div>
+
+          {/* Quiz CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.5 }}
+            className="mb-6 rounded-xl p-4 md:p-5"
+            style={{
+              background: 'var(--bg-card)',
+              border: '1px solid rgba(107,33,168,0.2)',
+            }}
+          >
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <p className="mb-0.5 text-[11px] font-semibold uppercase tracking-widest" style={{ color: 'var(--purple)' }}>
+                  Not sure where to start?
+                </p>
+                <p className="text-[14px] font-semibold" style={{ color: 'var(--text-primary)' }}>
+                  Take our 2-minute quiz to find out your AI persona
+                </p>
+                <p className="mt-0.5 text-[12px]" style={{ color: 'var(--text-muted)' }}>
+                  Get your mitts on our newsletter and join the Vinyl &amp; Vibe-Along waitlist.
+                </p>
+              </div>
+              <Link
+                href="/quiz"
+                className="orbitron shrink-0 rounded-lg px-4 py-2.5 text-center text-[12px] font-bold uppercase tracking-widest transition-all"
+                style={{
+                  background: 'rgba(107,33,168,0.08)',
+                  border: '1.5px solid var(--purple)',
+                  color: 'var(--purple)',
+                  textDecoration: 'none',
+                  whiteSpace: 'nowrap',
+                }}
+              >
+                Take the Quiz →
+              </Link>
+            </div>
+          </motion.div>
+
+          {/* Email capture */}
+          <motion.div
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.52 }}
+          >
+            <EmailCapture />
+            <p className="mt-3 text-[11px]" style={{ color: 'var(--text-footer)' }}>
+              No spam. You&apos;ll hear from us with AI tips, tools, early access, and updates from the Jetpackers community.
+            </p>
           </motion.div>
         </section>
 
