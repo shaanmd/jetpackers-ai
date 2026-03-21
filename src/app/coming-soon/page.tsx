@@ -7,62 +7,19 @@ const dmSans = "var(--font-dm), 'DM Sans', sans-serif"
 
 function TripleCta() {
   return (
-    <div style={{ marginTop: 36, textAlign: 'center' }}>
-      <div
-        style={{
-          display: 'inline-flex',
-          alignItems: 'center',
-          borderRadius: 6,
-          overflow: 'hidden',
-          border: '2px solid #E91E8C',
-          flexWrap: 'wrap',
-        }}
-      >
-        <Link
-          href="/quiz"
-          style={{
-            padding: '13px 20px',
-            fontFamily: outfit,
-            fontWeight: 600,
-            fontSize: 14,
-            background: '#E91E8C',
-            color: 'white',
-            textDecoration: 'none',
-          }}
-        >
-          Take the Quiz
-        </Link>
-        <div style={{ background: 'rgba(255,255,255,0.25)', width: 1, alignSelf: 'stretch' }} />
-        <Link
-          href="/quiz"
-          style={{
-            padding: '13px 20px',
-            fontFamily: outfit,
-            fontWeight: 600,
-            fontSize: 14,
-            background: '#E91E8C',
-            color: 'white',
-            textDecoration: 'none',
-          }}
-        >
-          Get the Newsletter
-        </Link>
-        <div style={{ background: 'rgba(255,255,255,0.25)', width: 1, alignSelf: 'stretch' }} />
-        <Link
-          href="/quiz"
-          style={{
-            padding: '13px 20px',
-            fontFamily: outfit,
-            fontWeight: 600,
-            fontSize: 14,
-            background: '#E91E8C',
-            color: 'white',
-            textDecoration: 'none',
-          }}
-        >
-          Join the Vinyl &amp; Vibe-Along Waitlist
-        </Link>
-      </div>
+    <div
+      style={{ marginTop: 36, display: 'flex', flexWrap: 'wrap', gap: 12 }}
+      className="triple-cta"
+    >
+      <Link href="/quiz" className="btn-primary" style={{ textDecoration: 'none', textAlign: 'center' }}>
+        Take the Quiz &rarr;
+      </Link>
+      <Link href="/quiz" className="btn-primary" style={{ textDecoration: 'none', textAlign: 'center' }}>
+        Get the Newsletter &rarr;
+      </Link>
+      <Link href="/quiz" className="btn-primary" style={{ textDecoration: 'none', textAlign: 'center' }}>
+        Join the Vinyl &amp; Vibe-Along Waitlist &rarr;
+      </Link>
     </div>
   )
 }
@@ -85,20 +42,14 @@ export default function ComingSoonPage() {
         </div>
         <Link
           href="/quiz"
+          className="btn-primary"
           style={{
-            background: '#E91E8C',
-            color: 'white',
-            border: 'none',
             padding: '10px 20px',
-            borderRadius: 6,
-            fontFamily: outfit,
-            fontWeight: 600,
             fontSize: 14,
-            cursor: 'pointer',
             textDecoration: 'none',
           }}
         >
-          Take the Quiz
+          Take the Quiz &rarr;
         </Link>
       </nav>
 
@@ -185,21 +136,13 @@ export default function ComingSoonPage() {
         </p>
         <Link
           href="/quiz"
+          className="btn-primary"
           style={{
             display: 'inline-block',
-            background: '#E91E8C',
-            color: 'white',
-            border: 'none',
-            padding: '14px 28px',
-            borderRadius: 6,
-            fontFamily: outfit,
-            fontWeight: 600,
-            fontSize: 15,
-            cursor: 'pointer',
             textDecoration: 'none',
           }}
         >
-          Take the Quiz
+          Take the Quiz &rarr;
         </Link>
       </div>
 
@@ -775,9 +718,7 @@ export default function ComingSoonPage() {
               software tools like websites and apps, research in a jiffy and streamline our work tasks
               because we&apos;ve learned how to make AI work for us.
             </p>
-            <div style={{ textAlign: 'left' }}>
-              <TripleCta />
-            </div>
+            <TripleCta />
           </div>
           <div
             style={{
@@ -976,6 +917,22 @@ export default function ComingSoonPage() {
           .pricing-grid,
           .exp-grid {
             grid-template-columns: 1fr !important;
+          }
+        }
+      `}</style>
+      <style jsx global>{`
+        .triple-cta {
+          justify-content: center;
+        }
+        .triple-cta .btn-primary {
+          flex: 0 1 auto;
+        }
+        @media (max-width: 640px) {
+          .triple-cta {
+            flex-direction: column;
+          }
+          .triple-cta .btn-primary {
+            width: 100%;
           }
         }
       `}</style>
