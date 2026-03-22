@@ -10,9 +10,15 @@ const dmSans = "var(--font-dm), 'DM Sans', sans-serif"
 function VibeAlongCta({ center = true }: { center?: boolean }) {
   return (
     <div style={{ marginTop: 36, display: 'flex', flexWrap: 'wrap', gap: 12, justifyContent: center ? 'center' : 'flex-start' }}>
-      <Link href="/quiz" className="btn-primary" style={{ textDecoration: 'none', textAlign: 'center' }}>
-        Join the Vinyl &amp; Vibe-Along Waitlist &rarr;
-      </Link>
+      <a
+        href="https://buy.stripe.com/test_aFa9ATf6B1zGeBS6V9fw400"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="btn-primary"
+        style={{ textDecoration: 'none', textAlign: 'center' }}
+      >
+        Sign up for the Vibe-Along &rarr;
+      </a>
       <Link href="/quiz" className="btn-secondary" style={{ textDecoration: 'none', textAlign: 'center', color: 'inherit' }}>
         Take the Quiz
       </Link>
@@ -125,9 +131,15 @@ export default function ComingSoonPage() {
           Curious enough to ask questions. Brave enough to press the buttons.
         </p>
         <div style={{ display: 'flex', justifyContent: 'center', gap: 12, marginTop: 32, flexWrap: 'wrap' }}>
-          <Link href="/quiz" className="btn-primary" style={{ textDecoration: 'none', textAlign: 'center', padding: '16px 32px', fontSize: 16 }}>
-            Join the Vinyl &amp; Vibe-Along Waitlist &rarr;
-          </Link>
+          <a
+            href="https://buy.stripe.com/test_aFa9ATf6B1zGeBS6V9fw400"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary"
+            style={{ textDecoration: 'none', textAlign: 'center', padding: '16px 32px', fontSize: 16 }}
+          >
+            Sign up for the Vibe-Along &rarr;
+          </a>
         </div>
       </section>
 
