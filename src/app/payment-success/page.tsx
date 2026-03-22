@@ -5,7 +5,7 @@ const outfit = "var(--font-outfit), 'Outfit', sans-serif"
 const dmSans = "var(--font-dm), 'DM Sans', sans-serif"
 
 export const metadata: Metadata = {
-  title: 'You're in! | Jetpackers AI',
+  title: "You're in! | Jetpackers AI",
   description: 'Your Vinyl & Vibe-Along spot is confirmed.',
 }
 
