@@ -1,19 +1,4 @@
-'use client'
-
-import { useState } from 'react'
-import { useContact } from '@/hooks/useContact'
-
 export default function BuildAlong() {
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const { submit, status } = useContact()
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    if (!name.trim() || !email.trim()) return
-    await submit({ email, name, source: 'buildalong' })
-  }
-
   return (
     <section
       id="buildalong"
@@ -60,50 +45,15 @@ export default function BuildAlong() {
           web app, a website, or an AI tool — in one session. No experience needed.
           Just show up and build.
         </p>
-        {status === 'success' ? (
-          <p
-            style={{
-              color: 'var(--teal)',
-              fontWeight: 500,
-              fontSize: 16,
-            }}
-          >
-            You are on the list. We will be in touch soon.
-          </p>
-        ) : (
-          <form
-            onSubmit={handleSubmit}
-            className="flex flex-col sm:flex-row flex-wrap justify-center gap-3"
-            style={{ maxWidth: 520, margin: '0 auto' }}
-          >
-            <input
-              className="waitlist-input"
-              type="text"
-              placeholder="Your name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              style={{ flex: '1 1 140px', minWidth: 0 }}
-              aria-label="Your name"
-            />
-            <input
-              className="waitlist-input"
-              type="email"
-              placeholder="your@email.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              style={{ flex: '1 1 180px', minWidth: 0 }}
-              aria-label="Email address"
-            />
-            <button
-              type="submit"
-              className="btn-primary"
-              disabled={status === 'loading'}
-              style={{ flexShrink: 0 }}
-            >
-              {status === 'loading' ? 'Joining…' : 'Join the waitlist'}
-            </button>
-          </form>
-        )}
+        <a
+          href="https://buy.stripe.com/test_aFa9ATf6B1zGeBS6V9fw400"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn-primary"
+          style={{ display: 'inline-block', textDecoration: 'none' }}
+        >
+          Sign up now
+        </a>
       </div>
     </section>
   )
