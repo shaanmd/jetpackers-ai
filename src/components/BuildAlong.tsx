@@ -46,7 +46,7 @@ export default function BuildAlong() {
           Just show up and build.
         </p>
         <a
-          href="https://buy.stripe.com/test_aFa9ATf6B1zGeBS6V9fw400"
+          href="https://buy.stripe.com/14AfZh7Lzd7q2Bja7m6EU00"
           target="_blank"
           rel="noopener noreferrer"
           className="btn-primary"

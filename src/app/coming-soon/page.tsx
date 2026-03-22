@@ -11,7 +11,7 @@ function VibeAlongCta({ center = true }: { center?: boolean }) {
   return (
     <div style={{ marginTop: 36, display: 'flex', flexWrap: 'wrap', gap: 12, justifyContent: center ? 'center' : 'flex-start' }}>
       <a
-        href="https://buy.stripe.com/test_aFa9ATf6B1zGeBS6V9fw400"
+        href="https://buy.stripe.com/14AfZh7Lzd7q2Bja7m6EU00"
         target="_blank"
         rel="noopener noreferrer"
         className="btn-primary"
@@ -132,7 +132,7 @@ export default function ComingSoonPage() {
         </p>
         <div style={{ display: 'flex', justifyContent: 'center', gap: 12, marginTop: 32, flexWrap: 'wrap' }}>
           <a
-            href="https://buy.stripe.com/test_aFa9ATf6B1zGeBS6V9fw400"
+            href="https://buy.stripe.com/14AfZh7Lzd7q2Bja7m6EU00"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-primary"
