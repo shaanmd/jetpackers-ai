@@ -7,9 +7,22 @@ import { useContact } from '@/hooks/useContact'
 const outfit = "var(--font-outfit), 'Outfit', sans-serif"
 const dmSans = "var(--font-dm), 'DM Sans', sans-serif"
 
-function VibeAlongCta({ center = true }: { center?: boolean }) {
+function QuizCta({ center = true }: { center?: boolean }) {
   return (
     <div style={{ marginTop: 36, display: 'flex', flexWrap: 'wrap', gap: 12, justifyContent: center ? 'center' : 'flex-start' }}>
+      <Link href="/quiz" className="btn-primary" style={{ textDecoration: 'none', textAlign: 'center' }}>
+        Take the Quiz &rarr;
+      </Link>
+    </div>
+  )
+}
+
+function SignUpCta({ center = true }: { center?: boolean }) {
+  return (
+    <div style={{ marginTop: 24, display: 'flex', flexDirection: 'column' as const, alignItems: center ? 'center' : 'flex-start', gap: 12 }}>
+      <p style={{ fontSize: 15, color: '#5A5A72', fontStyle: 'italic', margin: 0 }}>
+        Ready to sign up now? Skip the quiz and grab your spot.
+      </p>
       <a
         href="https://buy.stripe.com/14AfZh7Lzd7q2Bja7m6EU00"
         target="_blank"
@@ -19,9 +32,6 @@ function VibeAlongCta({ center = true }: { center?: boolean }) {
       >
         Sign up for the Vibe-Along &rarr;
       </a>
-      <Link href="/quiz" className="btn-secondary" style={{ textDecoration: 'none', textAlign: 'center', color: 'inherit' }}>
-        Take the Quiz
-      </Link>
     </div>
   )
 }
@@ -131,15 +141,13 @@ export default function ComingSoonPage() {
           Curious enough to ask questions. Brave enough to press the buttons.
         </p>
         <div style={{ display: 'flex', justifyContent: 'center', gap: 12, marginTop: 32, flexWrap: 'wrap' }}>
-          <a
-            href="https://buy.stripe.com/14AfZh7Lzd7q2Bja7m6EU00"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/quiz"
             className="btn-primary"
             style={{ textDecoration: 'none', textAlign: 'center', padding: '16px 32px', fontSize: 16 }}
           >
-            Sign up for the Vibe-Along &rarr;
-          </a>
+            Take the Quiz &rarr;
+          </Link>
         </div>
       </section>
 
@@ -372,7 +380,7 @@ export default function ComingSoonPage() {
               </span>
             </div>
           </div>
-          <VibeAlongCta />
+          <QuizCta />
         </div>
       </div>
 
@@ -434,7 +442,7 @@ export default function ComingSoonPage() {
             coding basics at the turn of the century and is more tech friendly than tech pro, but she
             tries out all the tools to find out just how much a normal person can do.
           </div>
-          <VibeAlongCta />
+          <QuizCta />
         </div>
       </div>
 
@@ -593,7 +601,7 @@ export default function ComingSoonPage() {
               </p>
             </div>
           </div>
-          <VibeAlongCta />
+          <QuizCta />
         </div>
       </div>
 
@@ -682,7 +690,7 @@ export default function ComingSoonPage() {
               </div>
             ))}
           </div>
-          <VibeAlongCta />
+          <QuizCta />
         </div>
       </div>
 
@@ -726,7 +734,7 @@ export default function ComingSoonPage() {
               software tools like websites and apps, research in a jiffy and streamline our work tasks
               because we&apos;ve learned how to make AI work for us.
             </p>
-            <VibeAlongCta center={false} />
+            <SignUpCta center={false} />
           </div>
           <div style={{ borderRadius: 12, overflow: 'hidden' }}>
             <img
@@ -755,7 +763,7 @@ export default function ComingSoonPage() {
           Take our 2-minute quiz to find out your AI persona and
           join the Vinyl &amp; Vibe-Along waitlist.
         </p>
-        <VibeAlongCta />
+        <QuizCta />
       </div>
 
       {/* Vet callout */}
