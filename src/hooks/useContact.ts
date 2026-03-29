@@ -7,13 +7,14 @@ interface ContactOptions {
   email: string
   name?: string
   source: string
+  tags?: string[]
 }
 
 export const useContact = () => {
   const [status, setStatus] = useState<Status>('idle')
   const [message, setMessage] = useState('')
 
-  const submit = async ({ email, name, source }: ContactOptions) => {
+  const submit = async ({ email, name, source, tags }: ContactOptions) => {
     if (!email) return
     setStatus('loading')
     setMessage('')
@@ -23,7 +24,7 @@ export const useContact = () => {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: email.trim(), name: name?.trim(), source }),
+        body: JSON.stringify({ email: email.trim(), name: name?.trim(), source, tags }),
       })
 
       if (!res.ok) {
