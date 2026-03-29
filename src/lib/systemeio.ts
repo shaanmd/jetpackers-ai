@@ -36,7 +36,14 @@ export async function createOrUpdateContact(
       `${SYSTEME_API}/contacts?email=${encodeURIComponent(email)}`,
       { headers: { 'X-API-Key': apiKey } }
     )
+    if (!lookup.ok) {
+      const detail = await lookup.text()
+      throw new Error(`systeme.io error looking up contact: ${lookup.status} — ${detail}`)
+    }
     const data = await lookup.json()
+    if (!data.items || data.items.length === 0) {
+      throw new Error(`systeme.io: contact not found after 422 for email ${email}`)
+    }
     return data.items[0].id as string
   }
 
@@ -53,12 +60,15 @@ export async function applyTags(contactId: string, tags: string[]): Promise<void
   const apiKey = getApiKey()
 
   await Promise.all(
-    tags.map((tag) =>
-      fetch(`${SYSTEME_API}/contacts/${contactId}/tags`, {
+    tags.map(async (tag) => {
+      const res = await fetch(`${SYSTEME_API}/contacts/${contactId}/tags`, {
         method: 'POST',
         headers: { 'X-API-Key': apiKey, 'Content-Type': 'application/json' },
         body: JSON.stringify({ name: tag }),
       })
-    )
+      if (!res.ok) {
+        console.warn(`systeme.io: failed to apply tag "${tag}" to contact ${contactId} (${res.status})`)
+      }
+    })
   )
 }
