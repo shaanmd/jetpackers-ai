@@ -149,6 +149,13 @@ const personas: Record<
   },
 }
 
+const personaTagMap: Record<Answer, string> = {
+  A: 'persona-classic-hit',
+  B: 'persona-practical-pioneer',
+  C: 'persona-power-player',
+  D: 'persona-traditionalist',
+}
+
 // ─── Scoring ──────────────────────────────────────────────────────────────────
 
 function getPersona(answers: Record<number, Answer>): Answer {
@@ -205,7 +212,11 @@ export default function QuizClient() {
       await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: email.trim(), source: 'quiz-completed' }),
+        body: JSON.stringify({
+          email: email.trim(),
+          source: 'quiz-completed',
+          tags: ['quiz-completed', personaTagMap[p]],
+        }),
       })
     } catch (err) {
       console.warn('Systeme.io request failed:', err)
