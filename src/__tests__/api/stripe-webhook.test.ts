@@ -4,6 +4,12 @@ jest.mock('stripe', () => {
   return jest.fn().mockImplementation(() => ({}))
 })
 
+jest.mock('resend', () => ({
+  Resend: jest.fn().mockImplementation(() => ({
+    emails: { send: jest.fn().mockResolvedValue({ id: 'email-123' }) },
+  })),
+}))
+
 import { handleCheckoutCompleted } from '@/app/api/stripe/webhook/route'
 
 const mockCreateOrUpdateContact = jest.fn()
@@ -14,12 +20,14 @@ jest.mock('@/lib/systemeio', () => ({
 
 beforeEach(() => {
   mockCreateOrUpdateContact.mockReset()
+  process.env.RESEND_API_KEY = 'test-resend-key'
+  process.env.RESEND_FROM_EMAIL = 'test@sdvetstudio.com'
 })
 
 describe('handleCheckoutCompleted', () => {
   it('creates/updates contact on payment', async () => {
     const session = {
-      customer_details: { email: 'buyer@example.com' },
+      customer_details: { email: 'buyer@example.com', name: 'Jane Smith' },
     } as Stripe.Checkout.Session
 
     await handleCheckoutCompleted(session)

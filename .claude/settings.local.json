@@ -24,7 +24,10 @@
       "Bash(do touch:*)",
       "Bash(done)",
       "Bash(node -e \"const j=require\\(''./node_modules/jest/package.json''\\); const tj=require\\(''./node_modules/ts-jest/package.json''\\); const jd=require\\(''./node_modules/@testing-library/jest-dom/package.json''\\); console.log\\(''jest:'', j.version\\); console.log\\(''ts-jest:'', tj.version\\); console.log\\(''jest-dom:'', jd.version\\);\")",
-      "Bash(node -e \"const tj=require\\(''./node_modules/ts-jest/package.json''\\); console.log\\(''ts-jest peerDependencies:'', JSON.stringify\\(tj.peerDependencies, null, 2\\)\\);\")"
+      "Bash(node -e \"const tj=require\\(''./node_modules/ts-jest/package.json''\\); console.log\\(''ts-jest peerDependencies:'', JSON.stringify\\(tj.peerDependencies, null, 2\\)\\);\")",
+      "Bash(node -e \"const jd=require\\(''./node_modules/@testing-library/jest-dom/package.json''\\); console.log\\(''exports:'', JSON.stringify\\(jd.exports ? Object.keys\\(jd.exports\\) : ''none'', null, 2\\)\\); console.log\\(''main:'', jd.main\\); console.log\\(''types:'', jd.types\\);\")",
+      "Bash(node -e \"const jd=require\\(''./node_modules/@testing-library/jest-dom/package.json''\\); console.log\\(''peerDeps:'', JSON.stringify\\(jd.peerDependencies, null, 2\\)\\);\")",
+      "Bash(npx jest:*)"
     ]
   }
 }
