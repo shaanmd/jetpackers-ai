@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import Stripe from 'stripe'
-import { createOrUpdateContact, applyTags } from '@/lib/systemeio'
+import { createOrUpdateContact } from '@/lib/systemeio'
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY ?? '', {
   apiVersion: '2026-03-25.dahlia',
@@ -15,8 +15,7 @@ export async function handleCheckoutCompleted(
   const email = session.customer_details?.email
   if (!email) return
 
-  const contactId = await createOrUpdateContact(email)
-  await applyTags(contactId, ['vibe-along-paid'])
+  await createOrUpdateContact(email)
 }
 
 export async function POST(req: NextRequest) {

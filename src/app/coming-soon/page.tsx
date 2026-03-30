@@ -43,7 +43,7 @@ function FooterNewsletter() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!email.trim()) return
-    await submit({ email, source: 'newsletter', tags: ['newsletter'] })
+    await submit({ email, source: 'newsletter' })
   }
 
   if (status === 'success') {

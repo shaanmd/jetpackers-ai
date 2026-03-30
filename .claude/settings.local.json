@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(npm test:*)",
+      "Bash(npm show:*)",
+      "Bash(npm uninstall:*)",
+      "Bash(npm run:*)",
+      "Bash(npm list:*)",
+      "Bash(node -e \"const s = require\\(''./node_modules/stripe/cjs/src/apiVersion.js''\\); console.log\\(JSON.stringify\\(s\\)\\)\")",
+      "Bash(node -e \"const s = require\\(''./node_modules/stripe''\\); console.log\\(Object.keys\\(s\\)\\)\")",
+      "Bash(node -e \"const s = require\\(''./node_modules/stripe''\\); console.log\\(''API_VERSION:'', s.API_VERSION\\); console.log\\(''LATEST:'', s.Stripe && s.Stripe.LATEST_API_VERSION\\)\")",
+      "Bash(node -e \"const d=require\\(''''/dev/stdin''''\\); console.log\\(''''version:'''', d.version\\)\")",
+      "Bash(node -e \"const p=require\\(''''./node_modules/stripe/package.json''''\\); console.log\\(p.version\\)\")",
+      "Bash(npm info:*)",
+      "Bash(node -e \"const p=require\\(''./node_modules/stripe/package.json''\\); console.log\\(''stripe package version:'', p.version\\); console.log\\(''stripe API version from package:'', p.stripe_version || ''not set''\\)\")",
+      "Skill(claude-api)",
+      "Skill(claude-api:*)",
+      "Read(//c/Users/summe/Projects/**)",
+      "Bash(npx create-next-app@latest jetpackers-vibe-lab --typescript --tailwind --app --src-dir --import-alias \"@/*\" --no-eslint --yes)",
+      "Bash(for dir:*)",
+      "Bash(do touch:*)",
+      "Bash(done)",
+      "Bash(node -e \"const j=require\\(''./node_modules/jest/package.json''\\); const tj=require\\(''./node_modules/ts-jest/package.json''\\); const jd=require\\(''./node_modules/@testing-library/jest-dom/package.json''\\); console.log\\(''jest:'', j.version\\); console.log\\(''ts-jest:'', tj.version\\); console.log\\(''jest-dom:'', jd.version\\);\")",
+      "Bash(node -e \"const tj=require\\(''./node_modules/ts-jest/package.json''\\); console.log\\(''ts-jest peerDependencies:'', JSON.stringify\\(tj.peerDependencies, null, 2\\)\\);\")"
+    ]
+  }
+}
