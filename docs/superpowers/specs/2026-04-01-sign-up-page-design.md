@@ -26,7 +26,7 @@ Valid persona keys (matching quiz result values in `QuizClient.tsx`):
 - `B` — The Practical Pioneer
 - `D` — The Footrot Flats Traditionalist
 
-For the first cohort, only persona C (Power Player) has tailored copy. All other keys fall back to generic mode.
+All four personas have tailored copy. Generic mode is only shown when no param is present (direct traffic).
 
 The quiz result page passes the key as-is: `/sign-up?persona=C`
 
@@ -53,26 +53,53 @@ Trust / bio section
 - CTA button: "Sign Up Now →" (links to Stripe)
 
 ### Hero
-**Generic mode**
+
+All modes show the session details pill: `📅 12 April · ⏰ 12pm AEST / 2pm NZT · 🎧 Online · 6 spots`
+
+**Generic (no param)**
 - Headline: *From "what even is AI?" to building your own app in 3 hours.*
 - Subtext: *A live online session for Gen X women. No tech experience needed. Just a laptop, a browser, and a little curiosity.*
 
-**Persona mode (Power Player)**
-- Persona badge: `💅 You're a Power Player`
+**A — The Classic Hit** (📺)
+- Badge: `📺 You're a Classic Hit`
+- Headline: *AI that works with your brain, not instead of it.*
+- Subtext: *You value the human touch — and that's not going away. This session puts you firmly in the driver's seat. You decide what AI does for you.*
+
+**B — The Practical Pioneer** (💍)
+- Badge: `💍 You're a Practical Pioneer`
+- Headline: *Stop drowning in admin. Start getting your time back.*
+- Subtext: *You're ready to make the leap, and we're here to make it painless. No theory — just the shortcuts that actually free up your day.*
+
+**C — The Power Player** (💅)
+- Badge: `💅 You're a Power Player`
 - Headline: *You see the opportunity. Now let's make it real.*
 - Subtext: *You don't need a tech background. You need three hours, a glass of wine, and your favourite 80s album.*
 
-Both modes show session details pill: `📅 12 April · ⏰ 12pm AEST / 2pm NZT · 🎧 Online · 6 spots`
+**D — The Footrot Flats Traditionalist** (🐕)
+- Badge: `🐕 You're a Footrot Flats Traditionalist`
+- Headline: *Get the boring stuff handled. Then get back outside.*
+- Subtext: *You don't want to live in front of a screen. Neither do we. This session finds you the one or two tools that quietly do the work — so you barely have to think about them.*
 
 ### Reassurance strip
-Three trust ticks (same in both modes):
+Three trust ticks (same in all modes):
 - No coding experience needed
 - Small group (max 6 women)
 - You'll build something real
 
 ### Persona callout box (persona mode only)
-Pink-bordered card with persona emoji and tailored copy. For Power Player:
+Bordered card with persona emoji and tailored copy.
+
+**A — The Classic Hit**
+> "As a Classic Hit, you have high standards and hard-won expertise. This session shows you how to use AI as a research partner — one that sharpens your thinking without replacing it."
+
+**B — The Practical Pioneer**
+> "As a Practical Pioneer, you want results you can use on Monday morning. This session hands you the everyday AI shortcuts that take the 'messy' off your plate — so you can spend your time on what actually matters."
+
+**C — The Power Player**
 > "As a Power Player, you don't just want to dabble. You want to command AI. This session gives you the foundation to do exactly that: real prompts, real tools, and something you built yourself to show for it."
+
+**D — The Footrot Flats Traditionalist**
+> "As a Footrot Flats Traditionalist, your ideal AI is one you set up once and never think about again. We'll find your 'set and forget' setup — the tools that handle the life admin so you can get back to what you actually love."
 
 ### Fear-buster box
 Addresses the primary objection ("I'm not technical enough"):
@@ -127,4 +154,4 @@ The persona slug is already known at quiz result time — it should be appended 
 - Multiple cohort dates
 - Countdown timer
 - Email capture on this page (handled by quiz + newsletter flows)
-- Persona copy for non-Power-Player slugs (falls back to generic)
+- Additional persona pages for future cohorts
