@@ -10,7 +10,7 @@ beforeEach(() => {
 
 describe('createOrUpdateContact', () => {
   it('creates a new contact', async () => {
-    mockFetch.mockResolvedValueOnce({ ok: true, status: 201 })
+    mockFetch.mockResolvedValueOnce({ ok: true, status: 201, text: async () => '{"id": 123, "email": "test@example.com"}' })
 
     await createOrUpdateContact('test@example.com')
 
@@ -25,7 +25,7 @@ describe('createOrUpdateContact', () => {
   })
 
   it('succeeds silently when contact already exists (422)', async () => {
-    mockFetch.mockResolvedValueOnce({ ok: false, status: 422 })
+    mockFetch.mockResolvedValueOnce({ ok: false, status: 422, text: async () => '{"message": "Contact already exists"}' })
 
     await expect(createOrUpdateContact('test@example.com')).resolves.toBeUndefined()
     expect(mockFetch).toHaveBeenCalledTimes(1)
