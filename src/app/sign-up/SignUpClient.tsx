@@ -113,7 +113,7 @@ export default function SignUpClient() {
     if (!waitlistEmail) return
     setWaitlistStatus('loading')
     try {
-      const res = await fetch('/api/contact', {
+      const res = await fetch('/api/waitlist', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: waitlistEmail }),
