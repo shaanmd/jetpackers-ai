@@ -3,6 +3,8 @@ import Stripe from 'stripe'
 import { Resend } from 'resend'
 import { createOrUpdateContact } from '@/lib/systemeio'
 
+const ADMIN_EMAILS = ['vet@vetalign.com.au', 'debprattley@hotmail.com']
+
 const MEET_LINK = 'https://meet.google.com/qpv-ranp-dri'
 const MEET_PHONE = '(AU) +61 2 9051 3953 PIN: 932 139 808#'
 
@@ -63,12 +65,20 @@ export async function handleCheckoutCompleted(
   if (resendKey && fromEmail) {
     const resend = new Resend(resendKey)
     const name = session.customer_details?.name ?? null
-    await resend.emails.send({
-      from: fromEmail,
-      to: email,
-      subject: 'You\'re in! Vinyl & Vibe-Along — 12 April',
-      html: buildConfirmationEmail(name),
-    })
+    await Promise.allSettled([
+      resend.emails.send({
+        from: fromEmail,
+        to: email,
+        subject: "You're in! Vinyl & Vibe-Along — 12 April",
+        html: buildConfirmationEmail(name),
+      }),
+      resend.emails.send({
+        from: fromEmail,
+        to: ADMIN_EMAILS,
+        subject: `New Vibe-Along signup: ${name || email}`,
+        html: `<p>New paid signup for the Vinyl &amp; Vibe-Along.</p><p><strong>Email:</strong> ${email}${name ? `<br><strong>Name:</strong> ${name}` : ''}</p>`,
+      }),
+    ])
   } else {
     console.warn('Resend not configured — skipping confirmation email')
   }
