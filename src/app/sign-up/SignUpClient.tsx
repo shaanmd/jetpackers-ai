@@ -2,8 +2,10 @@
 
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
 
 const STRIPE_URL = process.env.NEXT_PUBLIC_STRIPE_PAYMENT_URL ?? '#'
+const MAX_SPOTS = 6
 
 type PersonaKey = 'A' | 'B' | 'C' | 'D'
 
@@ -71,6 +73,8 @@ function isPersonaKey(v: string | null): v is PersonaKey {
   return v !== null && (VALID_KEYS as string[]).includes(v)
 }
 
+type WaitlistStatus = 'idle' | 'loading' | 'success' | 'error'
+
 export default function SignUpClient() {
   const params = useSearchParams()
   const rawPersona = params.get('persona')
@@ -82,6 +86,59 @@ export default function SignUpClient() {
     ? p.sub
     : 'A live online session for Gen X women. No tech experience needed. Just a laptop, a browser, and a little curiosity.'
 
+  // Spot tracking
+  const [spotsLeft, setSpotsLeft] = useState<number | null>(null)
+  const [soldOut, setSoldOut] = useState(false)
+
+  // Waitlist form
+  const [waitlistEmail, setWaitlistEmail] = useState('')
+  const [waitlistStatus, setWaitlistStatus] = useState<WaitlistStatus>('idle')
+
+  useEffect(() => {
+    fetch('/api/spots')
+      .then(r => r.json())
+      .then(data => {
+        setSpotsLeft(data.spotsLeft)
+        setSoldOut(data.soldOut)
+      })
+      .catch(() => {
+        // Fail open — show sign up if spots can't be checked
+        setSpotsLeft(MAX_SPOTS)
+        setSoldOut(false)
+      })
+  }, [])
+
+  async function handleWaitlist(e: React.FormEvent) {
+    e.preventDefault()
+    if (!waitlistEmail) return
+    setWaitlistStatus('loading')
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: waitlistEmail }),
+      })
+      if (res.ok) {
+        setWaitlistStatus('success')
+      } else {
+        setWaitlistStatus('error')
+      }
+    } catch {
+      setWaitlistStatus('error')
+    }
+  }
+
+  const spotsLabel =
+    spotsLeft === null
+      ? '⚡ Only 6 spots — filling fast'
+      : spotsLeft === 0
+      ? '🔴 This cohort is full'
+      : spotsLeft === 1
+      ? '🔥 1 spot left!'
+      : spotsLeft <= 3
+      ? `🔥 Only ${spotsLeft} spots left!`
+      : `⚡ ${spotsLeft} of 6 spots remaining`
+
   return (
     <div style={{ fontFamily: 'var(--font-dm), sans-serif', background: 'var(--bg)', minHeight: '100vh', color: 'var(--text-primary)' }}>
 
@@ -90,9 +147,11 @@ export default function SignUpClient() {
         <Link href="/" style={{ fontWeight: 800, fontSize: 18, color: 'white', textDecoration: 'none' }}>
           Jetpackers<span style={{ color: 'var(--teal)' }}>AI</span>
         </Link>
-        <a href={STRIPE_URL} className="btn-primary" style={{ fontSize: 14, padding: '10px 20px', textDecoration: 'none' }}>
-          Sign Up Now →
-        </a>
+        {!soldOut && (
+          <a href={STRIPE_URL} className="btn-primary" style={{ fontSize: 14, padding: '10px 20px', textDecoration: 'none' }}>
+            Sign Up Now →
+          </a>
+        )}
       </nav>
 
       {/* Hero */}
@@ -133,7 +192,7 @@ export default function SignUpClient() {
       {/* Main content */}
       <div style={{ maxWidth: 680, margin: '0 auto', padding: 32 }}>
 
-        {/* Persona callout — only shown when persona param is present */}
+        {/* Persona callout */}
         {p && (
           <div style={{ background: 'white', border: `2px solid ${p.borderColor}`, borderRadius: 12, padding: '20px 24px', marginBottom: 24, display: 'flex', gap: 16, alignItems: 'flex-start' }}>
             <div style={{ fontSize: 36, flexShrink: 0 }}>{p.calloutEmoji}</div>
@@ -180,19 +239,59 @@ export default function SignUpClient() {
         </div>
 
         {/* Pricing card */}
-        <div style={{ background: 'white', border: '2px solid var(--pink)', borderRadius: 14, padding: 24, marginBottom: 24, textAlign: 'center' }}>
-          <div style={{ fontSize: 14, color: 'var(--text-muted)', marginBottom: 6 }}>Introductory price, first cohort only</div>
-          <div style={{ fontSize: 42, fontWeight: 800, color: 'var(--pink)' }}>
+        <div style={{ background: 'white', border: `2px solid ${soldOut ? '#E2E2ED' : 'var(--pink)'}`, borderRadius: 14, padding: 24, marginBottom: 24, textAlign: 'center' }}>
+          <div style={{ fontSize: 14, color: 'var(--text-muted)', marginBottom: 6 }}>
+            {soldOut ? 'This cohort is now full' : 'Introductory price, first cohort only'}
+          </div>
+          <div style={{ fontSize: 42, fontWeight: 800, color: soldOut ? 'var(--text-muted)' : 'var(--pink)' }}>
             $67 <span style={{ fontSize: 18, color: 'var(--text-muted)', fontWeight: 400 }}>NZD</span>
           </div>
           <div style={{ fontSize: 13, color: 'var(--text-muted)', marginBottom: 12 }}>3-hour live session · Sunday 12 April · Online</div>
-          <div style={{ background: 'rgba(233,30,140,0.08)', borderRadius: 8, padding: '8px 16px', fontSize: 13, fontWeight: 600, color: 'var(--pink)', display: 'inline-block', marginBottom: 16 }}>
-            ⚡ Only 6 spots — filling fast
+
+          <div style={{ background: soldOut ? 'rgba(0,0,0,0.05)' : 'rgba(233,30,140,0.08)', borderRadius: 8, padding: '8px 16px', fontSize: 13, fontWeight: 600, color: soldOut ? 'var(--text-muted)' : 'var(--pink)', display: 'inline-block', marginBottom: 16 }}>
+            {spotsLabel}
           </div>
-          <a href={STRIPE_URL} className="btn-primary" style={{ display: 'block', fontSize: 16, fontWeight: 800, textDecoration: 'none', textAlign: 'center', marginBottom: 10 }}>
-            Sign Up Now →
-          </a>
-          <div style={{ fontSize: 12, color: 'var(--text-footer)' }}>Secure checkout via Stripe · Instant confirmation email</div>
+
+          {soldOut ? (
+            /* Waitlist form */
+            waitlistStatus === 'success' ? (
+              <div style={{ background: 'rgba(0,212,170,0.08)', border: '1px solid rgba(0,212,170,0.3)', borderRadius: 10, padding: '16px 20px', color: '#0D9488', fontWeight: 600, fontSize: 15 }}>
+                You&apos;re on the waitlist! We&apos;ll let you know when the next cohort opens.
+              </div>
+            ) : (
+              <form onSubmit={handleWaitlist} style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+                <p style={{ fontSize: 14, color: 'var(--text-muted)', marginBottom: 4 }}>
+                  Join the waitlist and we&apos;ll contact you first when the next cohort opens.
+                </p>
+                <input
+                  type="email"
+                  required
+                  placeholder="your@email.com"
+                  value={waitlistEmail}
+                  onChange={e => setWaitlistEmail(e.target.value)}
+                  style={{ padding: '12px 16px', borderRadius: 10, border: '1px solid #E2E2ED', fontSize: 15, width: '100%', boxSizing: 'border-box' }}
+                />
+                <button
+                  type="submit"
+                  disabled={waitlistStatus === 'loading'}
+                  className="btn-primary"
+                  style={{ fontSize: 16, fontWeight: 800, border: 'none', cursor: 'pointer' }}
+                >
+                  {waitlistStatus === 'loading' ? 'Joining...' : 'Join the Waitlist →'}
+                </button>
+                {waitlistStatus === 'error' && (
+                  <p style={{ fontSize: 13, color: '#E91E8C' }}>Something went wrong — please try again.</p>
+                )}
+              </form>
+            )
+          ) : (
+            <>
+              <a href={STRIPE_URL} className="btn-primary" style={{ display: 'block', fontSize: 16, fontWeight: 800, textDecoration: 'none', textAlign: 'center', marginBottom: 10 }}>
+                Sign Up Now →
+              </a>
+              <div style={{ fontSize: 12, color: 'var(--text-footer)' }}>Secure checkout via Stripe · Instant confirmation email</div>
+            </>
+          )}
         </div>
 
         {/* Trust / bio */}

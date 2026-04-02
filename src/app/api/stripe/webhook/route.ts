@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import Stripe from 'stripe'
 import { Resend } from 'resend'
 import { createOrUpdateContact } from '@/lib/systemeio'
+import { supabase } from '@/lib/supabaseClient'
 
 const ADMIN_EMAILS = ['vet@vetalign.com.au', 'debprattley@hotmail.com']
 
@@ -58,13 +59,20 @@ export async function handleCheckoutCompleted(
   const email = session.customer_details?.email
   if (!email) return
 
+  const name = session.customer_details?.name ?? null
+
   await createOrUpdateContact(email)
+
+  // Record paid signup for spot tracking
+  const { error: dbError } = await supabase
+    .from('paid_signups')
+    .upsert({ email, name }, { onConflict: 'email' })
+  if (dbError) console.error('[webhook] paid_signups insert error:', dbError.message)
 
   const resendKey = process.env.RESEND_API_KEY
   const fromEmail = process.env.RESEND_FROM_EMAIL
   if (resendKey && fromEmail) {
     const resend = new Resend(resendKey)
-    const name = session.customer_details?.name ?? null
     await Promise.allSettled([
       resend.emails.send({
         from: fromEmail,
