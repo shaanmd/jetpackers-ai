@@ -3,10 +3,6 @@ import Stripe from 'stripe'
 import { Resend } from 'resend'
 import { createOrUpdateContact } from '@/lib/systemeio'
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY ?? '', {
-  apiVersion: '2026-03-25.dahlia',
-})
-
 const MEET_LINK = 'https://meet.google.com/qpv-ranp-dri'
 const MEET_PHONE = '(AU) +61 2 9051 3953 PIN: 932 139 808#'
 
@@ -90,6 +86,12 @@ export async function POST(req: NextRequest) {
   if (!signature) {
     return NextResponse.json({ error: 'Missing stripe-signature header' }, { status: 400 })
   }
+
+  const stripeKey = process.env.STRIPE_SECRET_KEY
+  if (!stripeKey) {
+    return NextResponse.json({ error: 'Stripe not configured' }, { status: 500 })
+  }
+  const stripe = new Stripe(stripeKey, { apiVersion: '2026-03-25.dahlia' })
 
   let event: Stripe.Event
   try {
