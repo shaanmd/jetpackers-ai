@@ -587,11 +587,11 @@ export default function QuizClient() {
                         The Vibe-A-Long is a 3-hour live session with Shaan &amp; Deb — built for exactly where you are. Date dropping soon. Be first to know.
                       </p>
                       <Link
-                        href="/"
+                        href={`/sign-up?persona=${persona}`}
                         className="btn-primary inline-block text-center text-[14px]"
                         style={{ textDecoration: 'none' }}
                       >
-                        Reserve My Spot →
+                        Sign Up Now →
                       </Link>
                     </motion.div>
 
