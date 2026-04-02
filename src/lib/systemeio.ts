@@ -25,7 +25,8 @@ export async function createOrUpdateContact(
   })
 
   const responseText = await res.text()
-  console.log(`[systemeio] POST /contacts status=${res.status} body=${responseText}`)
+  console.log(`[systemeio] status=${res.status}`)
+  console.log(`[systemeio] body=${responseText.slice(0, 300)}`)
 
   // 422 = contact already exists, that's fine
   if (res.ok || res.status === 422) return
