@@ -182,9 +182,9 @@ export default function SignUpClient() {
 
       {/* Reassurance strip */}
       <div style={{ background: 'white', borderBottom: '1px solid #E2E2ED', padding: '18px 32px', display: 'flex', justifyContent: 'center', gap: 32, flexWrap: 'wrap' }}>
-        {['No coding experience needed', 'Small group (max 6 women)', "You'll build something real"].map((item) => (
+        {['No coding experience needed', 'Small group (max 6 women)', "You'll build your own software"].map((item) => (
           <div key={item} style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 13, fontWeight: 500 }}>
-            <span style={{ color: 'var(--teal)', fontSize: 16 }}>✓</span> {item}
+            <span style={{ color: 'var(--teal)', fontSize: 16 }}>✓</span>{item}
           </div>
         ))}
       </div>
@@ -206,9 +206,8 @@ export default function SignUpClient() {
         {/* Fear buster */}
         <div style={{ background: '#FFF5FB', borderLeft: '3px solid var(--pink)', borderRadius: '0 10px 10px 0', padding: '16px 20px', marginBottom: 24 }}>
           <p style={{ fontSize: 14, lineHeight: 1.7 }}>
-            Worried you&apos;re not technical enough?{' '}
-            <strong style={{ color: 'var(--pink)' }}>That&apos;s exactly why we built this.</strong>{' '}
-            Shaan and Deb are Gen X women who figured this out themselves. No computer science degree, no jargon. If you can Google something, you can do this.
+            <strong>Worried you&apos;re not technical enough?</strong>{' '}
+            That&apos;s exactly why we&apos;re offering this. Shaan and Deb are Gen X women who&apos;ve learned to use AI in all sorts of ways. We&apos;ll show you how, and you don&apos;t need a degree. If you can Google, you can do this.
           </p>
         </div>
 
@@ -218,10 +217,10 @@ export default function SignUpClient() {
         </div>
         <ul style={{ listStyle: 'none', marginBottom: 24 }}>
           {[
-            { icon: '✍️', strong: 'Know how to write prompts that actually work.', rest: " No more vague results. You'll know how to ask AI the right way to get what you need." },
-            { icon: '🛠️', strong: 'Have built something real.', rest: ' A web page or mini app you designed yourself. Not a template. Something that does something useful for you.' },
-            { icon: '🧠', strong: 'Understand the tools.', rest: " We'll walk through Gemini and other AI tools so you know what they're good for (and what they're not)." },
-            { icon: '💪', strong: 'Feel confident enough to keep going.', rest: " The goal isn't one session, it's giving you the confidence to explore on your own." },
+            { icon: '✍️', strong: 'Know how to write instructions that get you the results you want.', rest: ' Cut down the wonky outputs and AI cliches.' },
+            { icon: '🛠️', strong: 'Have software you built yourself.', rest: ' A web page or mini app that you designed and is useful for you.' },
+            { icon: '🧠', strong: 'Understand the tools.', rest: " We'll walk through the main AI tools, so you know what they're good for and what they're not." },
+            { icon: '💪', strong: 'Feel confident enough to keep going.', rest: " The goal isn't one session. It's giving you the confidence to keep going on your own." },
           ].map(({ icon, strong, rest }) => (
             <li key={strong} style={{ padding: '12px 0', borderBottom: '1px solid #E2E2ED', fontSize: 14, display: 'flex', gap: 12, alignItems: 'flex-start', lineHeight: 1.5 }}>
               <span style={{ fontSize: 18, flexShrink: 0, marginTop: 1 }}>{icon}</span>
@@ -297,7 +296,7 @@ export default function SignUpClient() {
         {/* Trust / bio */}
         <div style={{ background: 'var(--bg)', borderRadius: 10, padding: '16px 20px', marginBottom: 24 }}>
           <p style={{ fontSize: 13, color: 'var(--text-muted)', lineHeight: 1.7 }}>
-            <strong>Shaan &amp; Deb</strong> are two Gen X vets who taught themselves AI from scratch. Shaan was a web designer and coding teacher. Deb tries every tool she can get her hands on. Neither of them had a roadmap. Now they&apos;re making one for you.
+            <strong>Shaan &amp; Deb</strong> have immersed themselves in AI (they have 54 projects on their AI list!). Shaan was a web designer and coding teacher in her first career, so she gets the technical stuff. Deb is much less techie but has a go at everything and still builds useful and fun tools. Both love showing others how to do that too. They keep it simple, practical and fun.
           </p>
         </div>
 
