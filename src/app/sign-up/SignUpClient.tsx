@@ -84,7 +84,7 @@ export default function SignUpClient() {
   const headline = p ? p.headline : 'From "what even is AI?" to building your own app in 3 hours.'
   const sub = p
     ? p.sub
-    : 'A live online session for Gen X women. No tech experience needed. Just a laptop, a browser, and a little curiosity.'
+    : 'A live online session for Gen X women. All you need is a computer, a browser, and a little curiosity.'
 
   // Spot tracking
   const [spotsLeft, setSpotsLeft] = useState<number | null>(null)
@@ -228,6 +228,14 @@ export default function SignUpClient() {
             </li>
           ))}
         </ul>
+
+        {/* Zero-tech promise */}
+        <div style={{ background: '#1A1A2E', borderRadius: 12, padding: '20px 24px', marginBottom: 24, textAlign: 'center' }}>
+          <p style={{ fontSize: 14, color: '#9999BB', lineHeight: 1.7 }}>
+            <strong style={{ color: 'white' }}>Zero tech experience required.</strong>{' '}
+            We start from scratch. The only thing you need is a laptop, a browser, and a willingness to press the buttons. Shaan will be right there if anything goes sideways.
+          </p>
+        </div>
 
         {/* Zero-tech promise */}
         <div style={{ background: '#1A1A2E', borderRadius: 12, padding: '20px 24px', marginBottom: 24, textAlign: 'center' }}>
