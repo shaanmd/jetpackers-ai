@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Orbitron, DM_Sans, Outfit } from 'next/font/google'
 import './globals.css'
 import CookieConsent from '@/components/CookieConsent'
+import GoogleAnalytics from '@/components/GoogleAnalytics'
 
 const orbitron = Orbitron({
   subsets: ['latin'],
@@ -29,12 +30,16 @@ export const metadata: Metadata = {
   title: 'They Promised Us Jetpacks | AI Education for GenX Women',
   description:
     "We grew up waiting for jetpacks. Now we're learning to fly AI instead. Deb & Shaan teach Gen X women to use the tools everyone's talking about — no 22-year-old bro energy required.",
+  metadataBase: new URL('https://www.jetpackersai.com'),
+  alternates: {
+    canonical: 'https://www.jetpackersai.com',
+  },
   openGraph: {
     title: 'They Promised Us Jetpacks | AI Education for GenX Women',
     description:
       'Practical AI education for GenX women. No hype. No overwhelm. Just real skills, real applications, and the occasional Ferris Bueller reference.',
     type: 'website',
-    url: 'https://jetpackersai.com',
+    url: 'https://www.jetpackersai.com',
   },
   twitter: {
     card: 'summary_large_image',
@@ -52,6 +57,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${orbitron.variable} ${dmSans.variable} ${outfit.variable}`}>
       <body>
+        <GoogleAnalytics />
         {children}
         <CookieConsent />
       </body>
