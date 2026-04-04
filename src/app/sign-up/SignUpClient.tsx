@@ -100,14 +100,29 @@ export default function SignUpClient() {
   const [exitStatus, setExitStatus] = useState<WaitlistStatus>('idle')
 
   useEffect(() => {
-    // Intercept back button
-    history.pushState(null, '', window.location.href)
-    const handlePopState = () => {
-      history.pushState(null, '', window.location.href)
-      setShowExitModal(true)
+    let shown = false
+    const show = () => { if (!shown) { shown = true; setShowExitModal(true) } }
+
+    // Desktop: mouse exits viewport from the top (toward back button / address bar)
+    const handleMouseLeave = (e: MouseEvent) => {
+      if (e.clientY <= 5) show()
+    }
+    document.addEventListener('mouseleave', handleMouseLeave)
+
+    // Mobile / fallback: back button via popstate intercept
+    history.pushState({ exitGuard: true }, '')
+    const handlePopState = (e: PopStateEvent) => {
+      if (!e.state?.exitGuard) {
+        history.pushState({ exitGuard: true }, '')
+        show()
+      }
     }
     window.addEventListener('popstate', handlePopState)
-    return () => window.removeEventListener('popstate', handlePopState)
+
+    return () => {
+      document.removeEventListener('mouseleave', handleMouseLeave)
+      window.removeEventListener('popstate', handlePopState)
+    }
   }, [])
 
   function handleLeave() {
