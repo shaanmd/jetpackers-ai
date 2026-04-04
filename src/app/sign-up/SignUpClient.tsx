@@ -94,6 +94,43 @@ export default function SignUpClient() {
   const [waitlistEmail, setWaitlistEmail] = useState('')
   const [waitlistStatus, setWaitlistStatus] = useState<WaitlistStatus>('idle')
 
+  // Exit modal
+  const [showExitModal, setShowExitModal] = useState(false)
+  const [exitEmail, setExitEmail] = useState('')
+  const [exitStatus, setExitStatus] = useState<WaitlistStatus>('idle')
+
+  useEffect(() => {
+    // Intercept back button
+    history.pushState(null, '', window.location.href)
+    const handlePopState = () => {
+      history.pushState(null, '', window.location.href)
+      setShowExitModal(true)
+    }
+    window.addEventListener('popstate', handlePopState)
+    return () => window.removeEventListener('popstate', handlePopState)
+  }, [])
+
+  function handleLeave() {
+    setShowExitModal(false)
+    history.go(-2)
+  }
+
+  async function handleExitSubmit(e: React.FormEvent) {
+    e.preventDefault()
+    if (!exitEmail) return
+    setExitStatus('loading')
+    try {
+      const res = await fetch('/api/waitlist', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: exitEmail }),
+      })
+      setExitStatus(res.ok ? 'success' : 'error')
+    } catch {
+      setExitStatus('error')
+    }
+  }
+
   useEffect(() => {
     fetch('/api/spots')
       .then(r => r.json())
@@ -309,6 +346,62 @@ export default function SignUpClient() {
         </div>
 
       </div>
+      {/* Exit intent modal */}
+      {showExitModal && (
+        <div style={{ position: 'fixed', inset: 0, background: 'rgba(26,26,46,0.75)', zIndex: 1000, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 24 }}>
+          <div style={{ background: 'white', borderRadius: 16, padding: 32, maxWidth: 420, width: '100%', textAlign: 'center', boxShadow: '0 24px 64px rgba(0,0,0,0.3)' }}>
+            <div style={{ fontSize: 36, marginBottom: 12 }}>🎵</div>
+            <h2 style={{ fontWeight: 800, fontSize: 20, color: '#1A1A2E', marginBottom: 10 }}>
+              Not ready to commit?
+            </h2>
+            <p style={{ fontSize: 14, color: '#5A5A72', lineHeight: 1.7, marginBottom: 20 }}>
+              No worries. Pop your email here and you&apos;ll be first to hear about the next cohort — plus anything else we&apos;re up to.
+            </p>
+
+            {exitStatus === 'success' ? (
+              <div style={{ background: 'rgba(0,212,170,0.08)', border: '1px solid rgba(0,212,170,0.3)', borderRadius: 10, padding: '14px 20px', color: '#0D9488', fontWeight: 600, fontSize: 15, marginBottom: 16 }}>
+                You&apos;re on the list! We&apos;ll be in touch.
+              </div>
+            ) : (
+              <form onSubmit={handleExitSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 12 }}>
+                <input
+                  type="email"
+                  required
+                  placeholder="your@email.com"
+                  value={exitEmail}
+                  onChange={e => setExitEmail(e.target.value)}
+                  style={{ padding: '12px 16px', borderRadius: 10, border: '1px solid #E2E2ED', fontSize: 15, width: '100%', boxSizing: 'border-box' }}
+                />
+                <button
+                  type="submit"
+                  disabled={exitStatus === 'loading'}
+                  className="btn-primary"
+                  style={{ fontSize: 15, fontWeight: 700, border: 'none', cursor: 'pointer' }}
+                >
+                  {exitStatus === 'loading' ? 'Saving...' : 'Keep me posted →'}
+                </button>
+                {exitStatus === 'error' && (
+                  <p style={{ fontSize: 13, color: '#E91E8C' }}>Something went wrong — please try again.</p>
+                )}
+              </form>
+            )}
+
+            {!soldOut && exitStatus !== 'success' && (
+              <a href={STRIPE_URL} className="btn-primary" style={{ display: 'block', fontSize: 15, fontWeight: 700, textDecoration: 'none', marginBottom: 12 }}>
+                Actually, I&apos;m in — Sign Up Now →
+              </a>
+            )}
+
+            <button
+              onClick={handleLeave}
+              style={{ background: 'none', border: 'none', fontSize: 13, color: '#9999BB', cursor: 'pointer', textDecoration: 'underline' }}
+            >
+              No thanks, I&apos;ll pass
+            </button>
+          </div>
+        </div>
+      )}
+
     </div>
   )
 }
