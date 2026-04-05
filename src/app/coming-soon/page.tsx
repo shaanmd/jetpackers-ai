@@ -329,7 +329,7 @@ export default function ComingSoonPage() {
             <div
               style={{
                 background: '#F9F9FB',
-                border: '1px solid #E2E2ED',
+                border: '2px solid #00D4AA',
                 borderRadius: 12,
                 padding: 28,
               }}
