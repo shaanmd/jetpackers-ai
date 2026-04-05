@@ -365,7 +365,8 @@ export default function ComingSoonPage() {
               <p style={{ fontSize: 14, color: '#E91E8C', fontStyle: 'italic', marginTop: 10 }}>
                 Great with your morning coffee.
               </p>
-              <span
+              <a
+                href="#newsletter"
                 style={{
                   display: 'inline-block',
                   marginTop: 12,
@@ -376,10 +377,11 @@ export default function ComingSoonPage() {
                   fontSize: 13,
                   fontWeight: 600,
                   fontFamily: outfit,
+                  textDecoration: 'none',
                 }}
               >
-                Free
-              </span>
+                Free &mdash; Sign Up Now
+              </a>
             </div>
           </div>
           <QuizCta />
@@ -587,17 +589,20 @@ export default function ComingSoonPage() {
               >
                 The Newsletter
               </div>
-              <div
+              <a
+                href="#newsletter"
                 style={{
+                  display: 'block',
                   fontFamily: outfit,
                   fontWeight: 800,
                   fontSize: 36,
                   color: '#00D4AA',
                   marginBottom: 16,
+                  textDecoration: 'none',
                 }}
               >
-                Free
-              </div>
+                Free — Sign Up Now
+              </a>
               <p style={{ fontSize: 15, lineHeight: 1.7, color: '#5A5A72' }}>
                 AI basics, real examples, new tools and a few laughs.
               </p>
@@ -818,7 +823,7 @@ export default function ComingSoonPage() {
       </div>
 
       {/* Footer */}
-      <footer style={{ background: '#1A1A2E', padding: '48px 40px' }}>
+      <footer id="newsletter" style={{ background: '#1A1A2E', padding: '48px 40px' }}>
         <div
           style={{
             maxWidth: 900,
