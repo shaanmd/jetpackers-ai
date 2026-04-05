@@ -1,0 +1,70 @@
+<h2>Sales page layout — which approach feels right?</h2>
+<p class="subtitle">This page lives at <code>/sign-up</code> — quiz takers land here and buy. Pick the structure that best fits the vibe.</p>
+
+<div class="cards">
+
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding: 16px; background: #1A1A2E; border-radius: 8px; font-family: sans-serif;">
+      <div style="background: linear-gradient(135deg,#EC4899,#A855F7); color:white; padding: 20px; border-radius:6px; text-align:center; margin-bottom:10px;">
+        <div style="font-size:11px;letter-spacing:3px;text-transform:uppercase;opacity:0.8;">Vinyl & Vibe-Along · 12 April</div>
+        <div style="font-size:22px;font-weight:800;margin:8px 0;">You're a Power Player.</div>
+        <div style="font-size:13px;opacity:0.85;">Here's exactly what this session gives you.</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;">
+        <div style="background:rgba(255,255,255,0.07);border-radius:6px;padding:10px;color:#9999BB;font-size:11px;">✓ Write your first AI prompt</div>
+        <div style="background:rgba(255,255,255,0.07);border-radius:6px;padding:10px;color:#9999BB;font-size:11px;">✓ Build a real web app</div>
+        <div style="background:rgba(255,255,255,0.07);border-radius:6px;padding:10px;color:#9999BB;font-size:11px;">✓ 6 women, 3 hours</div>
+        <div style="background:rgba(255,255,255,0.07);border-radius:6px;padding:10px;color:#9999BB;font-size:11px;">✓ Vinyl in the background</div>
+      </div>
+      <div style="background:linear-gradient(135deg,#EC4899,#A855F7);color:white;text-align:center;padding:12px;border-radius:6px;font-weight:700;font-size:14px;">Grab My Spot — $67 NZD →</div>
+    </div>
+    <div class="card-body">
+      <h3>A — Persona-led</h3>
+      <p>Opens with their quiz result ("You're a Power Player"), then outcomes tailored to that persona, then buy. Feels personal. Best conversion for quiz traffic.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding: 16px; background: #1A1A2E; border-radius: 8px; font-family: sans-serif;">
+      <div style="text-align:center;margin-bottom:12px;">
+        <div style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#00D4AA;margin-bottom:6px;">Vinyl & Vibe-Along · 12 April</div>
+        <div style="font-size:20px;font-weight:800;color:white;">From "what even is AI?" to building your own app — in 3 hours.</div>
+        <div style="font-size:12px;color:#9999BB;margin-top:6px;">A live online session for Gen X women. 6 spots only.</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:12px;margin-bottom:10px;">
+        <div style="color:#E91E8C;font-size:12px;font-weight:700;margin-bottom:6px;">By the end of the session you will:</div>
+        <div style="color:#CCCCDD;font-size:12px;line-height:1.8;">→ Know how to write prompts that actually work<br>→ Have built something real (a web page or mini app)<br>→ Feel confident enough to keep going on your own</div>
+      </div>
+      <div style="background:linear-gradient(135deg,#EC4899,#A855F7);color:white;text-align:center;padding:12px;border-radius:6px;font-weight:700;font-size:14px;">I'm In — $67 NZD →</div>
+    </div>
+    <div class="card-body">
+      <h3>B — Outcome-focused</h3>
+      <p>Lead with transformation: "from zero to building in 3 hours." No persona, just clear outcomes anyone can see themselves in. Works for direct traffic too.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding: 16px; background: #1A1A2E; border-radius: 8px; font-family: sans-serif;">
+      <div style="text-align:center;margin-bottom:12px;">
+        <div style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#00D4AA;margin-bottom:6px;">Only 2 spots left</div>
+        <div style="font-size:20px;font-weight:800;color:white;">The Vinyl & Vibe-Along</div>
+        <div style="font-size:12px;color:#9999BB;margin-top:4px;">Sunday 12 April · 12pm AEST · Online · $67 NZD</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;background:rgba(233,30,140,0.08);border:1px solid rgba(233,30,140,0.25);border-radius:8px;padding:12px;margin-bottom:10px;">
+        <div style="font-size:24px;">💅</div>
+        <div style="color:#CCCCDD;font-size:12px;font-style:italic;">"You're a Power Player — you see the opportunity and you're grabbing it. This session is built for exactly where you are."</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.04);border-radius:8px;padding:10px;margin-bottom:10px;">
+        <div style="color:#9999BB;font-size:11px;line-height:1.8;">✓ 3-hour live session &nbsp;✓ Max 6 women &nbsp;✓ Build something real &nbsp;✓ Vinyl vibes</div>
+      </div>
+      <div style="background:linear-gradient(135deg,#EC4899,#A855F7);color:white;text-align:center;padding:12px;border-radius:6px;font-weight:700;font-size:14px;">Reserve My Spot — $67 NZD →</div>
+    </div>
+    <div class="card-body">
+      <h3>C — Urgency + persona quote</h3>
+      <p>Leads with scarcity ("2 spots left"), shows their persona quote as social proof, then a compact summary and buy. Short and punchy — gets out of the way fast.</p>
+    </div>
+  </div>
+
+</div>
+
+<p class="subtitle" style="margin-top:16px;">All three would link the CTA button directly to the Stripe payment page. Click a card to select your preference.</p>

@@ -14,7 +14,7 @@ const themes = [
   {
     number: '03',
     title: 'Knowledge Management',
-    desc: 'SOP libraries, protocol extraction, locum onboarding packs, CPD summaries. Your practice handbook — finally written.',
+    desc: 'SOP libraries, protocol extraction, locum onboarding packs, CPD summaries. Your practice handbook - finally written.',
   },
   {
     number: '04',
@@ -90,7 +90,7 @@ export default function WhatWeShare() {
           lineHeight: 1.7,
         }}
       >
-        Shaan and Deb work on all of this together. Every theme is joint — one voice, two perspectives, one shared mission.
+        Shaan and Deb work on all of this together. Every theme is joint - one voice, two perspectives, one shared mission.
       </p>
 
       <div

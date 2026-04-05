@@ -26,22 +26,22 @@ const PERSONA_CONTENT: Record<PersonaKey, PersonaContent> = {
     badgeColor: '#0D9488',
     borderColor: '#0D9488',
     headline: 'AI that works with your brain, not instead of it.',
-    sub: "You value the human touch — and that's not going away. This session puts you firmly in the driver's seat. You decide what AI does for you.",
+    sub: "You value the human touch - and that's not going away. This session puts you firmly in the driver's seat. You decide what AI does for you.",
     calloutEmoji: '📺',
     calloutTitle: 'Built around your expertise',
     calloutBody:
-      'As a Classic Hit, you have high standards and hard-won expertise. This session shows you how to use AI as a research partner — one that sharpens your thinking without replacing it.',
+      'As a Classic Hit, you have high standards and hard-won expertise. This session shows you how to use AI as a research partner - one that sharpens your thinking without replacing it.',
   },
   B: {
     badge: '💍 You\'re a Practical Pioneer',
     badgeColor: '#EC4899',
     borderColor: '#EC4899',
     headline: 'Stop drowning in admin. Start getting your time back.',
-    sub: "You're ready to make the leap, and we're here to make it painless. No theory — just the shortcuts that actually free up your day.",
+    sub: "You're ready to make the leap, and we're here to make it painless. No theory - just the shortcuts that actually free up your day.",
     calloutEmoji: '💍',
     calloutTitle: 'Results you can use on Monday',
     calloutBody:
-      "As a Practical Pioneer, you want results you can use on Monday morning. This session hands you the everyday AI shortcuts that take the 'messy' off your plate — so you can spend your time on what actually matters.",
+      "As a Practical Pioneer, you want results you can use on Monday morning. This session hands you the everyday AI shortcuts that take the 'messy' off your plate - so you can spend your time on what actually matters.",
   },
   C: {
     badge: '💅 You\'re a Power Player',
@@ -59,11 +59,11 @@ const PERSONA_CONTENT: Record<PersonaKey, PersonaContent> = {
     badgeColor: '#F59E0B',
     borderColor: '#F59E0B',
     headline: 'Get the boring stuff handled. Then get back outside.',
-    sub: "You don't want to live in front of a screen. Neither do we. This session finds you the one or two tools that quietly do the work — so you barely have to think about them.",
+    sub: "You don't want to live in front of a screen. Neither do we. This session finds you the one or two tools that quietly do the work - so you barely have to think about them.",
     calloutEmoji: '🐕',
     calloutTitle: 'Set it up once. Then forget it.',
     calloutBody:
-      "As a Footrot Flats Traditionalist, your ideal AI is one you set up once and never think about again. We'll find your 'set and forget' setup — the tools that handle the life admin so you can get back to what you actually love.",
+      "As a Footrot Flats Traditionalist, your ideal AI is one you set up once and never think about again. We'll find your 'set and forget' setup - the tools that handle the life admin so you can get back to what you actually love.",
   },
 }
 
@@ -154,7 +154,7 @@ export default function SignUpClient() {
         setSoldOut(data.soldOut)
       })
       .catch(() => {
-        // Fail open — show sign up if spots can't be checked
+        // Fail open - show sign up if spots can't be checked
         setSpotsLeft(MAX_SPOTS)
         setSoldOut(false)
       })
@@ -182,7 +182,7 @@ export default function SignUpClient() {
 
   const spotsLabel =
     spotsLeft === null
-      ? '⚡ Only 6 spots — filling fast'
+      ? '⚡ Only 6 spots - filling fast'
       : spotsLeft === 0
       ? '🔴 This cohort is full'
       : spotsLeft === 1
@@ -331,7 +331,7 @@ export default function SignUpClient() {
                   {waitlistStatus === 'loading' ? 'Joining...' : 'Join the Waitlist →'}
                 </button>
                 {waitlistStatus === 'error' && (
-                  <p style={{ fontSize: 13, color: '#E91E8C' }}>Something went wrong — please try again.</p>
+                  <p style={{ fontSize: 13, color: '#E91E8C' }}>Something went wrong - please try again.</p>
                 )}
               </form>
             )
@@ -362,7 +362,7 @@ export default function SignUpClient() {
               Not ready to commit?
             </h2>
             <p style={{ fontSize: 14, color: '#5A5A72', lineHeight: 1.7, marginBottom: 20 }}>
-              No worries. Pop your email here and you&apos;ll be first to hear about the next cohort — plus anything else we&apos;re up to.
+              No worries. Pop your email here and you&apos;ll be first to hear about the next cohort - plus anything else we&apos;re up to.
             </p>
 
             {exitStatus === 'success' ? (
@@ -388,14 +388,14 @@ export default function SignUpClient() {
                   {exitStatus === 'loading' ? 'Saving...' : 'Keep me posted →'}
                 </button>
                 {exitStatus === 'error' && (
-                  <p style={{ fontSize: 13, color: '#E91E8C' }}>Something went wrong — please try again.</p>
+                  <p style={{ fontSize: 13, color: '#E91E8C' }}>Something went wrong - please try again.</p>
                 )}
               </form>
             )}
 
             {!soldOut && exitStatus !== 'success' && (
               <a href={STRIPE_URL} className="btn-primary" style={{ display: 'block', fontSize: 15, fontWeight: 700, textDecoration: 'none', marginBottom: 12 }}>
-                Actually, I&apos;m in — Sign Up Now →
+                Actually, I&apos;m in - Sign Up Now →
               </a>
             )}
 

@@ -50,7 +50,7 @@ export function EmailCapture() {
                 🚀 You&apos;re in!
               </p>
               <p className="text-sm" style={{ color: 'var(--text-muted)' }}>
-                {message || "You're on the list. We'll be in touch with AI tips, early access, and updates — not just course dates."}
+                {message || "You're on the list. We'll be in touch with AI tips, early access, and updates - not just course dates."}
               </p>
             </motion.div>
           ) : (

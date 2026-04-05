@@ -48,7 +48,7 @@ export default function Hero() {
           <br />
           Just two vets who use{' '}
           <em style={{ color: 'var(--teal)', fontStyle: 'italic' }}>AI every day</em>
-          {' '}— and want to help you do the same.
+          {' '}- and want to help you do the same.
         </h1>
         <p
           style={{
@@ -71,7 +71,7 @@ export default function Hero() {
             className="btn-primary"
             style={{ textDecoration: 'none', textAlign: 'center' }}
           >
-            Follow on Substack — free &rarr;
+            Follow on Substack - free &rarr;
           </a>
           <a
             href="#about"

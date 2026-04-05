@@ -4,7 +4,7 @@ const themes = [
   { num: '01', title: 'Prompting Basics', desc: 'Getting the most from any AI tool. The foundations every vet needs.' },
   { num: '02', title: 'Practice Efficiency', desc: 'Cut admin time. Discharge summaries, referral letters, SOPs in minutes.' },
   { num: '03', title: 'Knowledge Management', desc: 'Turn CPD articles into 5-point summaries. Build your own protocol library.' },
-  { num: '04', title: 'Client Communication', desc: 'Difficult conversations, FAQs, complaint responses — drafted in seconds.' },
+  { num: '04', title: 'Client Communication', desc: 'Difficult conversations, FAQs, complaint responses - drafted in seconds.' },
   { num: '05', title: 'CPD and Learning', desc: 'Use AI to explain papers, create quiz questions, summarise podcasts.' },
   { num: '06', title: 'Vibe Coding', desc: 'Build your first AI tool with no coding experience. Really.' },
   { num: '07', title: 'Audio and Video', desc: 'Transcribe consult recordings, summarise videos, turn voice memos into drafts.' },
@@ -59,7 +59,7 @@ export default function NineThemes() {
               maxWidth: 420,
             }}
           >
-            Every theme is practical — no theory, no jargon, just things you can use
+            Every theme is practical - no theory, no jargon, just things you can use
             this week in your practice.
           </p>
         </div>

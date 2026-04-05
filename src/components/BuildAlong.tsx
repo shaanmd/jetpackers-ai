@@ -29,7 +29,7 @@ export default function BuildAlong() {
             marginBottom: 20,
           }}
         >
-          BuildAlong — build your first product live with us.
+          BuildAlong - build your first product live with us.
         </h2>
         <p
           style={{
@@ -41,8 +41,8 @@ export default function BuildAlong() {
             margin: '0 auto 36px',
           }}
         >
-          A hands-on online workshop where we vibe code a real product together — a
-          web app, a website, or an AI tool — in one session. No experience needed.
+          A hands-on online workshop where we vibe code a real product together - a
+          web app, a website, or an AI tool - in one session. No experience needed.
           Just show up and build.
         </p>
         <a

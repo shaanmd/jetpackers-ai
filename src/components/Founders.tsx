@@ -4,13 +4,13 @@ const founders = [
   {
     role: 'Co-Founder · Brisbane, Australia',
     name: 'Shaan Mocke',
-    bio: 'BVSc, MANZCVS Equine Dentistry, Postgrad Dip Animal Biomechanical Medicine. Founder of Vet Align (mobile equine). Before vet school, 25 years in tech — including a decade building knowledge management systems for a major commercial law firm.',
+    bio: 'BVSc, MANZCVS Equine Dentistry, Postgrad Dip Animal Biomechanical Medicine. Founder of Vet Align (mobile equine). Before vet school, 25 years in tech - including a decade building knowledge management systems for a major commercial law firm.',
     tags: ['Equine Dentistry', 'Biomechanical Medicine', 'Knowledge Systems', 'Vibe Coding'],
   },
   {
     role: 'Co-Founder · New Zealand',
     name: 'Deb Prattley',
-    bio: 'Veterinarian, osteopath, and rehabilitation specialist. Co-founder of SD Vet Studio. Deep clinical expertise and a direct connection to the New Zealand veterinary community — including active engagement with the NZVA\'s newly forming AI committee.',
+    bio: 'Veterinarian, osteopath, and rehabilitation specialist. Co-founder of SD Vet Studio. Deep clinical expertise and a direct connection to the New Zealand veterinary community - including active engagement with the NZVA\'s newly forming AI committee.',
     tags: ['Rehabilitation', 'Osteopathy', 'Senior Dog Mobility', 'NZVA AI Committee'],
   },
 ]
@@ -50,7 +50,7 @@ export default function Founders() {
         <em style={{ fontStyle: 'italic', fontWeight: 300, color: '#06B6D4' }}>
           horses
         </em>{' '}
-        — and became something more.
+        - and became something more.
       </h2>
 
       <p
@@ -69,7 +69,7 @@ export default function Founders() {
         <br />
         <br />
         More than a decade later, both running solo practices on opposite sides of the
-        Tasman, they started co-working over Zoom —{' '}
+        Tasman, they started co-working over Zoom -{' '}
         <strong style={{ color: '#f0f6ff', fontWeight: 500 }}>
           because solo practice is lonely.
         </strong>{' '}

@@ -367,7 +367,7 @@ export default function ComingSoonPage() {
                   textDecoration: 'none',
                 }}
               >
-                Free &mdash; Sign Up Now
+                Free - Sign Up Now
               </a>
             </div>
           </div>
@@ -593,7 +593,7 @@ export default function ComingSoonPage() {
             </span>
           </h2>
           <p style={{ fontSize: 16, lineHeight: 1.7, color: '#5A5A72', marginBottom: 24 }}>
-            Breakfast Club meets The Jetsons. Seven questions to find out what kind of AI woman you really are &mdash; complete with your very own 80s/90s spirit guide. No wrong answers. Results that tell you something useful.
+            Breakfast Club meets The Jetsons. Seven questions to find out what kind of AI woman you really are - complete with your very own 80s/90s spirit guide. No wrong answers. Results that tell you something useful.
           </p>
           <div style={{ background: 'white', border: '1px solid #E2E2ED', borderRadius: 10, padding: '16px 20px', marginBottom: 28, fontSize: 14, lineHeight: 1.7, color: '#1A1A2E' }}>
             🎬 <strong>Did you know?</strong> In the 80s, we were promised flying cars and robot maids. We didn&apos;t get Rosie from The Jetsons, but we did get ChatGPT. It can&apos;t vacuum your lounge, but it can write a 4-week meal plan in four seconds.{' '}

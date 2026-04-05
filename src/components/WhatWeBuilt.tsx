@@ -11,7 +11,7 @@ const products = [
     status: 'Live',
     statusColor: '#4ade80',
     title: 'Veterinary Practice Handbook',
-    desc: 'A living AI-assisted knowledge base for your practice. SOPs, protocols, onboarding materials — all in one place, always up to date. Because every law firm has an intranet. Vet practices never do.',
+    desc: 'A living AI-assisted knowledge base for your practice. SOPs, protocols, onboarding materials - all in one place, always up to date. Because every law firm has an intranet. Vet practices never do.',
   },
   {
     status: 'In Development',

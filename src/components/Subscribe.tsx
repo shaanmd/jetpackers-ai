@@ -42,7 +42,7 @@ export default function Subscribe() {
           margin: '0 auto 36px',
         }}
       >
-        Practical, not theoretical. Built for time-poor vets — written by vets, for
+        Practical, not theoretical. Built for time-poor vets - written by vets, for
         the vet industry.
       </p>
       {status === 'success' ? (

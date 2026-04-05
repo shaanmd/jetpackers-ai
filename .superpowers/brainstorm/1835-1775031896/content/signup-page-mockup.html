@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', Arial, sans-serif; background: #F9F9FB; color: #1A1A2E; }
+  .mock-page { max-width: 680px; margin: 0 auto; }
+
+  .nav { background: #1A1A2E; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-weight: 800; font-size: 18px; color: white; }
+  .logo span { color: #00D4AA; }
+  .nav-cta { background: linear-gradient(135deg, #EC4899, #A855F7); color: white; padding: 8px 18px; border-radius: 8px; font-size: 13px; font-weight: 700; text-decoration: none; }
+
+  .hero { background: #1A1A2E; padding: 40px 32px 32px; text-align: center; }
+  .event-badge { display: inline-block; background: rgba(0,212,170,0.12); border: 1px solid rgba(0,212,170,0.3); color: #00D4AA; font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; padding: 6px 14px; border-radius: 20px; margin-bottom: 16px; }
+  .persona-badge { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; padding: 6px 14px; border-radius: 20px; margin-bottom: 16px; margin-left: 8px; }
+  .hero h1 { font-size: clamp(22px, 4vw, 34px); font-weight: 800; color: white; line-height: 1.15; margin-bottom: 12px; }
+  .hero h1 span { color: #00D4AA; }
+  .hero-sub { font-size: 15px; color: #9999BB; line-height: 1.7; max-width: 500px; margin: 0 auto 20px; }
+  .session-pill { display: inline-flex; gap: 16px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 10px 20px; font-size: 13px; color: #CCCCDD; }
+  .session-pill span { color: #00D4AA; font-weight: 600; }
+
+  .reassurance { background: white; border-bottom: 1px solid #E2E2ED; padding: 18px 32px; display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; }
+  .reassurance-item { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 500; color: #1A1A2E; }
+  .reassurance-item .tick { color: #00D4AA; font-size: 16px; }
+
+  .content { padding: 32px; }
+
+  .persona-box { background: white; border-radius: 12px; padding: 20px 24px; margin-bottom: 24px; display: flex; gap: 16px; align-items: flex-start; border-width: 2px; border-style: solid; }
+  .persona-emoji { font-size: 36px; flex-shrink: 0; }
+  .persona-text h3 { font-weight: 800; font-size: 16px; color: #1A1A2E; margin-bottom: 4px; }
+  .persona-text p { font-size: 14px; color: #5A5A72; line-height: 1.6; }
+
+  .fear-box { background: #FFF5FB; border-left: 3px solid #EC4899; border-radius: 0 10px 10px 0; padding: 16px 20px; margin-bottom: 24px; }
+  .fear-box p { font-size: 14px; color: #1A1A2E; line-height: 1.7; }
+  .fear-box strong { color: #EC4899; }
+
+  .section-label { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #00D4AA; margin-bottom: 12px; }
+  .outcomes { list-style: none; margin-bottom: 24px; }
+  .outcomes li { padding: 12px 0; border-bottom: 1px solid #E2E2ED; font-size: 14px; color: #1A1A2E; display: flex; gap: 12px; align-items: flex-start; line-height: 1.5; }
+  .outcomes li:last-child { border-bottom: none; }
+  .outcomes li .icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+
+  .promise { background: #1A1A2E; border-radius: 12px; padding: 20px 24px; margin-bottom: 24px; }
+  .promise p { font-size: 14px; color: #9999BB; line-height: 1.7; text-align: center; }
+  .promise strong { color: white; }
+
+  .pricing-card { background: white; border: 2px solid #EC4899; border-radius: 14px; padding: 24px; margin-bottom: 24px; text-align: center; }
+  .price { font-size: 42px; font-weight: 800; color: #EC4899; }
+  .price-note { font-size: 14px; color: #5A5A72; margin-bottom: 6px; }
+  .scarcity { background: rgba(233,30,140,0.08); border-radius: 8px; padding: 8px 16px; font-size: 13px; font-weight: 600; color: #EC4899; display: inline-block; margin-bottom: 16px; }
+  .cta-btn { display: block; background: linear-gradient(135deg, #EC4899, #A855F7); color: white; font-size: 16px; font-weight: 800; padding: 16px 32px; border-radius: 12px; text-decoration: none; margin-bottom: 10px; box-shadow: 0 4px 20px rgba(236,72,153,0.35); }
+  .cta-sub { font-size: 12px; color: #9999BB; }
+
+  .trust { background: #F9F9FB; border-radius: 10px; padding: 16px 20px; margin-bottom: 24px; }
+  .trust p { font-size: 13px; color: #5A5A72; line-height: 1.7; }
+  .trust strong { color: #1A1A2E; }
+
+  .switcher { background: #E8F4FD; padding: 12px 20px; font-size: 13px; color: #1A1A2E; text-align: center; display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; align-items: center; }
+  .switcher label { font-weight: 500; margin-right: 4px; }
+  .tab { padding: 7px 14px; border-radius: 8px; font-size: 12px; font-weight: 600; cursor: pointer; border: 2px solid #CBD5E1; background: white; color: #5A5A72; }
+  .tab.active { background: #1A1A2E; color: white; border-color: #1A1A2E; }
+
+  #persona-callout { display: none; }
+  #persona-callout.visible { display: flex; }
+  #persona-badge-wrap { display: none; }
+  #persona-badge-wrap.visible { display: inline-block; }
+</style>
+</head>
+<body>
+<div class="mock-page">
+
+  <div class="switcher">
+    <label>Preview:</label>
+    <span class="tab active" onclick="showPersona('generic')">Generic</span>
+    <span class="tab" onclick="showPersona('A')">📺 Classic Hit</span>
+    <span class="tab" onclick="showPersona('B')">💍 Practical Pioneer</span>
+    <span class="tab" onclick="showPersona('C')">💅 Power Player</span>
+    <span class="tab" onclick="showPersona('D')">🐕 Traditionalist</span>
+  </div>
+
+  <div class="nav">
+    <div class="logo">Jetpackers<span>AI</span></div>
+    <a class="nav-cta" href="#">Sign Up Now →</a>
+  </div>
+
+  <div class="hero">
+    <div class="event-badge">Vinyl & Vibe-Along · 12 April</div>
+    <span id="persona-badge-wrap"><span id="persona-badge" class="persona-badge"></span></span>
+    <h1 id="hero-headline">From "what even is AI?" to<br><span>building your own app in 3 hours.</span></h1>
+    <p class="hero-sub" id="hero-sub">A live online session for Gen X women. No tech experience needed. Just a laptop, a browser, and a little curiosity.</p>
+    <div class="session-pill">
+      <span>📅 12 April</span>
+      <span>⏰ 12pm AEST · 2pm NZT</span>
+      <span>🎧 Online · 6 spots</span>
+    </div>
+  </div>
+
+  <div class="reassurance">
+    <div class="reassurance-item"><span class="tick">✓</span> No coding experience needed</div>
+    <div class="reassurance-item"><span class="tick">✓</span> Small group (max 6 women)</div>
+    <div class="reassurance-item"><span class="tick">✓</span> You'll build something real</div>
+  </div>
+
+  <div class="content">
+
+    <div id="persona-callout" class="persona-box">
+      <div class="persona-emoji" id="callout-emoji"></div>
+      <div class="persona-text">
+        <h3 id="callout-title"></h3>
+        <p id="callout-body"></p>
+      </div>
+    </div>
+
+    <div class="fear-box">
+      <p>Worried you're not technical enough? <strong>That's exactly why we built this.</strong> Shaan and Deb are Gen X women who figured this out themselves. No computer science degree, no jargon. If you can Google something, you can do this.</p>
+    </div>
+
+    <div class="section-label">By the end of the session you will</div>
+    <ul class="outcomes">
+      <li><span class="icon">✍️</span><div><strong>Know how to write prompts that actually work.</strong> No more vague results. You'll know how to ask AI the right way to get what you need.</div></li>
+      <li><span class="icon">🛠️</span><div><strong>Have built something real.</strong> A web page or mini app you designed yourself. Not a template. Something that does something useful for you.</div></li>
+      <li><span class="icon">🧠</span><div><strong>Understand the tools.</strong> We'll walk through Gemini and other AI tools so you know what they're good for (and what they're not).</div></li>
+      <li><span class="icon">💪</span><div><strong>Feel confident enough to keep going.</strong> The goal isn't one session, it's giving you the confidence to explore on your own.</div></li>
+    </ul>
+
+    <div class="promise">
+      <p><strong>Zero tech experience required.</strong><br>We start from scratch. The only thing you need is a laptop, a browser, and a willingness to press the buttons. Shaan will be right there if anything goes sideways.</p>
+    </div>
+
+    <div class="pricing-card">
+      <div class="price-note">Introductory price, first cohort only</div>
+      <div class="price">$67 <span style="font-size:18px;color:#5A5A72;font-weight:400;">NZD</span></div>
+      <div style="font-size:13px;color:#5A5A72;margin-bottom:12px;">3-hour live session · Sunday 12 April · Online</div>
+      <div class="scarcity">⚡ Only 6 spots — filling fast</div>
+      <a class="cta-btn" href="#">Sign Up Now →</a>
+      <div class="cta-sub">Secure checkout via Stripe · Instant confirmation email</div>
+    </div>
+
+    <div class="trust">
+      <p><strong>Shaan & Deb</strong> are two Gen X vets who taught themselves AI from scratch. Shaan was a web designer and coding teacher. Deb tries every tool she can get her hands on. Neither of them had a roadmap. Now they're making one for you.</p>
+    </div>
+
+  </div>
+</div>
+
+<script>
+const PERSONAS = {
+  generic: null,
+  A: {
+    badge: '📺 You\'re a Classic Hit',
+    badgeBg: 'rgba(13,148,136,0.15)',
+    badgeBorder: 'rgba(13,148,136,0.4)',
+    badgeColor: '#0D9488',
+    borderColor: '#0D9488',
+    headline: 'AI that works with your brain,<br><span>not instead of it.</span>',
+    sub: "You value the human touch — and that's not going away. This session puts you firmly in the driver's seat. You decide what AI does for you.",
+    emoji: '📺',
+    calloutTitle: 'Built around your expertise',
+    calloutBody: "As a Classic Hit, you have high standards and hard-won expertise. This session shows you how to use AI as a research partner — one that sharpens your thinking without replacing it.",
+  },
+  B: {
+    badge: '💍 You\'re a Practical Pioneer',
+    badgeBg: 'rgba(236,72,153,0.15)',
+    badgeBorder: 'rgba(236,72,153,0.4)',
+    badgeColor: '#EC4899',
+    borderColor: '#EC4899',
+    headline: 'Stop drowning in admin.<br><span>Start getting your time back.</span>',
+    sub: "You're ready to make the leap, and we're here to make it painless. No theory — just the shortcuts that actually free up your day.",
+    emoji: '💍',
+    calloutTitle: 'Results you can use on Monday',
+    calloutBody: "As a Practical Pioneer, you want results you can use on Monday morning. This session hands you the everyday AI shortcuts that take the 'messy' off your plate — so you can spend your time on what actually matters.",
+  },
+  C: {
+    badge: '💅 You\'re a Power Player',
+    badgeBg: 'rgba(192,132,252,0.15)',
+    badgeBorder: 'rgba(192,132,252,0.4)',
+    badgeColor: '#C084FC',
+    borderColor: '#C084FC',
+    headline: 'You see the opportunity.<br><span>Now let\'s make it real.</span>',
+    sub: "You don't need a tech background. You need three hours, a glass of wine, and your favourite 80s album.",
+    emoji: '💅',
+    calloutTitle: 'Built for where you are right now',
+    calloutBody: "As a Power Player, you don't just want to dabble. You want to command AI. This session gives you the foundation to do exactly that: real prompts, real tools, and something you built yourself to show for it.",
+  },
+  D: {
+    badge: '🐕 You\'re a Footrot Flats Traditionalist',
+    badgeBg: 'rgba(245,158,11,0.15)',
+    badgeBorder: 'rgba(245,158,11,0.4)',
+    badgeColor: '#F59E0B',
+    borderColor: '#F59E0B',
+    headline: 'Get the boring stuff handled.<br><span>Then get back outside.</span>',
+    sub: "You don't want to live in front of a screen. Neither do we. This session finds you the one or two tools that quietly do the work — so you barely have to think about them.",
+    emoji: '🐕',
+    calloutTitle: 'Set it up once. Then forget it.',
+    calloutBody: "As a Footrot Flats Traditionalist, your ideal AI is one you set up once and never think about again. We'll find your 'set and forget' setup — the tools that handle the life admin so you can get back to what you actually love.",
+  },
+}
+
+function showPersona(key) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'))
+  event.target.classList.add('active')
+
+  const p = PERSONAS[key]
+  const badgeWrap = document.getElementById('persona-badge-wrap')
+  const callout = document.getElementById('persona-callout')
+
+  if (!p) {
+    badgeWrap.classList.remove('visible')
+    callout.classList.remove('visible')
+    document.getElementById('hero-headline').innerHTML = 'From "what even is AI?" to<br><span>building your own app in 3 hours.</span>'
+    document.getElementById('hero-sub').textContent = 'A live online session for Gen X women. No tech experience needed. Just a laptop, a browser, and a little curiosity.'
+    return
+  }
+
+  const badge = document.getElementById('persona-badge')
+  badge.textContent = p.badge
+  badge.style.background = p.badgeBg
+  badge.style.border = `1px solid ${p.badgeBorder}`
+  badge.style.color = p.badgeColor
+  badgeWrap.classList.add('visible')
+
+  document.getElementById('hero-headline').innerHTML = p.headline
+  document.getElementById('hero-sub').textContent = p.sub
+
+  document.getElementById('callout-emoji').textContent = p.emoji
+  document.getElementById('callout-title').textContent = p.calloutTitle
+  document.getElementById('callout-body').textContent = p.calloutBody
+  callout.style.borderColor = p.borderColor
+  callout.classList.add('visible')
+}
+</script>
+</body>
+</html>

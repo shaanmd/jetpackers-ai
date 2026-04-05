@@ -5,7 +5,7 @@ import Image from 'next/image'
 export const metadata: Metadata = {
   title: 'About | Jetpackers AI',
   description:
-    'Meet Shaan and Deb — two vets, one big idea. We built JetpackersAI because Gen X women don\'t need AI explained from scratch.',
+    'Meet Shaan and Deb - two vets, one big idea. We built JetpackersAI because Gen X women don\'t need AI explained from scratch.',
 }
 
 export default function AboutPage() {
@@ -68,14 +68,14 @@ export default function AboutPage() {
           style={{ color: 'var(--text-muted)' }}
         >
           We built JetpackersAI because Gen X women don&apos;t need AI explained from scratch.
-          We just needed someone to show us what&apos;s actually useful &mdash; without the Silicon Valley hype.
+          We just needed someone to show us what&apos;s actually useful - without the Silicon Valley hype.
         </p>
 
         {/* Team photo */}
         <div className="mb-14 overflow-hidden rounded-2xl" style={{ border: '1px solid var(--border)' }}>
           <Image
             src="/team-photo.jpg"
-            alt="Shaan and Deb — the Jetpackers AI team"
+            alt="Shaan and Deb - the Jetpackers AI team"
             width={1376}
             height={768}
             className="w-full"
@@ -132,7 +132,7 @@ export default function AboutPage() {
             <div className="space-y-3 text-[14px] leading-relaxed" style={{ color: 'var(--text-muted)' }}>
               <p>
                 Before vet school, Shaan was writing code for a corporate law firm in New Zealand.
-                She has a programmer&apos;s brain and a vet&apos;s hands &mdash; a surprisingly useful
+                She has a programmer&apos;s brain and a vet&apos;s hands - a surprisingly useful
                 combination for figuring out what AI can actually do.
               </p>
               <p>
@@ -230,14 +230,14 @@ export default function AboutPage() {
 
             <div className="space-y-3 text-[14px] leading-relaxed" style={{ color: 'var(--text-muted)' }}>
               <p>
-                Deb graduated from Massey vet school &ldquo;last century&rdquo; &mdash; her words, not ours.
+                Deb graduated from Massey vet school &ldquo;last century&rdquo; - her words, not ours.
                 Since then she&apos;s collected a Masters from Glasgow, a PhD from Massey, a Masters in
                 Osteopathy from Unitec, and a list of certifications that runs longer than most
                 people&apos;s entire CVs.
               </p>
               <p>
                 She does veterinary rehabilitation and osteopathy across the Manawatu and surrounding
-                regions &mdash; dogs, cats, horses, and anything else that needs to move better. She lives
+                regions - dogs, cats, horses, and anything else that needs to move better. She lives
                 on a lifestyle block with horses, dogs, and some sheep.
               </p>
               <p>

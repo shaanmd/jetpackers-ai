@@ -61,7 +61,7 @@ const questions = [
       { key: 'A' as Answer, text: "The Breakfast Club: I'm stuck in detention and I don't want to be here." },
       { key: 'B' as Answer, text: 'Muriel\'s Wedding: "You\'re terrible, AI!"... but also, I kind of want to be friends.' },
       { key: 'C' as Answer, text: 'Kath & Kim: It\'s "noice, unusual, and different," and I\'m ready to make it my own.' },
-      { key: 'D' as Answer, text: "Footrot Flats: I'm just sticking with the Dog — he's more reliable than a robot." },
+      { key: 'D' as Answer, text: "Footrot Flats: I'm just sticking with the Dog - he's more reliable than a robot." },
     ],
   },
   {
@@ -109,7 +109,7 @@ const personas: Record<
       "You're the mother of the nation. You value the human touch and high standards. You aren't against AI, but you aren't about to let a robot write your Christmas cards or take over your brain.",
     goal: 'AI as Research Assistant',
     goalDetail:
-      'Learning how to use AI as a research assistant — not a replacement — so you can stay informed without losing your soul to the machine.',
+      'Learning how to use AI as a research assistant - not a replacement - so you can stay informed without losing your soul to the machine.',
     emoji: '📺',
     color: '#0D9488',
   },
@@ -118,7 +118,7 @@ const personas: Record<
     subtitle: 'The Muriel Heslop',
     vibe: '"You\'re terrible, Muriel!"... but also, you\'re doing it!',
     description:
-      "You're ready to leave the old life behind and try something new, even if it feels a bit awkward at first. You use AI for the \"messy\" stuff — fixing your tone, brainstorming dinner, or sorting out a chaotic inbox.",
+      "You're ready to leave the old life behind and try something new, even if it feels a bit awkward at first. You use AI for the \"messy\" stuff - fixing your tone, brainstorming dinner, or sorting out a chaotic inbox.",
     goal: 'Everyday AI Shortcuts',
     goalDetail: 'Mastering "Everyday AI" shortcuts that give you back two hours of your life every day.',
     emoji: '💍',
@@ -129,7 +129,7 @@ const personas: Record<
     subtitle: 'The Jilly Stewart (Gloss)',
     vibe: 'High stakes, high tech, and big shoulder-pad energy.',
     description:
-      "You see the opportunity and you're grabbing it with both hands. You don't just want to \"use\" AI; you want to command it. You're interested in the pro features — image generation, data analysis, and building your own digital empire.",
+      "You see the opportunity and you're grabbing it with both hands. You don't just want to \"use\" AI; you want to command it. You're interested in the pro features - image generation, data analysis, and building your own digital empire.",
     goal: 'Advanced Prompt Engineering',
     goalDetail: "You want to be the one showing everyone else how it's done.",
     emoji: '💅',
@@ -318,7 +318,7 @@ export default function QuizClient() {
                 </span>
               </h1>
               <p className="mb-6 text-[15px] leading-relaxed" style={{ color: 'var(--text-muted)' }}>
-                Breakfast Club meets The Jetsons. Seven questions to find out what kind of AI woman you really are — complete with your very own 80s/90s spirit guide. No wrong answers. Results that tell you something useful.
+                Breakfast Club meets The Jetsons. Seven questions to find out what kind of AI woman you really are - complete with your very own 80s/90s spirit guide. No wrong answers. Results that tell you something useful.
               </p>
               <div
                 className="mb-8 rounded-2xl p-4"
@@ -429,7 +429,7 @@ export default function QuizClient() {
                 </span>
               </h2>
               <p className="mb-6 text-[15px] leading-relaxed" style={{ color: 'var(--text-muted)' }}>
-                Pop in your email to unlock your results. We&apos;ll also keep you in the loop on the Vibe-A-Long course — early access, best pricing, and no bro-energy required.
+                Pop in your email to unlock your results. We&apos;ll also keep you in the loop on the Vibe-A-Long course - early access, best pricing, and no bro-energy required.
               </p>
 
               <form onSubmit={handleSubmit} className="flex flex-col gap-3 sm:flex-row">
@@ -584,7 +584,7 @@ export default function QuizClient() {
                         Ready to make it real?
                       </p>
                       <p className="mb-3 text-[13px] leading-relaxed" style={{ color: 'var(--text-muted)' }}>
-                        The Vibe-A-Long is a 3-hour live session with Shaan &amp; Deb — built for exactly where you are. Date dropping soon. Be first to know.
+                        The Vibe-A-Long is a 3-hour live session with Shaan &amp; Deb - built for exactly where you are. Date dropping soon. Be first to know.
                       </p>
                       <Link
                         href={`/sign-up?persona=${persona}`}
