@@ -323,7 +323,7 @@ export default function ComingSoonPage() {
                   textDecoration: 'none',
                 }}
               >
-                Book the Vibe-Along Now
+                Find Out More
               </Link>
             </div>
             <div
