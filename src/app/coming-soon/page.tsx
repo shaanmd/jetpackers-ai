@@ -734,40 +734,7 @@ export default function ComingSoonPage() {
               Terms
             </Link>
           </div>
-          <div style={{ display: 'flex', gap: 10 }}>
-            {[
-              { href: 'https://www.facebook.com/jetpackersAI/', label: 'Facebook', text: 'f', size: 14, external: true },
-              { href: '#', label: 'Instagram', text: 'ig', size: 11, external: false },
-              { href: 'https://www.youtube.com/@jetpackersAI', label: 'YouTube', text: 'yt', size: 11, external: true },
-              { href: '#', label: 'Substack', text: 'ss', size: 10, external: false },
-            ].map((s) => (
-              <a
-                key={s.label}
-                href={s.href}
-                target={s.external ? '_blank' : undefined}
-                rel={s.external ? 'noopener noreferrer' : undefined}
-                aria-label={s.label}
-                className="social-icon"
-                style={{
-                  width: 36,
-                  height: 36,
-                  borderRadius: '50%',
-                  background: 'linear-gradient(135deg, #EC4899 0%, #A855F7 100%)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontSize: s.size,
-                  fontWeight: 700,
-                  color: 'white',
-                  textDecoration: 'none',
-                  transition: 'transform 0.2s, box-shadow 0.2s',
-                  boxShadow: '0 2px 10px rgba(236, 72, 153, 0.3)',
-                }}
-              >
-                {s.text}
-              </a>
-            ))}
-          </div>
+          <div />
           <div
             style={{
               width: '100%',
