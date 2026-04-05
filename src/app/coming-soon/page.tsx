@@ -525,11 +525,11 @@ export default function ComingSoonPage() {
               },
               {
                 title: 'Join the Vinyl & Vibe-Along',
-                desc: "Our next session is 12th April where we teach you how to vibe code your own web app. Other sessions planned including Bust-Your-Bills app for next month (plugging money leaks and saving $$ with AI). We'll save your spot and keep you posted on when the next Vinyl & Vibe-Along opens up.",
+                desc: "Our next session is 12th April where we take you from zero to hero - you'll get to vibe code your own web app.",
               },
               {
                 title: 'Keep Learning',
-                desc: "We'll add you to our newsletter, recommend our favourite AI software and send some easy tips to get you started straight away.",
+                desc: "Our newsletter will keep you up to date with our favourite AI software and what you can do with it. And coming soon we have a Bust-Your-Bills session where we'll show you how we've plugged our money leaks and saved $$ with AI.",
               },
             ].map((step, i) => (
               <div
@@ -576,7 +576,6 @@ export default function ComingSoonPage() {
               </div>
             ))}
           </div>
-          <QuizCta />
         </div>
       </div>
 
