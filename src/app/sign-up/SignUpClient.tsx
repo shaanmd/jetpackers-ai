@@ -289,14 +289,6 @@ export default function SignUpClient() {
           </p>
         </div>
 
-        {/* Zero-tech promise */}
-        <div style={{ background: '#1A1A2E', borderRadius: 12, padding: '20px 24px', marginBottom: 24, textAlign: 'center' }}>
-          <p style={{ fontSize: 14, color: '#9999BB', lineHeight: 1.7 }}>
-            <strong style={{ color: 'white' }}>Zero tech experience required.</strong>{' '}
-            We start from scratch. The only thing you need is a laptop, a browser, and a willingness to press the buttons. Shaan will be right there if anything goes sideways.
-          </p>
-        </div>
-
         {/* Pricing card */}
         <div style={{ background: 'white', border: `2px solid ${soldOut ? '#E2E2ED' : 'var(--pink)'}`, borderRadius: 14, padding: 24, marginBottom: 24, textAlign: 'center' }}>
           <div style={{ fontSize: 14, color: 'var(--text-muted)', marginBottom: 6 }}>
