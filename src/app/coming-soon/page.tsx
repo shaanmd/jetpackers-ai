@@ -185,6 +185,31 @@ export default function ComingSoonPage() {
         ))}
       </div>
 
+      {/* Quiz intro teaser */}
+      <div style={{ background: '#F9F9FB', padding: '64px 40px' }}>
+        <div style={{ maxWidth: 680, margin: '0 auto' }}>
+          <div style={{ fontFamily: outfit, fontSize: 11, fontWeight: 700, letterSpacing: 3, textTransform: 'uppercase' as const, color: '#00D4AA', marginBottom: 16 }}>
+            Vibe Check &middot; 7 Questions
+          </div>
+          <h2 style={{ fontFamily: outfit, fontWeight: 800, fontSize: 'clamp(28px, 4vw, 40px)', lineHeight: 1.15, marginBottom: 20 }}>
+            Is AI Your New Bestie{' '}
+            <span style={{ background: 'linear-gradient(135deg, #EC4899 0%, #A855F7 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+              or a Total Narcissist?
+            </span>
+          </h2>
+          <p style={{ fontSize: 16, lineHeight: 1.7, color: '#5A5A72', marginBottom: 24 }}>
+            Breakfast Club meets The Jetsons. Seven questions to find out what kind of AI woman you really are &mdash; complete with your very own 80s/90s spirit guide. No wrong answers. Results that tell you something useful.
+          </p>
+          <div style={{ background: 'white', border: '1px solid #E2E2ED', borderRadius: 10, padding: '16px 20px', marginBottom: 28, fontSize: 14, lineHeight: 1.7, color: '#1A1A2E' }}>
+            🎬 <strong>Did you know?</strong> In the 80s, we were promised flying cars and robot maids. We didn&apos;t get Rosie from The Jetsons, but we did get ChatGPT. It can&apos;t vacuum your lounge, but it can write a 4-week meal plan in four seconds.{' '}
+            <em style={{ color: '#00D4AA' }}>Progress? We think so.</em>
+          </div>
+          <Link href="/quiz" className="btn-primary" style={{ textDecoration: 'none', display: 'inline-block' }}>
+            Let&apos;s go &rarr;
+          </Link>
+        </div>
+      </div>
+
       {/* Sound familiar */}
       <div style={{ background: '#F9F9FB' }}>
         <div style={{ padding: '72px 40px', maxWidth: 900, margin: '0 auto' }}>
