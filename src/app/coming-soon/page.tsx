@@ -576,6 +576,23 @@ export default function ComingSoonPage() {
                 A 3-hour online session, small group, max 6 people. We show you the ropes and you
                 build something useful. Vinyl grooves in the background.
               </p>
+              <Link
+                href="/sign-up"
+                style={{
+                  display: 'inline-block',
+                  marginTop: 20,
+                  background: '#E91E8C',
+                  color: 'white',
+                  padding: '10px 20px',
+                  borderRadius: 8,
+                  fontSize: 14,
+                  fontWeight: 600,
+                  fontFamily: outfit,
+                  textDecoration: 'none',
+                }}
+              >
+                $67 NZD &middot; 6 spots only &mdash; Book Now
+              </Link>
             </div>
             <div style={{ border: '1px solid #E2E2ED', borderRadius: 12, padding: 32 }}>
               <div
@@ -589,26 +606,39 @@ export default function ComingSoonPage() {
               >
                 The Newsletter
               </div>
-              <a
-                href="#newsletter"
+              <div
                 style={{
-                  display: 'block',
                   fontFamily: outfit,
                   fontWeight: 800,
                   fontSize: 36,
                   color: '#00D4AA',
                   marginBottom: 16,
-                  textDecoration: 'none',
                 }}
               >
-                Free — Sign Up Now
-              </a>
+                Free
+              </div>
               <p style={{ fontSize: 15, lineHeight: 1.7, color: '#5A5A72' }}>
                 AI basics, real examples, new tools and a few laughs.
               </p>
+              <a
+                href="#newsletter"
+                style={{
+                  display: 'inline-block',
+                  marginTop: 20,
+                  background: '#00D4AA',
+                  color: '#1A1A2E',
+                  padding: '10px 20px',
+                  borderRadius: 8,
+                  fontSize: 14,
+                  fontWeight: 600,
+                  fontFamily: outfit,
+                  textDecoration: 'none',
+                }}
+              >
+                Free &mdash; Sign Up Now
+              </a>
             </div>
           </div>
-          <QuizCta />
         </div>
       </div>
 
