@@ -429,7 +429,7 @@ export default function QuizClient() {
                 </span>
               </h2>
               <p className="mb-6 text-[15px] leading-relaxed" style={{ color: 'var(--text-muted)' }}>
-                Pop in your email to unlock your results. We&apos;ll also keep you in the loop on the Vibe-A-Long course - early access, best pricing, and no bro-energy required.
+                Pop in your email to unlock your results. We&apos;ll also keep you in the loop on our courses, offers, news with early access, best pricing, and no bro-energy required.
               </p>
 
               <form onSubmit={handleSubmit} className="flex flex-col gap-3 sm:flex-row">
