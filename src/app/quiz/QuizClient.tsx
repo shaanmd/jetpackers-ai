@@ -584,7 +584,7 @@ export default function QuizClient() {
                         Ready to make it real?
                       </p>
                       <p className="mb-3 text-[13px] leading-relaxed" style={{ color: 'var(--text-muted)' }}>
-                        The Vibe-A-Long is a 3-hour live session with Shaan &amp; Deb - built for exactly where you are. Date dropping soon. Be first to know.
+                        The Vibe-Along is a 3-hour live session with Shaan &amp; Deb, built for exactly where you are. Find out more by clicking the link.
                       </p>
                       <Link
                         href={`/sign-up?persona=${persona}`}
