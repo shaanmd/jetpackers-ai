@@ -278,7 +278,7 @@ export default function ComingSoonPage() {
               marginBottom: 8,
             }}
           >
-            What you get
+            Current Offers
           </h2>
           <div className="value-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24, marginTop: 40 }}>
             <div
