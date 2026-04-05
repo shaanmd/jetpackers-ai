@@ -521,14 +521,14 @@ export default function ComingSoonPage() {
             {[
               {
                 title: 'Take the Quiz',
-                desc: 'Find out your AI persona and grab your spot on the Vinyl & Vibe-Along waitlist.',
+                desc: 'Find out your AI persona and we will sign you up to our FREE newsletter.',
               },
               {
-                title: 'Join the Waitlist',
-                desc: "We'll save your spot and keep you posted on when the next Vinyl & Vibe-Along opens up.",
+                title: 'Join the Vibe-Along',
+                desc: "Our next session is 12th April where we teach you how to vibe code your own web app. Other sessions planned including Bust-Your-Bills app for next month (plugging money leaks and saving $$ with AI). We'll save your spot and keep you posted on when the next Vinyl & Vibe-Along opens up.",
               },
               {
-                title: 'Start Learning',
+                title: 'Keep Learning',
                 desc: "We'll add you to our newsletter, recommend our favourite AI software and send some easy tips to get you started straight away.",
               },
             ].map((step, i) => (
