@@ -270,19 +270,6 @@ export default function ComingSoonPage() {
       {/* What you get */}
       <div style={{ background: 'white' }}>
         <div style={{ maxWidth: 900, margin: '0 auto', padding: '72px 40px' }}>
-          <div
-            style={{
-              fontFamily: outfit,
-              fontSize: 12,
-              fontWeight: 600,
-              letterSpacing: 3,
-              textTransform: 'uppercase' as const,
-              color: '#00D4AA',
-              marginBottom: 16,
-            }}
-          >
-            The Vinyl &amp; Vibe-Along
-          </div>
           <h2
             style={{
               fontFamily: outfit,
@@ -336,7 +323,7 @@ export default function ComingSoonPage() {
                   textDecoration: 'none',
                 }}
               >
-                $67 NZD &middot; 6 spots only &mdash; Book Now
+                Book the Vibe-Along Now
               </Link>
             </div>
             <div
@@ -384,7 +371,6 @@ export default function ComingSoonPage() {
               </a>
             </div>
           </div>
-          <QuizCta />
         </div>
       </div>
 
