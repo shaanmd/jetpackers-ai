@@ -23,15 +23,13 @@ function SignUpCta({ center = true }: { center?: boolean }) {
       <p style={{ fontSize: 15, color: '#5A5A72', fontStyle: 'italic', margin: 0 }}>
         Ready to sign up now? Skip the quiz and grab your spot.
       </p>
-      <a
-        href="https://buy.stripe.com/14AfZh7Lzd7q2Bja7m6EU00"
-        target="_blank"
-        rel="noopener noreferrer"
+      <Link
+        href="/sign-up"
         className="btn-primary"
         style={{ textDecoration: 'none', textAlign: 'center' }}
       >
         Sign up for the Vibe-Along &rarr;
-      </a>
+      </Link>
     </div>
   )
 }
