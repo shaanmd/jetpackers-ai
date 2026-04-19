@@ -103,23 +103,26 @@ export default function SignUpClient() {
     let shown = false
     const show = () => { if (!shown) { shown = true; setShowExitModal(true) } }
 
-    // Desktop: mouse exits viewport from the top (toward back button / address bar)
     const handleMouseLeave = (e: MouseEvent) => {
       if (e.clientY <= 5) show()
     }
-    document.addEventListener('mouseleave', handleMouseLeave)
 
-    // Mobile / fallback: back button via popstate intercept
-    history.pushState({ exitGuard: true }, '')
     const handlePopState = (e: PopStateEvent) => {
       if (!e.state?.exitGuard) {
         history.pushState({ exitGuard: true }, '')
         show()
       }
     }
-    window.addEventListener('popstate', handlePopState)
+
+    // Delay registration so the popup doesn't fire immediately on page load
+    const timer = setTimeout(() => {
+      document.addEventListener('mouseleave', handleMouseLeave)
+      history.pushState({ exitGuard: true }, '')
+      window.addEventListener('popstate', handlePopState)
+    }, 3000)
 
     return () => {
+      clearTimeout(timer)
       document.removeEventListener('mouseleave', handleMouseLeave)
       window.removeEventListener('popstate', handlePopState)
     }
@@ -209,7 +212,7 @@ export default function SignUpClient() {
       {/* Hero */}
       <div style={{ background: '#1A1A2E', padding: '40px 32px 32px', textAlign: 'center' }}>
         <div style={{ display: 'inline-block', background: 'rgba(0,212,170,0.12)', border: '1px solid rgba(0,212,170,0.3)', color: '#00D4AA', fontSize: 11, fontWeight: 700, letterSpacing: 3, textTransform: 'uppercase', padding: '6px 14px', borderRadius: 20, marginBottom: 16 }}>
-          Vinyl &amp; Vibe-Along · 12 April
+          Vinyl &amp; Vibe-Along · 10 May
         </div>
 
         {p && (
@@ -226,8 +229,8 @@ export default function SignUpClient() {
         </p>
 
         <div style={{ display: 'inline-flex', gap: 16, background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 10, padding: '10px 20px', fontSize: 13, color: '#CCCCDD', flexWrap: 'wrap', justifyContent: 'center' }}>
-          <span style={{ color: '#00D4AA', fontWeight: 600 }}>📅 12 April</span>
-          <span style={{ color: '#00D4AA', fontWeight: 600 }}>⏰ 12pm AEST · 2pm NZT</span>
+          <span style={{ color: '#00D4AA', fontWeight: 600 }}>📅 10 May</span>
+          <span style={{ color: '#00D4AA', fontWeight: 600 }}>⏰ 12pm Brisbane · 2pm NZ</span>
           <span style={{ color: '#00D4AA', fontWeight: 600 }}>🎧 Online · 6 spots</span>
         </div>
       </div>
@@ -297,7 +300,7 @@ export default function SignUpClient() {
           <div style={{ fontSize: 42, fontWeight: 800, color: soldOut ? 'var(--text-muted)' : 'var(--pink)' }}>
             $67 <span style={{ fontSize: 18, color: 'var(--text-muted)', fontWeight: 400 }}>NZD</span>
           </div>
-          <div style={{ fontSize: 13, color: 'var(--text-muted)', marginBottom: 12 }}>3-hour live session · Sunday 12 April · Online</div>
+          <div style={{ fontSize: 13, color: 'var(--text-muted)', marginBottom: 12 }}>3-hour live session · Sunday 10 May · Online</div>
 
           <div style={{ background: soldOut ? 'rgba(0,0,0,0.05)' : 'rgba(233,30,140,0.08)', borderRadius: 8, padding: '8px 16px', fontSize: 13, fontWeight: 600, color: soldOut ? 'var(--text-muted)' : 'var(--pink)', display: 'inline-block', marginBottom: 16 }}>
             {spotsLabel}

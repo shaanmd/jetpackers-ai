@@ -27,7 +27,7 @@ function buildConfirmationEmail(name: string | null): string {
 
   <p>Many AI-based programmes have free usage plans, but you can use up the free amounts pretty quickly. For the Vibe-Along, one of the programmes we'd like to use is Gemini, which is owned by Google. You can go to <a href="https://gemini.google.com">Gemini subscriptions</a>, and click on Google AI Pro. This is a paid subscription BUT you get a month for free, and you can cancel before the end of the month. You will have to make a Google account to sign in, if you don't already have one. If you need help, please shout and we'll take you through it.</p>
 
-  <p><strong>📅 Sunday 12 April · 12:00–15:30 AEST (2:00–5:30 NZT)</strong></p>
+  <p><strong>📅 Sunday 10 May · 12:00–15:00 Brisbane (2:00–5:00pm NZ)</strong></p>
 
   <p><strong>Join us online:</strong><br>
   <a href="${MEET_LINK}">${MEET_LINK}</a><br>
@@ -77,7 +77,7 @@ export async function handleCheckoutCompleted(
       resend.emails.send({
         from: fromEmail,
         to: email,
-        subject: "You're in! Vinyl & Vibe-Along — 12 April",
+        subject: "You're in! Vinyl & Vibe-Along — 10 May",
         html: buildConfirmationEmail(name),
       }),
       resend.emails.send({

@@ -20,7 +20,7 @@ function buildNewsletterConfirmation(name?: string): string {
 
   <p>If you're curious about getting started with AI (but don't want to spend hours wading through tech content), you're in the right place.</p>
 
-  <p>We also run live online sessions called <strong>Vinyl &amp; Vibe-Alongs</strong> — small group workshops where you learn by doing, with good music on in the background. Our next one is <strong>Sunday 12 April</strong>. If you'd like a spot, <a href="https://www.jetpackersai.com/sign-up">grab one here</a> before they go.</p>
+  <p>We also run live online sessions called <strong>Vinyl &amp; Vibe-Alongs</strong> — small group workshops where you learn by doing, with good music on in the background. Our next one is <strong>Sunday 10 May · 12pm Brisbane · 2pm NZ</strong>. If you'd like a spot, <a href="https://www.jetpackersai.com/sign-up">grab one here</a> before they go.</p>
 
   <p>Talk soon,<br>Shaan &amp; Deb</p>
 
