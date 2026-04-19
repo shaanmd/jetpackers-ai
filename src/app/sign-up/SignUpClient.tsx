@@ -231,7 +231,7 @@ export default function SignUpClient() {
         <div style={{ display: 'inline-flex', gap: 16, background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 10, padding: '10px 20px', fontSize: 13, color: '#CCCCDD', flexWrap: 'wrap', justifyContent: 'center' }}>
           <span style={{ color: '#00D4AA', fontWeight: 600 }}>📅 10 May</span>
           <span style={{ color: '#00D4AA', fontWeight: 600 }}>⏰ 12pm Brisbane · 2pm NZ</span>
-          <span style={{ color: '#00D4AA', fontWeight: 600 }}>🎧 Online · 6 spots</span>
+          <span style={{ color: '#00D4AA', fontWeight: 600 }}>🎧 Online</span>
         </div>
       </div>
 
@@ -301,10 +301,6 @@ export default function SignUpClient() {
             $67 <span style={{ fontSize: 18, color: 'var(--text-muted)', fontWeight: 400 }}>NZD</span>
           </div>
           <div style={{ fontSize: 13, color: 'var(--text-muted)', marginBottom: 12 }}>3-hour live session · Sunday 10 May · Online</div>
-
-          <div style={{ background: soldOut ? 'rgba(0,0,0,0.05)' : 'rgba(233,30,140,0.08)', borderRadius: 8, padding: '8px 16px', fontSize: 13, fontWeight: 600, color: soldOut ? 'var(--text-muted)' : 'var(--pink)', display: 'inline-block', marginBottom: 16 }}>
-            {spotsLabel}
-          </div>
 
           {soldOut ? (
             /* Waitlist form */
