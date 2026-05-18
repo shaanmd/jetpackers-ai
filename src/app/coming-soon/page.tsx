@@ -152,7 +152,7 @@ export default function ComingSoonPage() {
       {/* Next Vibe-Along date strip */}
       <div style={{ background: '#E91E8C', padding: '14px 24px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 20, flexWrap: 'wrap' }}>
         <span style={{ fontFamily: outfit, fontWeight: 700, fontSize: 15, color: 'white', letterSpacing: '0.02em' }}>
-          🎵 Next Vinyl &amp; Vibe-Along Sunday 10 May &middot; 12pm Brisbane &middot; 2pm NZ &middot; 6 spots only
+          🎵 Next Vinyl &amp; Vibe-Along Sunday 14 June &middot; 12pm Brisbane &middot; 2pm NZ &middot; 6 spots only
         </span>
         <Link
           href="/sign-up"
@@ -536,7 +536,7 @@ export default function ComingSoonPage() {
               },
               {
                 title: 'Join the Vinyl & Vibe-Along',
-                desc: "Our next session is 10th May (12pm Brisbane / 2pm NZ) where we take you from zero to hero - you'll get to vibe code your own web app.",
+                desc: "Our next session is 14th June (12pm Brisbane / 2pm NZ) where we take you from zero to hero - you'll get to vibe code your own web app.",
               },
               {
                 title: 'Keep Learning',

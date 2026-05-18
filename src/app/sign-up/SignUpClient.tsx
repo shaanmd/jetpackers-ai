@@ -212,7 +212,7 @@ export default function SignUpClient() {
       {/* Hero */}
       <div style={{ background: '#1A1A2E', padding: '40px 32px 32px', textAlign: 'center' }}>
         <div style={{ display: 'inline-block', background: 'rgba(0,212,170,0.12)', border: '1px solid rgba(0,212,170,0.3)', color: '#00D4AA', fontSize: 11, fontWeight: 700, letterSpacing: 3, textTransform: 'uppercase', padding: '6px 14px', borderRadius: 20, marginBottom: 16 }}>
-          Vinyl &amp; Vibe-Along · 10 May
+          Vinyl &amp; Vibe-Along · 14 June
         </div>
 
         {p && (
@@ -229,7 +229,7 @@ export default function SignUpClient() {
         </p>
 
         <div style={{ display: 'inline-flex', gap: 16, background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 10, padding: '10px 20px', fontSize: 13, color: '#CCCCDD', flexWrap: 'wrap', justifyContent: 'center' }}>
-          <span style={{ color: '#00D4AA', fontWeight: 600 }}>📅 10 May</span>
+          <span style={{ color: '#00D4AA', fontWeight: 600 }}>📅 14 June</span>
           <span style={{ color: '#00D4AA', fontWeight: 600 }}>⏰ 12pm Brisbane · 2pm NZ</span>
           <span style={{ color: '#00D4AA', fontWeight: 600 }}>🎧 Online</span>
         </div>
@@ -300,7 +300,7 @@ export default function SignUpClient() {
           <div style={{ fontSize: 42, fontWeight: 800, color: soldOut ? 'var(--text-muted)' : 'var(--pink)' }}>
             $67 <span style={{ fontSize: 18, color: 'var(--text-muted)', fontWeight: 400 }}>NZD</span>
           </div>
-          <div style={{ fontSize: 13, color: 'var(--text-muted)', marginBottom: 12 }}>3-hour live session · Sunday 10 May · Online</div>
+          <div style={{ fontSize: 13, color: 'var(--text-muted)', marginBottom: 12 }}>3-hour live session · Sunday 14 June · Online</div>
 
           {soldOut ? (
             /* Waitlist form */
